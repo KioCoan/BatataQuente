@@ -26,4 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)virarCentral:(id)sender {
+    self.central = [[Central alloc] init];
+    
+}
+- (IBAction)virarPeriferico:(id)sender {
+    self.periferico = [[Periferico alloc] init];
+}
+
 @end

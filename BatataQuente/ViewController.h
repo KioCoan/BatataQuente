@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "Central.h"
+#import "Periferico.h"
 
 @interface ViewController : UIViewController
+
+@property Central *central;
+@property Periferico *periferico;
+
+- (IBAction)virarCentral:(id)sender;
+- (IBAction)virarPeriferico:(id)sender;
 
 @end
