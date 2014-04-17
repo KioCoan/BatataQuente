@@ -7,16 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreBluetooth/CoreBluetooth.h>
-#import "Central.h"
-#import "Periferico.h"
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface ViewController : UIViewController
 
-@property Central *central;
-@property Periferico *periferico;
+@interface ViewController : UIViewController <MCNearbyServiceAdvertiserDelegate,MCSessionDelegate,MCNearbyServiceBrowserDelegate,MCBrowserViewControllerDelegate>
 
-- (IBAction)virarCentral:(id)sender;
-- (IBAction)virarPeriferico:(id)sender;
+
+@property MCPeerID *localPeerID;
+@property MCSession *session;
+@property MCNearbyServiceAdvertiser *advertiser;
+@property MCNearbyServiceBrowser *browser;
+@property MCBrowserViewController *browserViewController;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *btnProcurar;
+@property (weak, nonatomic) IBOutlet UITextField *txtMsg;
+@property (weak, nonatomic) IBOutlet UIButton *btnEnviar;
+- (IBAction)btnEnviar:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *lbMsg;
+
+
+//Ações Botões
+- (IBAction)btnVisivel:(id)sender;
+- (IBAction)btnProcurar:(id)sender;
+- (IBAction)start:(id)sender;
 
 @end

@@ -22,9 +22,7 @@
 		A520E05A18FFF74400E0292C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E03918FFF74400E0292C /* UIKit.framework */; };
 		A520E06218FFF74400E0292C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A520E06018FFF74400E0292C /* InfoPlist.strings */; };
 		A520E06418FFF74400E0292C /* BatataQuenteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E06318FFF74400E0292C /* BatataQuenteTests.m */; };
-		A520E06E18FFF7C100E0292C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E06D18FFF7C100E0292C /* CoreBluetooth.framework */; };
-		A520E07118FFFCD900E0292C /* Central.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E07018FFFCD900E0292C /* Central.m */; };
-		A520E07418FFFCEA00E0292C /* Periferico.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E07318FFFCEA00E0292C /* Periferico.m */; };
+		A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E075190072D100E0292C /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +57,7 @@
 		A520E06118FFF74400E0292C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A520E06318FFF74400E0292C /* BatataQuenteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatataQuenteTests.m; sourceTree = "<group>"; };
 		A520E06D18FFF7C100E0292C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		A520E06F18FFFCD900E0292C /* Central.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Central.h; sourceTree = "<group>"; };
-		A520E07018FFFCD900E0292C /* Central.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Central.m; sourceTree = "<group>"; };
-		A520E07218FFFCEA00E0292C /* Periferico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Periferico.h; sourceTree = "<group>"; };
-		A520E07318FFFCEA00E0292C /* Periferico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Periferico.m; sourceTree = "<group>"; };
+		A520E075190072D100E0292C /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A520E06E18FFF7C100E0292C /* CoreBluetooth.framework in Frameworks */,
+				A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */,
 				A520E03818FFF74400E0292C /* CoreGraphics.framework in Frameworks */,
 				A520E03A18FFF74400E0292C /* UIKit.framework in Frameworks */,
 				A520E03618FFF74400E0292C /* Foundation.framework in Frameworks */,
@@ -112,6 +107,7 @@
 		A520E03418FFF74400E0292C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A520E075190072D100E0292C /* MultipeerConnectivity.framework */,
 				A520E06D18FFF7C100E0292C /* CoreBluetooth.framework */,
 				A520E03518FFF74400E0292C /* Foundation.framework */,
 				A520E03718FFF74400E0292C /* CoreGraphics.framework */,
@@ -132,10 +128,6 @@
 				A520E04E18FFF74400E0292C /* ViewController.m */,
 				A520E05018FFF74400E0292C /* Images.xcassets */,
 				A520E03C18FFF74400E0292C /* Supporting Files */,
-				A520E06F18FFFCD900E0292C /* Central.h */,
-				A520E07018FFFCD900E0292C /* Central.m */,
-				A520E07218FFFCEA00E0292C /* Periferico.h */,
-				A520E07318FFFCEA00E0292C /* Periferico.m */,
 			);
 			path = BatataQuente;
 			sourceTree = "<group>";
@@ -268,8 +260,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A520E04F18FFF74400E0292C /* ViewController.m in Sources */,
-				A520E07118FFFCD900E0292C /* Central.m in Sources */,
-				A520E07418FFFCEA00E0292C /* Periferico.m in Sources */,
 				A520E04618FFF74400E0292C /* AppDelegate.m in Sources */,
 				A520E04218FFF74400E0292C /* main.m in Sources */,
 			);
@@ -486,6 +476,7 @@
 				A520E06918FFF74400E0292C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A520E06A18FFF74400E0292C /* Build configuration list for PBXNativeTarget "BatataQuenteTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +485,7 @@
 				A520E06C18FFF74400E0292C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
