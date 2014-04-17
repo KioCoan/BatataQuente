@@ -60,8 +60,8 @@ static NSString * XXServiceType = @"BatataQuente";
 {
     NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    NSArray *arr = [[NSArray alloc]initWithObjects:data, nil];
-    NSLog(@"%@",arr);
+    
+    
     //Força atualização do label
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -99,16 +99,7 @@ static NSString * XXServiceType = @"BatataQuente";
 {
     NSLog(@"Session for peer: %@, changed state to: %i", peerID, state);
     
-    //    switch (state)
-    //    {
-    //        case 2:
-    //            [self performSegueWithIdentifier:@"viewChat" sender:nil];
-    //        break;
-    //
-    //        default:
-    //            break;
-    //    }
-}
+    }
 
 //Torna o dispositivo detectável para outros pontos/pares
 
