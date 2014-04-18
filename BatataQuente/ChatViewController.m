@@ -20,13 +20,14 @@
     self.session.delegate = self;
     self.advertiser.delegate = self;
     
-    [self setCurrent:[NSNumber numberWithInt:90]];
+    
+    [self setCurrent:90];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    NSLog(@"Hi");
+    [self iniciaContagem];
+    //NSLog(@"Hi");
 }
 
 
@@ -60,7 +61,10 @@
     NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     NSLog(@"%d", [[arr objectAtIndex:0] intValue]);
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    NSNumber *x = [arr objectAtIndex:0];
+    
+    self.current = [x doubleValue];
+    
     
     //NSLog(@"%@",arr);
     //Força atualização do label
@@ -77,9 +81,16 @@
     [self.view setNeedsDisplay];
 }
 
+-(void)iniciaContagem{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+}
 
 -(void)decrementaTempo{
-    NSLog(@"Hi");
+    NSLog(@"%f",self.current);
+    
+    self.current -=1;
+    int x = self.current;
+    [[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
     
     //    self.current = (NSNumber*)[tempo userInfo];
 //    
@@ -91,12 +102,12 @@
     
 }
 
--(void)zerarTimer{
-    if (self.timer) {
-        [self.timer invalidate];
-        self.timer = nil;
-    }
-}
+//-(void)zerarTimer{
+//    if (self.timer) {
+//        [self.timer invalidate];
+//        self.timer = nil;
+//    }
+//}
 
 
 - (IBAction)btnEnviar:(id)sender
@@ -104,8 +115,10 @@
    // NSArray *arrayPts = [[NSArray alloc]initWithObjects:10,20,30, nil];
     
     //[self zerarTimer];
+    NSNumber *x = [NSNumber numberWithDouble:self.current];
+
     
-    NSArray *meuArray = [[NSArray alloc] initWithObjects:self.current, self.txtMsg.text, nil];
+    NSArray *meuArray = [[NSArray alloc] initWithObjects:x, self.txtMsg.text, nil];
     
     //NSData *data = [self.txtMsg.text dataUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
