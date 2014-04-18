@@ -43,7 +43,7 @@
 }
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
-    NSLog(@"ID - %@", peerID);
+    NSLog(@"ID - %@", peerID.displayName);
     //NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -65,7 +65,7 @@
 
 - (IBAction)btnEnviar:(id)sender
 {
-    
+   // NSArray *arrayPts = [[NSArray alloc]initWithObjects:10,20,30, nil];
     
     NSArray *meuArray = [[NSArray alloc] initWithObjects:@"OI", self.txtMsg.text, nil];
     

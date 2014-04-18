@@ -55,12 +55,19 @@
                                     <action selector="start:" destination="AHz-ct-oQZ" eventType="touchUpInside" id="fgZ-Yd-LJ0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-cb-3cT">
+                                <rect key="frame" x="20" y="88" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="YCQ-9C-093"/>
                     <connections>
                         <outlet property="btnProcurar" destination="kM1-lv-d7R" id="dLB-IY-X2P"/>
+                        <outlet property="txtNome" destination="hg0-cb-3cT" id="kiH-uI-pxO"/>
                         <segue destination="fgZ-Nq-nVc" kind="push" identifier="viewChat" id="7F6-Hf-reb"/>
                     </connections>
                 </viewController>

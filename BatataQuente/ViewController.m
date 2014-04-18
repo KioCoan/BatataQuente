@@ -23,6 +23,9 @@ static NSString * XXServiceType = @"BatataQuente";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self canBecomeFirstResponder ];
+    [self.txtNome setDelegate:self];
+    [self.btnProcurar setHidden:YES];
     
     
 	
@@ -32,6 +35,10 @@ static NSString * XXServiceType = @"BatataQuente";
 {
     [super didReceiveMemoryWarning];
     
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)btnProcurar:(id)sender
@@ -48,12 +55,24 @@ static NSString * XXServiceType = @"BatataQuente";
 }
 
 - (IBAction)start:(id)sender {
+    if (![[self.txtNome text]isEqualToString:@""]) {
+        [self idPeer];
+        [self criaSessao];
+        [self anunciar];
+        [self navegador];
+        [self.lblNomeObrigatorio setHidden:YES];
+    }else{
+        [self.lblNomeObrigatorio setHidden:NO];
+    }
     
-    [self idPeer];
-    [self criaSessao];
-    [self anunciar];
-    [self navegador];
     
+}
+
+- (IBAction)pressReturn:(id)sender {
+}
+
+- (IBAction)tocouFora:(id)sender {
+    [self textFieldShouldReturn:self.txtNome];
 }
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
@@ -70,7 +89,8 @@ static NSString * XXServiceType = @"BatataQuente";
 
 -(void)idPeer
 {
-    self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    //self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    self.localPeerID = [[MCPeerID alloc]initWithDisplayName:self.txtNome.text];
     
 }
 
