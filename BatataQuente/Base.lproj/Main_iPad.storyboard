@@ -129,6 +129,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOi-aI-VMa">
+                                <rect key="frame" x="411" y="365" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -149,6 +156,7 @@
                     <connections>
                         <outlet property="lbMsg" destination="ug6-XI-dnH" id="r6t-1p-Bb0"/>
                         <outlet property="lblMsgEnviada" destination="Aga-6s-HnZ" id="NeH-s3-xIu"/>
+                        <outlet property="tempoDecorrido" destination="qOi-aI-VMa" id="EBk-Vx-AQx"/>
                         <outlet property="txtMsg" destination="L50-vV-Ht0" id="ttP-5B-Oja"/>
                     </connections>
                 </viewController>

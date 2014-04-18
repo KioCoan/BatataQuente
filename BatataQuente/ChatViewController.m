@@ -19,7 +19,16 @@
     self.txtMsg.delegate = self;
     self.session.delegate = self;
     self.advertiser.delegate = self;
+    
+    [self setCurrent:[NSNumber numberWithInt:90]];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"Hi");
+}
+
 
 -(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{
     
@@ -43,10 +52,16 @@
 }
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
+
+    
     NSLog(@"ID - %@", peerID.displayName);
     //NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSLog(@"%d", [[arr objectAtIndex:0] intValue]);
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    
     //NSLog(@"%@",arr);
     //Força atualização do label
     
@@ -63,11 +78,34 @@
 }
 
 
+-(void)decrementaTempo{
+    NSLog(@"Hi");
+    
+    //    self.current = (NSNumber*)[tempo userInfo];
+//    
+//    int minutos = [self.current intValue] / 60;
+//    
+//    int segundos = [self.current intValue] - minutos *60;
+//    
+//    self.tempoDecorrido.text = [NSString stringWithFormat:@"%d:%d", minutos, segundos];
+    
+}
+
+-(void)zerarTimer{
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
+
+
 - (IBAction)btnEnviar:(id)sender
 {
    // NSArray *arrayPts = [[NSArray alloc]initWithObjects:10,20,30, nil];
     
-    NSArray *meuArray = [[NSArray alloc] initWithObjects:@"OI", self.txtMsg.text, nil];
+    //[self zerarTimer];
+    
+    NSArray *meuArray = [[NSArray alloc] initWithObjects:self.current, self.txtMsg.text, nil];
     
     //NSData *data = [self.txtMsg.text dataUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:meuArray];

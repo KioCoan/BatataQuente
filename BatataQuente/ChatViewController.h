@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;
 @property (weak, nonatomic) IBOutlet UILabel *lbMsg;
+@property NSTimer *timer;
+@property NSNumber *current;
+@property (weak, nonatomic) IBOutlet UILabel *tempoDecorrido;
 
 - (IBAction)btnEnviar:(id)sender;
 - (IBAction)desconectar:(id)sender;
