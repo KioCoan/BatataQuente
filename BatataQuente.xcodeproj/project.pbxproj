@@ -23,6 +23,7 @@
 		A520E06218FFF74400E0292C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A520E06018FFF74400E0292C /* InfoPlist.strings */; };
 		A520E06418FFF74400E0292C /* BatataQuenteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E06318FFF74400E0292C /* BatataQuenteTests.m */; };
 		A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E075190072D100E0292C /* MultipeerConnectivity.framework */; };
+		BD071F1319010EAF0082744D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD071F1219010EAF0082744D /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		A520E06318FFF74400E0292C /* BatataQuenteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatataQuenteTests.m; sourceTree = "<group>"; };
 		A520E06D18FFF7C100E0292C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A520E075190072D100E0292C /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		BD071F1119010EAF0082744D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		BD071F1219010EAF0082744D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				A520E04418FFF74400E0292C /* AppDelegate.h */,
 				A520E04518FFF74400E0292C /* AppDelegate.m */,
 				A520E04718FFF74400E0292C /* Main_iPhone.storyboard */,
+				BD071F1119010EAF0082744D /* ChatViewController.h */,
+				BD071F1219010EAF0082744D /* ChatViewController.m */,
 				A520E04A18FFF74400E0292C /* Main_iPad.storyboard */,
 				A520E04D18FFF74400E0292C /* ViewController.h */,
 				A520E04E18FFF74400E0292C /* ViewController.m */,
@@ -261,6 +266,7 @@
 			files = (
 				A520E04F18FFF74400E0292C /* ViewController.m in Sources */,
 				A520E04618FFF74400E0292C /* AppDelegate.m in Sources */,
+				BD071F1319010EAF0082744D /* ChatViewController.m in Sources */,
 				A520E04218FFF74400E0292C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

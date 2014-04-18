@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ChatViewController.h"
 
 @interface ViewController ()
 
@@ -23,7 +24,6 @@ static NSString * XXServiceType = @"BatataQuente";
 {
     [super viewDidLoad];
     
-    self.lbMsg.alpha = 0;
     
 	
 }
@@ -58,25 +58,12 @@ static NSString * XXServiceType = @"BatataQuente";
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
+    
     NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    
-    
-    //Força atualização do label
-    
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        
-        //Do any updates to your label here
-        [self.lbMsg setText:newStr];
-        
-    }];
-    
-    NSLog(@"%@",newStr);
-    
-    self.lbMsg.alpha = 1;
-    
-    
-    [self.view setNeedsDisplay];
+    if([newStr isEqualToString:@"sim"]){
+        [self performSegueWithIdentifier:@"viewChat" sender:nil];
+    }
 }
 
 // Identificação do Ponto
@@ -97,9 +84,33 @@ static NSString * XXServiceType = @"BatataQuente";
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    NSLog(@"Session for peer: %@, changed state to: %i", peerID, state);
+    //    NSLog(@"Session for peer: %@, changed state to: %i", peerID, state);
     
-    }
+    //        switch (state)
+    //        {
+    //            case 2:
+    //                [self performSegueWithIdentifier:@"viewChat" sender:nil];
+    //            break;
+    //
+    //            default:
+    //                break;
+    //        }
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    //if ([[segue identifier] isEqualToString:@"viewChat"])
+    //{
+    ChatViewController *chatVc = [segue destinationViewController];
+    
+    [chatVc setLocalPeerID:self.localPeerID];
+    [chatVc setSession:self.session];
+    [chatVc setAdvertiser:self.advertiser];
+    
+    //}
+    
+}
 
 //Torna o dispositivo detectável para outros pontos/pares
 
@@ -136,6 +147,28 @@ static NSString * XXServiceType = @"BatataQuente";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+    
+    
+    NSString *confirmacao = [NSString stringWithFormat:@"sim"];
+    
+    NSData *data = [confirmacao dataUsingEncoding: NSUTF8StringEncoding];
+    
+    
+    NSError *error = nil;
+    if (![self.session sendData:data
+                        toPeers:self.session.connectedPeers
+                       withMode:MCSessionSendDataReliable
+                          error:&error]) {
+        NSLog(@"[Error] %@", error);
+    }
+    [self performSegueWithIdentifier:@"viewChat" sender:nil];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 -(void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
     
@@ -148,28 +181,20 @@ static NSString * XXServiceType = @"BatataQuente";
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"viewChat"])
-    {
-        // Get reference to the destination view controller
-       // viewChat *view = [segue destinationViewController];
-        
-        // Passe todos os objetos para o controlador
-        // [view setMyObjectHere:object];
-    }
-}
-
-- (IBAction)btnEnviar:(id)sender
-{
-    NSData *data = [self.txtMsg.text dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = nil;
-    if (![self.session sendData:data
-                        toPeers:self.session.connectedPeers
-                       withMode:MCSessionSendDataReliable
-                          error:&error]) {
-        NSLog(@"[Error] %@", error);
-    }
+-(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID{
     
 }
+
+
+-(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{
+    
+}
+
+
+
+
+
+
+
+
 @end

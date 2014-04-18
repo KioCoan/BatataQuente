@@ -10,7 +10,7 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 
-@interface ViewController : UIViewController <MCNearbyServiceAdvertiserDelegate,MCSessionDelegate,MCNearbyServiceBrowserDelegate,MCBrowserViewControllerDelegate>
+@interface ViewController : UIViewController <MCNearbyServiceAdvertiserDelegate,MCSessionDelegate,MCNearbyServiceBrowserDelegate,MCBrowserViewControllerDelegate, UITextFieldDelegate>
 
 
 @property MCPeerID *localPeerID;
@@ -21,10 +21,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnProcurar;
-@property (weak, nonatomic) IBOutlet UITextField *txtMsg;
-@property (weak, nonatomic) IBOutlet UIButton *btnEnviar;
-- (IBAction)btnEnviar:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *lbMsg;
 
 
 //Ações Botões
