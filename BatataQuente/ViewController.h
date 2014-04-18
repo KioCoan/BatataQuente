@@ -19,7 +19,8 @@
 @property MCNearbyServiceBrowser *browser;
 @property MCBrowserViewController *browserViewController;
 @property (weak, nonatomic) IBOutlet UITextField *txtNome;
-@property (weak, nonatomic) IBOutlet UILabel *lblNomeObrigatorio;
+@property (weak, nonatomic) IBOutlet UILabel *lblInformativo;
+@property (weak, nonatomic) IBOutlet UIButton *btnActions;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnProcurar;

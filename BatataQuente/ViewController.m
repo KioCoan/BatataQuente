@@ -30,6 +30,10 @@ static NSString * XXServiceType = @"BatataQuente";
     
 	
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self.btnActions setTitle:@"Jogar" forState:UIControlStateNormal];
+    [self.lblInformativo setHidden:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,25 +59,50 @@ static NSString * XXServiceType = @"BatataQuente";
 }
 
 - (IBAction)start:(id)sender {
+    
+    if ([[[self.btnActions titleLabel]text]isEqualToString:@"Jogar"]) {
+        if ([self prepararSessao]) {
+            [self.btnActions setTitle:@"Criar Sala" forState:UIControlStateNormal];
+            [self.lblInformativo setText:@"Crie uma partida ou aguarde alguém criar"];
+            [self.lblInformativo setHidden:NO];
+            [self textFieldShouldReturn:self.txtNome];
+        }
+    }else{
+        [self criarSala];
+    }
+    
+    
+    
+    
+}
+
+-(void)criarSala{
+    self.browserViewController = [[MCBrowserViewController alloc] initWithBrowser:self.browser session:self.session];
+    self.browserViewController.delegate = self;
+    
+    
+    [self presentViewController:self.browserViewController
+                       animated:YES
+                     completion:^{ [self.browser startBrowsingForPeers]; }];
+}
+
+-(BOOL)prepararSessao{
     if (![[self.txtNome text]isEqualToString:@""]) {
         [self idPeer];
         [self criaSessao];
         [self anunciar];
         [self navegador];
-        [self.lblNomeObrigatorio setHidden:YES];
+        [self.lblInformativo setHidden:YES];
+        return YES;
+        
     }else{
-        [self.lblNomeObrigatorio setHidden:NO];
+        [self.lblInformativo setHidden:NO];
+        return NO;
     }
-    
-    
 }
 
-- (IBAction)pressReturn:(id)sender {
-}
 
-- (IBAction)tocouFora:(id)sender {
-    [self textFieldShouldReturn:self.txtNome];
-}
+
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
@@ -122,8 +151,11 @@ static NSString * XXServiceType = @"BatataQuente";
     
     //if ([[segue identifier] isEqualToString:@"viewChat"])
     //{
-    ChatViewController *chatVc = [segue destinationViewController];
     
+    
+    
+    ChatViewController *chatVc = [segue destinationViewController];
+
     [chatVc setLocalPeerID:self.localPeerID];
     [chatVc setSession:self.session];
     [chatVc setAdvertiser:self.advertiser];
@@ -183,9 +215,19 @@ static NSString * XXServiceType = @"BatataQuente";
                           error:&error]) {
         NSLog(@"[Error] %@", error);
     }
-    [self performSegueWithIdentifier:@"viewChat" sender:nil];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        
+        [self performSegueWithIdentifier:@"viewChat" sender:nil];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+    }];
+    
+    
+    
 }
 
 
