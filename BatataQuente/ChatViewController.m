@@ -26,8 +26,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self iniciaContagem];
+    
     //NSLog(@"Hi");
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [self iniciaContagem];
 }
 
 
