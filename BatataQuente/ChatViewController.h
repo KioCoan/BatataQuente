@@ -16,7 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;
 @property (weak, nonatomic) IBOutlet UILabel *lbMsg;
 
+
 @property BOOL iniciaTempo;
+@property BOOL batata;
+@property NSMutableArray *players;
+
 
 @property NSTimer *timer;
 @property NSTimeInterval current;

@@ -21,7 +21,7 @@
 
 
 
-static NSString * XXServiceType = @"BatataQuente";
+static NSString * XXServiceType = @"batata-quente";
 
 
 - (void)viewDidLoad
@@ -88,8 +88,27 @@ static NSString * XXServiceType = @"BatataQuente";
 }
 
 -(IBAction)visivel:(id)sender{
-    self.btnVisivel = !self.btnVisivel;
-    [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+    
+   // NSLog(@"%@", [[self txtNome]text]);
+    if ([[[self txtNome]text]isEqualToString:@""]) {
+        UIAlertView *alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Dados inválidos"
+                                           message:@"Seu nome é obrigatório"
+                                          delegate:self
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        [alert show];
+        
+        
+    }else{
+        
+        self.btnVisivel = !self.btnVisivel;
+        [[self arrConnectedDevices]addObject: [[self txtNome]text]];
+        [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+    }
+    
+    
+    
 }
 
 -(IBAction)disconnect:(id)sender{
@@ -103,8 +122,17 @@ static NSString * XXServiceType = @"BatataQuente";
 
 
 - (IBAction)btnIniciar:(id)sender {
+    NSLog(@"%@",self.arrConnectedDevices);
     
-    [self performSegueWithIdentifier:@"viewChat" sender:nil];
+    ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
+    [chat setPlayers:self.arrConnectedDevices];
+    
+    chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:chat animated:YES completion:nil];
+    
+    
+    
+    //[self performSegueWithIdentifier:@"viewChat" sender:nil];
 }
 
 

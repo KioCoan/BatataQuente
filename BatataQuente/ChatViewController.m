@@ -34,6 +34,9 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    //NSLog(@"%@",self.players);
+}
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
@@ -48,8 +51,14 @@
 
 
 -(IBAction)btnEnviar:(id)sender{
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], self.txtMsg.text, nil];
+    int x = (arc4random() % [self.players count]);
     
+    
+    //NSLog(@"%d",x);
+    NSString *playerRandom = [self.players objectAtIndex:x];
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], self.txtMsg.text, playerRandom, nil];
+    
+    NSLog(@"%d",[meuArray count]);
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -58,7 +67,7 @@
                                      toPeers:allPeers
                                     withMode:MCSessionSendDataReliable
                                        error:&error];
-    
+    self.batata = NO;
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
@@ -73,6 +82,13 @@
     self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
 
     self.iniciaTempo = YES;
+    
+    if ([[[[notification userInfo] objectForKey:@"embatatado"]stringValue]isEqualToString: [self.players objectAtIndex:0]]) {
+        self.batata = YES;
+        NSLog(@"Ta queimando!!!");
+
+    }
+    
     
     MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
     NSString *peerDisplayName = peerID.displayName;
@@ -96,7 +112,13 @@
     if(!self.iniciaTempo){
         return;
     }else if(self.current == 0){
-        [[self tempoDecorrido] setText:@"BOOM"];
+        if (self.batata ) {
+            [[self tempoDecorrido] setText:@"Perdeu!!"];
+        }else{
+            [[self tempoDecorrido] setText:@"Ganhou!"];
+        }
+        
+        
         [self.timer invalidate];
         return;
     }
