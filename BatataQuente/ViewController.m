@@ -44,6 +44,8 @@ static NSString * XXServiceType = @"batata-quente";
     [self.tbldispositivos setDelegate:self];
     [self.tbldispositivos setDataSource:self];
     self.btnVisivel = false;
+    
+    [self setCrieiSala:NO];
 }
 
 
@@ -85,6 +87,8 @@ static NSString * XXServiceType = @"batata-quente";
     [[[self.appDelegate mcManager] browser] setDelegate:self];
     [self presentViewController:[[self.appDelegate mcManager] browser] animated:YES completion:nil];
     
+    [self setCrieiSala:YES];
+    
 }
 
 -(IBAction)visivel:(id)sender{
@@ -93,6 +97,25 @@ static NSString * XXServiceType = @"batata-quente";
         self.btnVisivel = !self.btnVisivel;
         [[self arrConnectedDevices]addObject: [[self txtNome]text]];
         [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+    
+    
+//    if ([[[self txtNome]text]isEqualToString:@""]) {
+//        UIAlertView *alert;
+//        alert = [[UIAlertView alloc] initWithTitle:@"Dados inválidos"
+//                                           message:@"Seu nome é obrigatório"
+//                                          delegate:self
+//                                 cancelButtonTitle:@"OK"
+//                                 otherButtonTitles:nil];
+//        [alert show];
+//        
+//        
+//    }else{
+//        
+//        self.btnVisivel = !self.btnVisivel;
+//        [[self arrConnectedDevices]addObject: [[self txtNome]text]];
+//        [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+//    }
+    
     
     
     
@@ -109,10 +132,12 @@ static NSString * XXServiceType = @"batata-quente";
 
 
 - (IBAction)btnIniciar:(id)sender {
-    NSLog(@"%@",self.arrConnectedDevices);
+    //NSLog(@"%@",self.arrConnectedDevices);
     
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
     [chat setPlayers:self.arrConnectedDevices];
+    
+    [chat setBatata:self.crieiSala];
     
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:chat animated:YES completion:nil];

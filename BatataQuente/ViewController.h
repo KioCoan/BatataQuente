@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tbldispositivos;
 @property (weak, nonatomic) IBOutlet UIButton *btnDisconnect;
 @property BOOL btnVisivel;
+@property BOOL crieiSala;
 
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;

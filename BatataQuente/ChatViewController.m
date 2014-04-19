@@ -35,7 +35,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    //NSLog(@"%@",self.players);
+    [self.imgBatata setHidden:!self.batata];
+    [self.imgBatata setEnabled:self.batata];
 }
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
@@ -51,14 +52,22 @@
 
 
 -(IBAction)btnEnviar:(id)sender{
-    int x = (arc4random() % [self.players count]);
+    int x;
+    NSString *playerRandom;
+    
+    do {
+        x = (arc4random() % [self.players count]);
+        playerRandom = [self.players objectAtIndex:x];
+    } while ([playerRandom isEqualToString:[self.players objectAtIndex:0]]);
     
     
-    //NSLog(@"%d",x);
-    NSString *playerRandom = [self.players objectAtIndex:x];
+   
+    
+    
+    
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], self.txtMsg.text, playerRandom, nil];
     
-    NSLog(@"%d",[meuArray count]);
+    
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -68,6 +77,8 @@
                                     withMode:MCSessionSendDataReliable
                                        error:&error];
     self.batata = NO;
+    [self.imgBatata setHidden:!self.batata];
+    [self.imgBatata setEnabled:self.batata];
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
@@ -79,14 +90,23 @@
 
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
     self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
 
     self.iniciaTempo = YES;
     
     if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.players objectAtIndex:0]]) {
         self.batata = YES;
+        [self.imgBatata setHidden:!self.batata];
+        [self.imgBatata setEnabled:self.batata];
         NSLog(@"Ta queimando!!!");
 
+    }else{
+        self.batata = NO;
+        [self.imgBatata setHidden:!self.batata];
+        [self.imgBatata setEnabled:self.batata];
+        NSLog(@"Esfriou");
     }
     
     
@@ -95,7 +115,7 @@
     
     NSString *receivedText = [[notification userInfo] objectForKey:@"mensagem"];
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    
         
         //Do any updates to your label here
         [self.lbMsg setText:[NSString stringWithFormat:@"%@: %@", peerDisplayName, receivedText]];
@@ -107,11 +127,12 @@
 
 
 -(void)decrementaTempo{
-    NSLog(@"%f",self.current);
+   // NSLog(@"%f",self.current);
     
     if(!self.iniciaTempo){
         return;
     }else if(self.current == 0){
+        [self.imgBatata setEnabled:NO];
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
         }else{
@@ -134,4 +155,12 @@
 
 
 
+- (IBAction)voltar:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)btnBatata:(id)sender {
+    self.current -=1;
+    [self btnEnviar:nil];
+}
 @end

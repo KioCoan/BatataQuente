@@ -147,6 +147,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-eO-ar8">
+                                <rect key="frame" x="254" y="254" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="voltar:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="w4Z-3x-nWN"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRm-OE-eau">
+                                <rect key="frame" x="75" y="343" width="187" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="batata_biquini.jpg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBatata:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="Lh8-hb-aMc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -165,6 +185,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imgBatata" destination="fRm-OE-eau" id="S4x-AU-CvG"/>
                         <outlet property="lbMsg" destination="ZPH-Yl-Iae" id="OSe-me-6Ki"/>
                         <outlet property="lblMsgEnviada" destination="8Xx-3W-6bY" id="PM4-cp-wpg"/>
                         <outlet property="tempoDecorrido" destination="BIf-gJ-3qy" id="AKP-cY-5fR"/>
@@ -176,6 +197,9 @@
             <point key="canvasLocation" x="316" y="-282"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="batata_biquini.jpg" width="324" height="400"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

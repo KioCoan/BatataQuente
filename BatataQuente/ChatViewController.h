@@ -22,6 +22,10 @@
 @property NSMutableArray *players;
 
 
+- (IBAction)btnBatata:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *imgBatata;
+
 @property NSTimer *timer;
 @property NSTimeInterval current;
 
@@ -30,5 +34,6 @@
 
 - (IBAction)btnEnviar:(id)sender;
 - (IBAction)desconectar:(id)sender;
+- (IBAction)voltar:(id)sender;
 
 @end
