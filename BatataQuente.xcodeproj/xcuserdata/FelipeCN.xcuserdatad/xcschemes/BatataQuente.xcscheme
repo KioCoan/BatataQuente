@@ -37,6 +37,11 @@
                BlueprintName = "BatataQuenteTests"
                ReferencedContainer = "container:BatataQuente.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BatataQuenteTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

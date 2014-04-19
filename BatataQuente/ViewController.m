@@ -7,9 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 #import "ChatViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong)AppDelegate *appDelegate;
+@property (nonatomic, strong) NSMutableArray *arrConnectedDevices;
 
 @end
 
@@ -23,238 +27,149 @@ static NSString * XXServiceType = @"BatataQuente";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self canBecomeFirstResponder ];
+    //[self canBecomeFirstResponder ];
     [self.txtNome setDelegate:self];
-    [self.btnProcurar setHidden:YES];
+    
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[self.appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(peerDidChangeStateWithNotification:)
+                                                 name:@"MCDidChangeStateNotification"
+                                               object:nil];
 	
+    self.arrConnectedDevices = [[NSMutableArray alloc] init];
+    
+    [self.tbldispositivos setDelegate:self];
+    [self.tbldispositivos setDataSource:self];
+    self.btnVisivel = false;
 }
--(void)viewWillAppear:(BOOL)animated{
-    [self.btnActions setTitle:@"Jogar" forState:UIControlStateNormal];
-    [self.lblInformativo setHidden:YES];
-}
+
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
+    
+    _appDelegate.mcManager.peerID = nil;
+    _appDelegate.mcManager.session = nil;
+    _appDelegate.mcManager.browser = nil;
+    
+    if (self.btnVisivel) {
+        [_appDelegate.mcManager.advertiser stop];
+    }
+    _appDelegate.mcManager.advertiser = nil;
+    
+    
+    [_appDelegate.mcManager setupPeerAndSessionWithDisplayName:self.txtNome.text];
+    [_appDelegate.mcManager setupMCBrowser];
+    
     return YES;
 }
 
+
+
 - (IBAction)btnProcurar:(id)sender
 {
-    
-    
-    self.browserViewController = [[MCBrowserViewController alloc] initWithBrowser:self.browser session:self.session];
-    self.browserViewController.delegate = self;
-    
-    
-    [self presentViewController:self.browserViewController
-                       animated:YES
-                     completion:^{ [self.browser startBrowsingForPeers]; }];
-}
-
-- (IBAction)start:(id)sender {
-    
-    if ([[[self.btnActions titleLabel]text]isEqualToString:@"Jogar"]) {
-        if ([self prepararSessao]) {
-            [self.btnActions setTitle:@"Criar Sala" forState:UIControlStateNormal];
-            [self.lblInformativo setText:@"Crie uma partida ou aguarde alguém criar"];
-            [self.lblInformativo setHidden:NO];
-            [self textFieldShouldReturn:self.txtNome];
-        }
-    }else{
-        [self criarSala];
+    if(!self.btnVisivel){
+        [self visivel:nil];
     }
     
-    
-    
-    
-}
-
--(void)criarSala{
-    self.browserViewController = [[MCBrowserViewController alloc] initWithBrowser:self.browser session:self.session];
-    self.browserViewController.delegate = self;
-    
-    
-    [self presentViewController:self.browserViewController
-                       animated:YES
-                     completion:^{ [self.browser startBrowsingForPeers]; }];
-}
-
--(BOOL)prepararSessao{
-    if (![[self.txtNome text]isEqualToString:@""]) {
-        [self idPeer];
-        [self criaSessao];
-        [self anunciar];
-        [self navegador];
-        [self.lblInformativo setHidden:YES];
-        return YES;
-        
-    }else{
-        [self.lblInformativo setHidden:NO];
-        return NO;
-    }
-}
-
-
-
-
--(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
-{
-    
-    NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    if([newStr isEqualToString:@"sim"]){
-        [self performSegueWithIdentifier:@"viewChat" sender:nil];
-    }
-}
-
-// Identificação do Ponto
-
--(void)idPeer
-{
-    //self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
-    self.localPeerID = [[MCPeerID alloc]initWithDisplayName:self.txtNome.text];
+    [[self.appDelegate mcManager] setupMCBrowser];
+    [[[self.appDelegate mcManager] browser] setDelegate:self];
+    [self presentViewController:[[self.appDelegate mcManager] browser] animated:YES completion:nil];
     
 }
 
-// Gerência toda a comunicação entre pares
-
--(void)criaSessao
-{
-    self.session=[[MCSession alloc]initWithPeer:self.localPeerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
-    self.session.delegate = self;
+-(IBAction)visivel:(id)sender{
+    self.btnVisivel = !self.btnVisivel;
+    [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
 }
 
-- (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
-{
-    //    NSLog(@"Session for peer: %@, changed state to: %i", peerID, state);
+-(IBAction)disconnect:(id)sender{
+    [self.appDelegate.mcManager.session disconnect];
     
-    //        switch (state)
-    //        {
-    //            case 2:
-    //                [self performSegueWithIdentifier:@"viewChat" sender:nil];
-    //            break;
-    //
-    //            default:
-    //                break;
-    //        }
+    self.txtNome.enabled = YES;
+    
+    [self.arrConnectedDevices removeAllObjects];
+    [self.tbldispositivos reloadData];
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (IBAction)btnIniciar:(id)sender {
     
-    //if ([[segue identifier] isEqualToString:@"viewChat"])
-    //{
-    
-    
-    
-    ChatViewController *chatVc = [segue destinationViewController];
-
-    [chatVc setLocalPeerID:self.localPeerID];
-    [chatVc setSession:self.session];
-    [chatVc setAdvertiser:self.advertiser];
-    
-    //}
-    
-}
-
-//Torna o dispositivo detectável para outros pontos/pares
-
--(void)anunciar
-{
-    self.advertiser =[[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
-                                                       discoveryInfo:nil
-                                                         serviceType:XXServiceType];
-    self.advertiser.delegate = self;
-    [self.advertiser startAdvertisingPeer];
-    
-}
-
--(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler
-{
-    
-    
-    invitationHandler(YES,self.session);
-    [self.advertiser stopAdvertisingPeer];
-}
-
-//Navegador procura por pontos/pares
-
--(void)navegador
-{
-    
-    self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.localPeerID serviceType:XXServiceType];
-    self.browser.delegate = self;
-    
-}
-
--(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"viewChat" sender:nil];
 }
 
 
 -(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+    [self.appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
+    [self.appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification{
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
     
+    if (state != MCSessionStateConnecting) {
+        if (state == MCSessionStateConnected) {
+            [self.arrConnectedDevices addObject:peerDisplayName];
+        }
+        else if (state == MCSessionStateNotConnected){
+            if ([self.arrConnectedDevices count] > 0) {
+                int indexOfPeer = [_arrConnectedDevices indexOfObject:peerDisplayName];
+                [self.arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+            }
+        }
+        [self.tbldispositivos reloadData];
+        
+        BOOL peersExist = ([[self.appDelegate.mcManager.session connectedPeers] count] == 0);
+        [self.btnDisconnect setEnabled:!peersExist];
+        [self.txtNome setEnabled:peersExist];
+        
+        [self.tbldispositivos setNeedsDisplay];
+    }
+}
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.arrConnectedDevices count];
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
-    NSString *confirmacao = [NSString stringWithFormat:@"sim"];
-    
-    NSData *data = [confirmacao dataUsingEncoding: NSUTF8StringEncoding];
-    
-    
-    NSError *error = nil;
-    if (![self.session sendData:data
-                        toPeers:self.session.connectedPeers
-                       withMode:MCSessionSendDataReliable
-                          error:&error]) {
-        NSLog(@"[Error] %@", error);
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
     }
     
+    cell.textLabel.text = [self.arrConnectedDevices objectAtIndex:indexPath.row];
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        
-        [self performSegueWithIdentifier:@"viewChat" sender:nil];
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-        
-    }];
-    
-    
-    
+    return cell;
 }
 
 
--(void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
-{
-    
-    [browser invitePeer:peerID toSession:self.session withContext:nil timeout:3.0];
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
 }
-
--(void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
-{
-    
-    
-}
-
--(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID{
-    
-}
-
-
--(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{
-    
-}
-
-
-
-
 
 
 

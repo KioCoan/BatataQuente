@@ -9,15 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface ChatViewController : UIViewController <MCNearbyServiceAdvertiserDelegate, MCSessionDelegate, UITextFieldDelegate>
+@interface ChatViewController : UIViewController <UITextFieldDelegate>
 
-@property MCPeerID *localPeerID;
-@property MCSession *session;
-@property MCNearbyServiceAdvertiser *advertiser;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;
 @property (weak, nonatomic) IBOutlet UILabel *lbMsg;
+
+@property BOOL iniciaTempo;
 
 @property NSTimer *timer;
 @property NSTimeInterval current;
@@ -27,4 +26,5 @@
 
 - (IBAction)btnEnviar:(id)sender;
 - (IBAction)desconectar:(id)sender;
+
 @end

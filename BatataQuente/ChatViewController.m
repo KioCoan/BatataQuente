@@ -7,154 +7,109 @@
 //
 
 #import "ChatViewController.h"
+#import "AppDelegate.h"
+
+@interface ChatViewController ()
+
+@property (nonatomic, strong)AppDelegate *appDelegate;
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification;
+
+@end
 
 
 @implementation ChatViewController
 
-
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.lblMsgEnviada.alpha = 0;
-    self.lbMsg.alpha = 0;
+    
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     self.txtMsg.delegate = self;
-    self.session.delegate = self;
-    self.advertiser.delegate = self;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    [self setCurrent:90];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    self.current = 90;
     
-    //NSLog(@"Hi");
-}
--(void)viewDidAppear:(BOOL)animated{
-    [self iniciaContagem];
-}
-
-
--(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{
-    
-}
-
--(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID{
-    
-}
-
--(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler{
-    
-}
-
--(void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error{
-    
-}
-
-
--(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state{
-    
-}
-
--(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
-
-    
-    NSLog(@"ID - %@", peerID.displayName);
-    //NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    NSLog(@"%d", [[arr objectAtIndex:0] intValue]);
-    
-    NSNumber *x = [arr objectAtIndex:0];
-    
-    self.current = [x doubleValue];
-    
-    
-    //NSLog(@"%@",arr);
-    //Força atualização do label
-    
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        
-        //Do any updates to your label here
-        [self.lbMsg setText:[arr objectAtIndex:1]];
-        
-        
-    }];
-    NSLog(@"%@", [arr objectAtIndex:1]);
-    [[self lbMsg] setAlpha:1];
-    [self.view setNeedsDisplay];
-}
-
--(void)iniciaContagem{
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
 }
 
--(void)decrementaTempo{
-    NSLog(@"%f",self.current);
-    
-    self.current -=1;
-    int x = self.current;
-    [[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
-    
-    //    self.current = (NSNumber*)[tempo userInfo];
-//    
-//    int minutos = [self.current intValue] / 60;
-//    
-//    int segundos = [self.current intValue] - minutos *60;
-//    
-//    self.tempoDecorrido.text = [NSString stringWithFormat:@"%d:%d", minutos, segundos];
-    
-}
-
-//-(void)zerarTimer{
-//    if (self.timer) {
-//        [self.timer invalidate];
-//        self.timer = nil;
-//    }
-//}
-
-
-- (IBAction)btnEnviar:(id)sender
-{
-   // NSArray *arrayPts = [[NSArray alloc]initWithObjects:10,20,30, nil];
-    
-    //[self zerarTimer];
-    NSNumber *x = [NSNumber numberWithDouble:self.current];
-
-    
-    NSArray *meuArray = [[NSArray alloc] initWithObjects:x, self.txtMsg.text, nil];
-    
-    //NSData *data = [self.txtMsg.text dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
-    
-    //NSLog(@"%@", self.session.connectedPeers);
-    
-    NSError *error = nil;
-    if (![self.session sendData:data
-                        toPeers:self.session.connectedPeers
-                       withMode:MCSessionSendDataReliable
-                          error:&error]) {
-        NSLog(@"[Error] %@", error);
-        
-        UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Falha ao conectar" message:@"Houve uma falha ao conectar, reinicie o jogo." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        
-        [alerta show];
-    }
-    
-    
-    [[self lblMsgEnviada] setText:self.txtMsg.text];
-    [self.txtMsg setText:@""];
-    self.lblMsgEnviada.alpha = 1;
-}
-
-- (IBAction)desconectar:(id)sender {
-    [[self session] disconnect];
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
 }
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.txtMsg resignFirstResponder];
     [self btnEnviar:nil];
     return YES;
 }
+
+
+
+
+-(IBAction)btnEnviar:(id)sender{
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], self.txtMsg.text, nil];
+    
+    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:dataToSend
+                                     toPeers:allPeers
+                                    withMode:MCSessionSendDataReliable
+                                       error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    [self.lblMsgEnviada setText: self.txtMsg.text];
+    [self.txtMsg setText:@""];
+    [self.txtMsg resignFirstResponder];
+}
+
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
+
+    self.iniciaTempo = YES;
+    
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    
+    NSString *receivedText = [[notification userInfo] objectForKey:@"mensagem"];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        
+        //Do any updates to your label here
+        [self.lbMsg setText:[NSString stringWithFormat:@"%@: %@", peerDisplayName, receivedText]];
+        
+    }];
+
+}
+
+
+
+-(void)decrementaTempo{
+    NSLog(@"%f",self.current);
+    
+    if(!self.iniciaTempo){
+        return;
+    }else if(self.current == 0){
+        [[self tempoDecorrido] setText:@"BOOM"];
+        [self.timer invalidate];
+        return;
+    }
+    
+    self.current -=1;
+    int x = self.current;
+    [[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
+
+    [self.view setNeedsDisplay];
+}
+
+
+
+
 
 @end
