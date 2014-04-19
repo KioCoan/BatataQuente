@@ -89,23 +89,10 @@ static NSString * XXServiceType = @"batata-quente";
 
 -(IBAction)visivel:(id)sender{
     
-   // NSLog(@"%@", [[self txtNome]text]);
-    if ([[[self txtNome]text]isEqualToString:@""]) {
-        UIAlertView *alert;
-        alert = [[UIAlertView alloc] initWithTitle:@"Dados inválidos"
-                                           message:@"Seu nome é obrigatório"
-                                          delegate:self
-                                 cancelButtonTitle:@"OK"
-                                 otherButtonTitles:nil];
-        [alert show];
-        
-        
-    }else{
         
         self.btnVisivel = !self.btnVisivel;
         [[self arrConnectedDevices]addObject: [[self txtNome]text]];
         [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
-    }
     
     
     

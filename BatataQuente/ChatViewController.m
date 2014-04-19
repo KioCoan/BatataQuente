@@ -83,7 +83,7 @@
 
     self.iniciaTempo = YES;
     
-    if ([[[[notification userInfo] objectForKey:@"embatatado"]stringValue]isEqualToString: [self.players objectAtIndex:0]]) {
+    if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.players objectAtIndex:0]]) {
         self.batata = YES;
         NSLog(@"Ta queimando!!!");
 
