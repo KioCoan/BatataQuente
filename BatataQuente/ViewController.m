@@ -54,6 +54,9 @@ static NSString * XXServiceType = @"batata-quente";
     self.sexoMasculino = YES;
     [self setCrieiSala:NO];
 }
+-(void)viewWillAppear:(BOOL)animated{
+   // [self disconnect:nil];
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -118,6 +121,7 @@ static NSString * XXServiceType = @"batata-quente";
         [self mudaImagemBtnVisivel];
         [[self arrConnectedDevices]addObject: [[self txtNome] text]];
         [self.appDelegate.mcManager advertiseSelf:self.estaVisivel];
+     
     
     
 //    if ([[[self txtNome]text]isEqualToString:@""]) {
@@ -162,6 +166,8 @@ static NSString * XXServiceType = @"batata-quente";
     //NSLog(@"%@",self.arrConnectedDevices);
     
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
+    
+    
     [chat setPlayers:self.arrConnectedDevices];
     [chat setBatata:self.crieiSala];
     

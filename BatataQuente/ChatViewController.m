@@ -29,9 +29,19 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    self.current = 90;
+    self.current = 20   ;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    
+    NSLog(@"%@",self.players);
+    
+    if ([[self.players objectAtIndex:0]isEqualToString:@""]) {
+        
+        [self.players setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
+        NSLog(@"%@",[self.players objectAtIndex:0]);
+    }
+    NSLog(@"%@",[self.players objectAtIndex:0]);
+    [self.appDelegate.mcManager.session myPeerID ];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -118,7 +128,7 @@
     
     if(!self.iniciaTempo){
         return;
-    }else if(self.current == 0){
+    }else if(self.current <= 0){
         [self.imgBatata setEnabled:NO];
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
