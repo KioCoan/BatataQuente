@@ -25,6 +25,14 @@
 		A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E075190072D100E0292C /* MultipeerConnectivity.framework */; };
 		A522859B1902FAE7007E0A0D /* batata_biquini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A522859A1902FAE7007E0A0D /* batata_biquini.jpg */; };
 		BD071F1319010EAF0082744D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD071F1219010EAF0082744D /* ChatViewController.m */; };
+		BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22B719035E10008C637E /* iconeFeminino.png */; };
+		BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22B819035E10008C637E /* iconeMasculino.png */; };
+		BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22BB190362B6008C637E /* fundoTelaInicial.png */; };
+		BD7B22BF19037B7A008C637E /* visivelOff.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22BD19037B7A008C637E /* visivelOff.png */; };
+		BD7B22C019037B7A008C637E /* visivelOn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22BE19037B7A008C637E /* visivelOn.png */; };
+		BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C119038A76008C637E /* convidarJogadores.png */; };
+		BD7B22C71903A386008C637E /* iniciarPartidaOff.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C51903A386008C637E /* iniciarPartidaOff.png */; };
+		BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C61903A386008C637E /* iniciarPartidaOn.png */; };
 		BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFEC6619020AE8008CBA44 /* MCManager.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +72,14 @@
 		A522859A1902FAE7007E0A0D /* batata_biquini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = batata_biquini.jpg; sourceTree = "<group>"; };
 		BD071F1119010EAF0082744D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		BD071F1219010EAF0082744D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		BD7B22B719035E10008C637E /* iconeFeminino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconeFeminino.png; path = Imagens/iconeFeminino.png; sourceTree = "<group>"; };
+		BD7B22B819035E10008C637E /* iconeMasculino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconeMasculino.png; path = Imagens/iconeMasculino.png; sourceTree = "<group>"; };
+		BD7B22BB190362B6008C637E /* fundoTelaInicial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaInicial.png; path = Imagens/fundoTelaInicial.png; sourceTree = "<group>"; };
+		BD7B22BD19037B7A008C637E /* visivelOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visivelOff.png; path = Imagens/visivelOff.png; sourceTree = "<group>"; };
+		BD7B22BE19037B7A008C637E /* visivelOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visivelOn.png; path = Imagens/visivelOn.png; sourceTree = "<group>"; };
+		BD7B22C119038A76008C637E /* convidarJogadores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = convidarJogadores.png; path = Imagens/convidarJogadores.png; sourceTree = "<group>"; };
+		BD7B22C51903A386008C637E /* iniciarPartidaOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iniciarPartidaOff.png; path = Imagens/iniciarPartidaOff.png; sourceTree = "<group>"; };
+		BD7B22C61903A386008C637E /* iniciarPartidaOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iniciarPartidaOn.png; path = Imagens/iniciarPartidaOn.png; sourceTree = "<group>"; };
 		BDBFEC6519020AE8008CBA44 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		BDBFEC6619020AE8008CBA44 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +144,7 @@
 		A520E03B18FFF74400E0292C /* BatataQuente */ = {
 			isa = PBXGroup;
 			children = (
+				BD7B22B619035DDE008C637E /* Imagens */,
 				A522859A1902FAE7007E0A0D /* batata_biquini.jpg */,
 				BDBFEC6519020AE8008CBA44 /* MCManager.h */,
 				BDBFEC6619020AE8008CBA44 /* MCManager.m */,
@@ -172,6 +189,21 @@
 				A520E06018FFF74400E0292C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD7B22B619035DDE008C637E /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				BD7B22C51903A386008C637E /* iniciarPartidaOff.png */,
+				BD7B22C61903A386008C637E /* iniciarPartidaOn.png */,
+				BD7B22C119038A76008C637E /* convidarJogadores.png */,
+				BD7B22BD19037B7A008C637E /* visivelOff.png */,
+				BD7B22BE19037B7A008C637E /* visivelOn.png */,
+				BD7B22BB190362B6008C637E /* fundoTelaInicial.png */,
+				BD7B22B719035E10008C637E /* iconeFeminino.png */,
+				BD7B22B819035E10008C637E /* iconeMasculino.png */,
+			);
+			name = Imagens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +284,17 @@
 			files = (
 				A520E04C18FFF74400E0292C /* Main_iPad.storyboard in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
+				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
+				BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */,
 				A522859B1902FAE7007E0A0D /* batata_biquini.jpg in Resources */,
+				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
+				BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */,
+				BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */,
+				BD7B22C71903A386008C637E /* iniciarPartidaOff.png in Resources */,
 				A520E04918FFF74400E0292C /* Main_iPhone.storyboard in Resources */,
+				BD7B22BF19037B7A008C637E /* visivelOff.png in Resources */,
 				A520E04018FFF74400E0292C /* InfoPlist.strings in Resources */,
+				BD7B22C019037B7A008C637E /* visivelOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

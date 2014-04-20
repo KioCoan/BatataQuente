@@ -23,6 +23,10 @@
 
 static NSString * XXServiceType = @"batata-quente";
 
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 
 - (void)viewDidLoad
 {
@@ -43,11 +47,13 @@ static NSString * XXServiceType = @"batata-quente";
     
     [self.tbldispositivos setDelegate:self];
     [self.tbldispositivos setDataSource:self];
-    self.btnVisivel = false;
+    self.estaVisivel = false;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
+    [self.iconePersonagem addGestureRecognizer:tap];
+    self.sexoMasculino = YES;
     [self setCrieiSala:NO];
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -56,21 +62,35 @@ static NSString * XXServiceType = @"batata-quente";
     
 }
 
+-(void)mudaImagemPersonagem{
+    if(self.sexoMasculino){
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
+        self.sexoMasculino = NO;
+    
+    }else{
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
+        self.sexoMasculino = YES;
+    }
+}
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     
-    _appDelegate.mcManager.peerID = nil;
-    _appDelegate.mcManager.session = nil;
-    _appDelegate.mcManager.browser = nil;
+    self.appDelegate.mcManager.peerID = nil;
+    self.appDelegate.mcManager.session = nil;
+    self.appDelegate.mcManager.browser = nil;
     
-    if (self.btnVisivel) {
-        [_appDelegate.mcManager.advertiser stop];
+    if (self.estaVisivel) {
+        [self.appDelegate.mcManager.advertiser stop];
     }
-    _appDelegate.mcManager.advertiser = nil;
+    self.appDelegate.mcManager.advertiser = nil;
     
+    if(![self.txtNome.text isEqualToString:@""]){
+        [self.appDelegate.mcManager setupPeerAndSessionWithDisplayName:self.txtNome.text];
+        [self.appDelegate.mcManager setupMCBrowser];
+    }
     
-    [_appDelegate.mcManager setupPeerAndSessionWithDisplayName:self.txtNome.text];
-    [_appDelegate.mcManager setupMCBrowser];
     
     return YES;
 }
@@ -79,7 +99,7 @@ static NSString * XXServiceType = @"batata-quente";
 
 - (IBAction)btnProcurar:(id)sender
 {
-    if(!self.btnVisivel){
+    if(!self.estaVisivel){
         [self visivel:nil];
     }
     
@@ -94,9 +114,10 @@ static NSString * XXServiceType = @"batata-quente";
 -(IBAction)visivel:(id)sender{
     
         
-        self.btnVisivel = !self.btnVisivel;
-        [[self arrConnectedDevices]addObject: [[self txtNome]text]];
-        [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+        self.estaVisivel = !self.estaVisivel;
+        [self mudaImagemBtnVisivel];
+        [[self arrConnectedDevices]addObject: [[self txtNome] text]];
+        [self.appDelegate.mcManager advertiseSelf:self.estaVisivel];
     
     
 //    if ([[[self txtNome]text]isEqualToString:@""]) {
@@ -111,14 +132,20 @@ static NSString * XXServiceType = @"batata-quente";
 //        
 //    }else{
 //        
-//        self.btnVisivel = !self.btnVisivel;
+//        self.estaVisivel = !self.estaVisivel;
 //        [[self arrConnectedDevices]addObject: [[self txtNome]text]];
-//        [self.appDelegate.mcManager advertiseSelf:self.btnVisivel];
+//        [self.appDelegate.mcManager advertiseSelf:self.estaVisivel];
 //    }
+  
     
-    
-    
-    
+}
+
+-(void)mudaImagemBtnVisivel{
+    if(self.estaVisivel){
+        [self.btnVisivel setImage:[UIImage imageNamed:@"visivelOn.png"] forState:UIControlStateNormal];
+    }else{
+        [self.btnVisivel setImage:[UIImage imageNamed:@"visivelOff.png"] forState:UIControlStateNormal];
+    }
 }
 
 -(IBAction)disconnect:(id)sender{
@@ -131,12 +158,11 @@ static NSString * XXServiceType = @"batata-quente";
 }
 
 
-- (IBAction)btnIniciar:(id)sender {
+- (IBAction)iniciarPartida:(id)sender {
     //NSLog(@"%@",self.arrConnectedDevices);
     
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
     [chat setPlayers:self.arrConnectedDevices];
-    
     [chat setBatata:self.crieiSala];
     
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -159,6 +185,7 @@ static NSString * XXServiceType = @"batata-quente";
 
 
 -(void)peerDidChangeStateWithNotification:(NSNotification *)notification{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
     MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
     NSString *peerDisplayName = peerID.displayName;
     MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
@@ -166,10 +193,14 @@ static NSString * XXServiceType = @"batata-quente";
     if (state != MCSessionStateConnecting) {
         if (state == MCSessionStateConnected) {
             [self.arrConnectedDevices addObject:peerDisplayName];
+            
+            [self.btnIniciar setImage:[UIImage imageNamed:@"iniciarPartidaOn.png"] forState:UIControlStateNormal];
+                self.btnIniciar.userInteractionEnabled = YES;
+            
         }
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
-                int indexOfPeer = [_arrConnectedDevices indexOfObject:peerDisplayName];
+                int indexOfPeer = [self.arrConnectedDevices indexOfObject:peerDisplayName];
                 [self.arrConnectedDevices removeObjectAtIndex:indexOfPeer];
             }
         }
@@ -179,8 +210,16 @@ static NSString * XXServiceType = @"batata-quente";
         [self.btnDisconnect setEnabled:!peersExist];
         [self.txtNome setEnabled:peersExist];
         
-        [self.tbldispositivos setNeedsDisplay];
+        if(peersExist){
+            
+                [self.btnIniciar setImage:[UIImage imageNamed:@"iniciarPartidaOff.png"] forState:UIControlStateNormal];
+                self.btnIniciar.userInteractionEnabled = NO;
+            
+        }
     }
+    
+    }];
+    [self.btnIniciar setNeedsDisplay];
 }
 
 
@@ -201,14 +240,21 @@ static NSString * XXServiceType = @"batata-quente";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
     }
     
-    cell.textLabel.text = [self.arrConnectedDevices objectAtIndex:indexPath.row];
+    if([[self.arrConnectedDevices objectAtIndex:indexPath.row] isEqualToString:[self.txtNome text]]){
+        cell.textLabel.text = @"Eu";
+    }else{
+        cell.textLabel.text = [self.arrConnectedDevices objectAtIndex:indexPath.row];
+    }
+    
+    cell.backgroundColor = nil;
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.0;
+    return 50.0;
 }
 
 

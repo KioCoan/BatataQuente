@@ -65,7 +65,7 @@
     
     
     
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], self.txtMsg.text, playerRandom, nil];
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], playerRandom, nil];
     
     
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
@@ -83,9 +83,6 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    [self.lblMsgEnviada setText: self.txtMsg.text];
-    [self.txtMsg setText:@""];
-    [self.txtMsg resignFirstResponder];
 }
 
 
@@ -109,16 +106,6 @@
         NSLog(@"Esfriou");
     }
     
-    
-    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
-    NSString *peerDisplayName = peerID.displayName;
-    
-    NSString *receivedText = [[notification userInfo] objectForKey:@"mensagem"];
-    
-    
-        
-        //Do any updates to your label here
-        [self.lbMsg setText:[NSString stringWithFormat:@"%@: %@", peerDisplayName, receivedText]];
         
     }];
 

@@ -76,8 +76,7 @@
     NSLog(@"%d",[arrayData count]);
     NSDictionary *dict = @{@"tempo": [arrayData objectAtIndex:0],
                            @"peerID": peerID,
-                           @"mensagem": [arrayData objectAtIndex:1],
-                           @"embatatado": [arrayData objectAtIndex:2]
+                           @"embatatado": [arrayData objectAtIndex:1]
                            };
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
