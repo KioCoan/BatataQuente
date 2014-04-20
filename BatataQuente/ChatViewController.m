@@ -38,9 +38,10 @@
     if ([[self.players objectAtIndex:0]isEqualToString:@""]) {
         
         [self.players setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
-        NSLog(@"%@",[self.players objectAtIndex:0]);
+        
+        
     }
-    NSLog(@"%@",[self.players objectAtIndex:0]);
+    
     [self.appDelegate.mcManager.session myPeerID ];
 }
 
@@ -157,7 +158,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)btnBatata:(id)sender {
-    self.current -=1;
+    
     [self btnEnviar:nil];
 }
 @end
