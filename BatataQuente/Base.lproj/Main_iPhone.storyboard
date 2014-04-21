@@ -20,11 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome visível aos outros" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-oC-mBP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome visível aos outros" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-oC-mBP">
                                 <rect key="frame" x="19" y="57" width="165" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-iN-wZG">
                                 <rect key="frame" x="19" y="123" width="165" height="36"/>
@@ -107,21 +107,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mensagem enviada:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJF-Zb-oeT">
-                                <rect key="frame" x="20" y="190" width="155" height="21"/>
+                                <rect key="frame" x="83" y="45" width="155" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIf-gJ-3qy">
-                                <rect key="frame" x="233" y="197" width="78" height="21"/>
+                                <rect key="frame" x="228" y="190" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-eO-ar8">
-                                <rect key="frame" x="254" y="254" width="46" height="30"/>
+                                <rect key="frame" x="20" y="73" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,9 +131,9 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRm-OE-eau">
-                                <rect key="frame" x="75" y="343" width="187" height="198"/>
+                                <rect key="frame" x="26" y="263" width="294" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="batata_biquini.jpg">
+                                <state key="normal" title="Button" image="imagemBatata.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -151,9 +151,6 @@
                                 <state key="normal" title="Desconectar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="desconectar:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="SFY-fW-nsQ"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -168,10 +165,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="batata_biquini.jpg" width="324" height="400"/>
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoTelaInicial.png" width="360" height="639"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
+        <image name="imagemBatata.png" width="454" height="577"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>

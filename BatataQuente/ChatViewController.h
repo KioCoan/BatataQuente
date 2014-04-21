@@ -33,7 +33,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *tempoDecorrido;
 
 - (IBAction)btnEnviar:(id)sender;
-- (IBAction)desconectar:(id)sender;
 - (IBAction)voltar:(id)sender;
 
 @end
