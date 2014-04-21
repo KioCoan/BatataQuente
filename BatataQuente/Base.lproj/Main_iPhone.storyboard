@@ -130,16 +130,10 @@
                                     <action selector="voltar:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="w4Z-3x-nWN"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRm-OE-eau">
-                                <rect key="frame" x="-34" y="260" width="378" height="334"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xg0-Ea-KIK">
+                                <rect key="frame" x="45" y="280" width="230" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="imagemBatata.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnBatata:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="Lh8-hb-aMc"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -155,7 +149,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imgBatata" destination="fRm-OE-eau" id="S4x-AU-CvG"/>
+                        <outlet property="imgBatata" destination="Xg0-Ea-KIK" id="5cv-t3-sHD"/>
                         <outlet property="tempoDecorrido" destination="BIf-gJ-3qy" id="AKP-cY-5fR"/>
                     </connections>
                 </viewController>
@@ -168,7 +162,6 @@
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoTelaInicial.png" width="360" height="639"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
-        <image name="imagemBatata.png" width="600" height="577"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>

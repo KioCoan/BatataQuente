@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "Batata.h"
 
 @interface ChatViewController : UIViewController <UITextFieldDelegate>
 
@@ -15,16 +16,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;
 @property (weak, nonatomic) IBOutlet UILabel *lbMsg;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imgBatata;
+@property Batata *minhaBatata;
 
 @property BOOL iniciaTempo;
 @property BOOL batata;
 @property NSMutableArray *players;
 
-
-- (IBAction)btnBatata:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIButton *imgBatata;
 
 @property NSTimer *timer;
 @property NSTimeInterval current;
@@ -32,7 +30,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *tempoDecorrido;
 
-- (IBAction)btnEnviar:(id)sender;
 - (IBAction)voltar:(id)sender;
 
 @end

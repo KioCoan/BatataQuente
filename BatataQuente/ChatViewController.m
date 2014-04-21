@@ -29,7 +29,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    self.current = 20   ;
+    self.current = 20;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
@@ -38,17 +38,27 @@
     if ([[self.players objectAtIndex:0]isEqualToString:@""]) {
         
         [self.players setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
-        
-        
     }
     
     [self.appDelegate.mcManager.session myPeerID ];
+    self.minhaBatata = [[Batata alloc] init];
+    
+    [self.imgBatata setImage:self.minhaBatata.imagemBatata];
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(ativarAnimacaoEnviar)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+
+    [self.imgBatata addGestureRecognizer:swipe];
 }
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [self.imgBatata setHidden:!self.batata];
-    [self.imgBatata setEnabled:self.batata];
+    [self.imgBatata setUserInteractionEnabled:self.batata];
 }
+
+
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
@@ -60,6 +70,16 @@
 }
 
 
+-(void)ativarAnimacaoEnviar{
+    
+    [self.imgBatata setUserInteractionEnabled:NO];
+    
+    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
+    
+    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
+    
+    [self btnEnviar:nil];
+}
 
 
 -(IBAction)btnEnviar:(id)sender{
@@ -88,12 +108,24 @@
                                     withMode:MCSessionSendDataReliable
                                        error:&error];
     self.batata = NO;
-    [self.imgBatata setHidden:!self.batata];
-    [self.imgBatata setEnabled:self.batata];
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
     
+}
+
+
+-(void)ativarAnimacaoReceber{
+    
+    [self.imgBatata setUserInteractionEnabled:YES];
+    CGRect frame = self.imgBatata.frame;
+    
+    [self.imgBatata setFrame:CGRectMake(-260, frame.origin.y, frame.size.width, frame.size.height)];
+    
+    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
+    
+    
+    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
 }
 
 
@@ -105,15 +137,15 @@
     self.iniciaTempo = YES;
     
     if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.players objectAtIndex:0]]) {
+        
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];
-        [self.imgBatata setEnabled:self.batata];
+        [self ativarAnimacaoReceber];
         NSLog(@"Ta queimando!!!");
 
     }else{
         self.batata = NO;
         [self.imgBatata setHidden:!self.batata];
-        [self.imgBatata setEnabled:self.batata];
         NSLog(@"Esfriou");
     }
     
@@ -130,7 +162,6 @@
     if(!self.iniciaTempo){
         return;
     }else if(self.current <= 0){
-        [self.imgBatata setEnabled:NO];
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
         }else{
@@ -157,8 +188,5 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)btnBatata:(id)sender {
-    
-    [self btnEnviar:nil];
-}
+
 @end
