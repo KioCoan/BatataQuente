@@ -13,6 +13,10 @@
 
 @interface ChatViewController : UIViewController <UITextFieldDelegate>
 
+{
+    UISwipeGestureRecognizer *swipe;
+}
+
 @property Audio *audioPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;

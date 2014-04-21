@@ -33,19 +33,19 @@
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
-    NSLog(@"%@",self.players);
+    
     
     if ([[self.players objectAtIndex:0]isEqualToString:@""]) {
         
         [self.players setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
     }
-    
+    NSLog(@"%@",self.players);
     [self.appDelegate.mcManager.session myPeerID ];
     self.minhaBatata = [[Batata alloc] init];
     
     [self.imgBatata setImage:self.minhaBatata.imagemBatata];
     
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(ativarAnimacaoEnviar)];
+    swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(ativarAnimacaoEnviar)];
     
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
 
@@ -100,11 +100,16 @@
     
     CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
     
+    void (^blokAnimation)(void) = ^{
+        [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
+        [self.imgBatata setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
+ 
+    };
     
-    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
-    [self.imgBatata setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
+    blokAnimation();
+    
+    
 }
-
 
 -(IBAction)btnEnviar:(id)sender{
     int x;
@@ -177,7 +182,7 @@
     if(!self.iniciaTempo){
         return;
     }else if(self.current <= 0){
-        
+        [[self audioPlayer]stopSounds];
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
@@ -185,7 +190,7 @@
             [[self tempoDecorrido] setText:@"Ganhou!"];
         }
         
-        
+        [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
         return;
     }
