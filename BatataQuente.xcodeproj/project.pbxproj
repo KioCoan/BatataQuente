@@ -24,6 +24,10 @@
 		A520E06418FFF74400E0292C /* BatataQuenteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E06318FFF74400E0292C /* BatataQuenteTests.m */; };
 		A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E075190072D100E0292C /* MultipeerConnectivity.framework */; };
 		A522859B1902FAE7007E0A0D /* batata_biquini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A522859A1902FAE7007E0A0D /* batata_biquini.jpg */; };
+		A58C6B4F19054E4F0080DB41 /* Batata.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58C6B4C19054E4F0080DB41 /* Batata.wav */; };
+		A58C6B5019054E4F0080DB41 /* Queimou.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58C6B4D19054E4F0080DB41 /* Queimou.wav */; };
+		A58C6B5419054ED90080DB41 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = A58C6B5319054ED90080DB41 /* Audio.m */; };
+		A58C6B5619055F070080DB41 /* Quente.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58C6B5519055F070080DB41 /* Quente.wav */; };
 		BD071F1319010EAF0082744D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD071F1219010EAF0082744D /* ChatViewController.m */; };
 		BD237C3A19048BAF005B4D2E /* imagemBatata.png in Resources */ = {isa = PBXBuildFile; fileRef = BD237C3919048BAF005B4D2E /* imagemBatata.png */; };
 		BD237C3D1904D70A005B4D2E /* Batata.m in Sources */ = {isa = PBXBuildFile; fileRef = BD237C3C1904D70A005B4D2E /* Batata.m */; };
@@ -72,6 +76,11 @@
 		A520E06D18FFF7C100E0292C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A520E075190072D100E0292C /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		A522859A1902FAE7007E0A0D /* batata_biquini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = batata_biquini.jpg; sourceTree = "<group>"; };
+		A58C6B4C19054E4F0080DB41 /* Batata.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Batata.wav; sourceTree = "<group>"; };
+		A58C6B4D19054E4F0080DB41 /* Queimou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Queimou.wav; sourceTree = "<group>"; };
+		A58C6B5219054ED90080DB41 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
+		A58C6B5319054ED90080DB41 /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
+		A58C6B5519055F070080DB41 /* Quente.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Quente.wav; sourceTree = "<group>"; };
 		BD071F1119010EAF0082744D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		BD071F1219010EAF0082744D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		BD237C3919048BAF005B4D2E /* imagemBatata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemBatata.png; path = Imagens/imagemBatata.png; sourceTree = "<group>"; };
@@ -149,6 +158,7 @@
 		A520E03B18FFF74400E0292C /* BatataQuente */ = {
 			isa = PBXGroup;
 			children = (
+				A58C6B4B19054E210080DB41 /* Audio */,
 				BD7B22B619035DDE008C637E /* Imagens */,
 				A522859A1902FAE7007E0A0D /* batata_biquini.jpg */,
 				BDBFEC6519020AE8008CBA44 /* MCManager.h */,
@@ -165,6 +175,8 @@
 				A520E04E18FFF74400E0292C /* ViewController.m */,
 				A520E05018FFF74400E0292C /* Images.xcassets */,
 				A520E03C18FFF74400E0292C /* Supporting Files */,
+				A58C6B5219054ED90080DB41 /* Audio.h */,
+				A58C6B5319054ED90080DB41 /* Audio.m */,
 			);
 			path = BatataQuente;
 			sourceTree = "<group>";
@@ -196,6 +208,16 @@
 				A520E06018FFF74400E0292C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A58C6B4B19054E210080DB41 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A58C6B5519055F070080DB41 /* Quente.wav */,
+				A58C6B4C19054E4F0080DB41 /* Batata.wav */,
+				A58C6B4D19054E4F0080DB41 /* Queimou.wav */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		BD7B22B619035DDE008C637E /* Imagens */ = {
@@ -299,9 +321,12 @@
 				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
 				BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */,
 				BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */,
+				A58C6B5619055F070080DB41 /* Quente.wav in Resources */,
 				BD7B22C71903A386008C637E /* iniciarPartidaOff.png in Resources */,
 				A520E04918FFF74400E0292C /* Main_iPhone.storyboard in Resources */,
 				BD7B22BF19037B7A008C637E /* visivelOff.png in Resources */,
+				A58C6B5019054E4F0080DB41 /* Queimou.wav in Resources */,
+				A58C6B4F19054E4F0080DB41 /* Batata.wav in Resources */,
 				A520E04018FFF74400E0292C /* InfoPlist.strings in Resources */,
 				BD7B22C019037B7A008C637E /* visivelOn.png in Resources */,
 			);
@@ -326,6 +351,7 @@
 				BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */,
 				A520E04F18FFF74400E0292C /* ViewController.m in Sources */,
 				A520E04618FFF74400E0292C /* AppDelegate.m in Sources */,
+				A58C6B5419054ED90080DB41 /* Audio.m in Sources */,
 				BD071F1319010EAF0082744D /* ChatViewController.m in Sources */,
 				A520E04218FFF74400E0292C /* main.m in Sources */,
 			);

@@ -14,5 +14,5 @@
 
 
 -(CABasicAnimation*)animacaoEnviar:(CGPoint)posicao;
-
+-(CABasicAnimation*)animacaoReceber:(CGPoint)posicao;
 @end

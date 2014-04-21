@@ -130,7 +130,7 @@
                                     <action selector="voltar:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="w4Z-3x-nWN"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xg0-Ea-KIK">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemBatata.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xg0-Ea-KIK">
                                 <rect key="frame" x="45" y="280" width="230" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -162,6 +162,7 @@
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoTelaInicial.png" width="360" height="639"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
+        <image name="imagemBatata.png" width="441" height="535"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>

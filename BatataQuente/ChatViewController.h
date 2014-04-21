@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "Batata.h"
+#import "Audio.h"
 
 @interface ChatViewController : UIViewController <UITextFieldDelegate>
 
-
+@property Audio *audioPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
 @property (weak, nonatomic) IBOutlet UITextField *txtMsg;
 @property (weak, nonatomic) IBOutlet UILabel *lbMsg;

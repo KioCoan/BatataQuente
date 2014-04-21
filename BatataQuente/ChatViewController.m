@@ -44,10 +44,14 @@
     self.minhaBatata = [[Batata alloc] init];
     
     [self.imgBatata setImage:self.minhaBatata.imagemBatata];
+    
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(ativarAnimacaoEnviar)];
+    
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
 
     [self.imgBatata addGestureRecognizer:swipe];
+    
+    self.audioPlayer = [[Audio alloc] init];
 }
 
 
@@ -56,6 +60,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self.imgBatata setHidden:!self.batata];
     [self.imgBatata setUserInteractionEnabled:self.batata];
+    if (self.batata) {
+        [[self audioPlayer]playBatata];
+    }
 }
 
 
@@ -81,6 +88,23 @@
     [self btnEnviar:nil];
 }
 
+-(void)ativarAnimacaoReceber{
+    
+    
+    [self.imgBatata setUserInteractionEnabled:YES];
+    CGRect frame = self.imgBatata.frame;
+    
+    [self.imgBatata setFrame:CGRectMake(-260, frame.origin.y, frame.size.width, frame.size.height)];
+    
+    
+    
+    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
+    
+    
+    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
+    [self.imgBatata setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
+}
+
 
 -(IBAction)btnEnviar:(id)sender{
     int x;
@@ -94,7 +118,7 @@
     
    
     
-    
+    [[self audioPlayer]stopSounds];
     
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], playerRandom, nil];
     
@@ -108,6 +132,7 @@
                                     withMode:MCSessionSendDataReliable
                                        error:&error];
     self.batata = NO;
+    
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
@@ -115,18 +140,7 @@
 }
 
 
--(void)ativarAnimacaoReceber{
-    
-    [self.imgBatata setUserInteractionEnabled:YES];
-    CGRect frame = self.imgBatata.frame;
-    
-    [self.imgBatata setFrame:CGRectMake(-260, frame.origin.y, frame.size.width, frame.size.height)];
-    
-    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
-    
-    
-    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
-}
+
 
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
@@ -141,6 +155,7 @@
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];
         [self ativarAnimacaoReceber];
+        [[self audioPlayer]playQuente];
         NSLog(@"Ta queimando!!!");
 
     }else{
@@ -162,8 +177,10 @@
     if(!self.iniciaTempo){
         return;
     }else if(self.current <= 0){
+        
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
+            [[self audioPlayer]playQueimou];
         }else{
             [[self tempoDecorrido] setText:@"Ganhou!"];
         }
