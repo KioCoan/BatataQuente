@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRm-OE-eau">
-                                <rect key="frame" x="26" y="263" width="294" height="336"/>
+                                <rect key="frame" x="-34" y="260" width="378" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="imagemBatata.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,7 +168,7 @@
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoTelaInicial.png" width="360" height="639"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
-        <image name="imagemBatata.png" width="454" height="577"/>
+        <image name="imagemBatata.png" width="600" height="577"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
