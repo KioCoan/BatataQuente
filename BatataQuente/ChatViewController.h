@@ -15,6 +15,7 @@
 
 {
     UISwipeGestureRecognizer *swipe;
+    int indiceEliminado;
 }
 
 @property Audio *audioPlayer;
@@ -27,8 +28,11 @@
 @property BOOL iniciaTempo;
 @property BOOL batata;
 @property NSMutableArray *players;
+@property NSString *eliminado;
 
 
+
+- (IBAction)actionRestart:(id)sender;
 @property NSTimer *timer;
 @property NSTimeInterval current;
 

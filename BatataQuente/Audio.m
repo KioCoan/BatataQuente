@@ -15,7 +15,7 @@
     [self stopSounds];
     
     NSString *url = [[NSString alloc]initWithFormat:@"Queimou.wav" ];
-    NSLog(@"Passou 1");
+    
     if (![playerQueimou isPlaying]) {
         [self QueimouPlayFile:url];
         [playerQueimou setNumberOfLoops:0];

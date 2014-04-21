@@ -52,6 +52,8 @@
     [self.imgBatata addGestureRecognizer:swipe];
     
     self.audioPlayer = [[Audio alloc] init];
+    
+    
 }
 
 
@@ -149,6 +151,14 @@
 
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    NSString *eliminado = [[notification userInfo]objectForKey:@"embatatado"];
+    
+    for (int i = 0; i<self.players.count; i++) {
+        if ([[self.players objectAtIndex:i] isEqualToString:eliminado] ) {
+            indiceEliminado = i;
+        }
+    }
+    
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
     self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
@@ -186,6 +196,9 @@
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
+            [self.players removeObjectAtIndex:indiceEliminado];
+            
+            
         }else{
             [[self tempoDecorrido] setText:@"Ganhou!"];
         }
@@ -193,6 +206,9 @@
         [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
         return;
+    }else if (self.current <= 0.5){
+        [self.imgBatata removeGestureRecognizer:swipe];
+        
     }
     
     self.current -=1;
@@ -211,4 +227,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)restart{
+    [self.imgBatata addGestureRecognizer:swipe];
+    self.current = 20;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+}
+
+
+- (IBAction)actionRestart:(id)sender {
+    [self restart];
+}
 @end
