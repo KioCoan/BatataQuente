@@ -133,12 +133,7 @@
         saiuDoJogo = [self.controladorDeJogadores saiuDoJogo:playerRandom];
         
         
-    } while ([playerRandom isEqualToString:[self.players objectAtIndex:0]] || saiuDoJogo);
-    
-    
-    
-    
-    
+    } while ([playerRandom isEqualToString:[self.controladorDeJogadores retornaNomeDeJogaddor: 0]] || saiuDoJogo);
     
     
     return playerRandom;
@@ -180,8 +175,8 @@
 
 
 -(void)selecionaIndiceParaEliminar{
-    for (int i = 0; i<self.players.count; i++) {
-        if ([[self.players objectAtIndex:i] isEqualToString:eliminado] ) {
+    for (int i = 0; i<[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
+        if ([eliminado isEqualToString:[self.controladorDeJogadores retornaNomeDeJogaddor:i]] ) {
             indiceEliminado = i;
         }
     }
@@ -204,7 +199,7 @@
 
     self.iniciaTempo = YES;
     
-    if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.players objectAtIndex:0]]) {
+        if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.controladorDeJogadores retornaNomeDeJogaddor: 0]]) {
         
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];
@@ -233,8 +228,8 @@
     }else if(self.current <= 0){
         
         [[self audioPlayer]stopSounds];
-        NSLog(@"%@",self.players);
-        [self.players removeObjectAtIndex:indiceEliminado];
+        
+        [self.controladorDeJogadores removeJogador: indiceEliminado];
         
         
         if (self.batata ) {
@@ -246,14 +241,15 @@
         }else{
             [[self tempoDecorrido] setText:@"Ganhou!"];
             
-            if ([self.players count]==1) {
+            if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
                 [self.btnRestart setEnabled:NO];
             }
         }
         
         [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
-        NSLog(@"%@",self.players);
+        
+        
         return;
         
         
@@ -279,7 +275,7 @@
 }
 
 -(void)restart{
-    if ([self.players count]==1) {
+    if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
         return;
     }
     if (proximoEmbatatado) {
@@ -297,4 +293,6 @@
 - (IBAction)actionRestart:(id)sender {
     [self restart];
 }
+
+
 @end

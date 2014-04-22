@@ -75,5 +75,8 @@
     }
     return YES;
 }
+-(void)removeJogador:(int)indiceJogador{
+    [jogadores removeObjectAtIndex:indiceJogador];
+}
 
 @end

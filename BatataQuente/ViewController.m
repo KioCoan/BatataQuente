@@ -176,7 +176,7 @@ static NSString * XXServiceType = @"batata-quente";
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
     
     
-    [chat setPlayers:self.arrConnectedDevices];
+    
     [chat setBatata:self.crieiSala];
     [chat setControladorDeJogadores:self.controladorJogadores];
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

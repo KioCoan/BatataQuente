@@ -17,7 +17,7 @@
 -(void)insereJogador:(NSString*)nomeJogador;
 -(BOOL)jgadorPronto:(NSString*)nomeJogador;
 -(int)retornaIndiceJogador:(NSString*)nomeJogador;
--(void)removeJogador:(NSString*)nomeJogador;
+-(void)removeJogador:(int)indiceJogador;
 -(int)retornaNumeroDeJogadores;
 -(NSString*)retornaNomeDeJogaddor:(int)indice;
 -(BOOL)saiuDoJogo:(NSString*)nomeJogador;

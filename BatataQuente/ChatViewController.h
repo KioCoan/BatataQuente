@@ -31,7 +31,7 @@
 
 @property BOOL iniciaTempo;
 @property BOOL batata;
-@property NSMutableArray *players;
+
 @property NSString *eliminado;
 
 
