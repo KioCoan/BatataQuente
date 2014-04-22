@@ -74,15 +74,19 @@
     
     NSArray *arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-    NSDictionary *dict = @{@"tempo": [arrayData objectAtIndex:0],
+    NSDictionary *dict = @{@"tipo": [arrayData objectAtIndex:0],
+                           @"tempo": [arrayData objectAtIndex:1],
                            @"peerID": peerID,
-                           @"embatatado": [arrayData objectAtIndex:1]
+                           @"embatatado": [arrayData objectAtIndex:2]
                            };
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
 }
+
+
+
 
 
 -(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{

@@ -75,5 +75,10 @@
 -(void)removeJogador:(int)indiceJogador{
     [jogadores removeObjectAtIndex:indiceJogador];
 }
+-(void)estouPronto:(NSString *)nomeJogador estaPronto:(BOOL)status{
+    
+    [[jogadores objectAtIndex:[self retornaIndiceJogador:nomeJogador]]setPronto:status];
+    
+}
 
 @end

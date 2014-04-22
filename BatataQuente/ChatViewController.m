@@ -152,7 +152,8 @@
     
     [[self audioPlayer]stopSounds];
     
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], playerRandom, nil];
+    
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], playerRandom, nil];
     
     //NSLog(@"%@",eliminado);
     
@@ -183,6 +184,21 @@
 }
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    
+  
+    if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
+        [self.controladorDeJogadores estouPronto:jogador estaPronto:YES];
+    }else{
+        // Passa a batata
+        [self passaBatata:notification];
+    }
+
+}
+
+
+
+-(void)passaBatata:(NSNotification *)notification{
     if (fuiEliminado) {
         return;
     }
@@ -195,30 +211,29 @@
     
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-    self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
-
-    self.iniciaTempo = YES;
-    
+        self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
+        
+        self.iniciaTempo = YES;
+        
         if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.controladorDeJogadores retornaNomeDeJogaddor: 0]]) {
+            
+            self.batata = YES;
+            [self.imgBatata setHidden:!self.batata];
+            [self ativarAnimacaoReceber];
+            [[self audioPlayer]playQuente];
+            
+            
+        }else{
+            self.batata = NO;
+            [self.imgBatata setHidden:!self.batata];
+            
+        }
         
-        self.batata = YES;
-        [self.imgBatata setHidden:!self.batata];
-        [self ativarAnimacaoReceber];
-        [[self audioPlayer]playQuente];
-        
-
-    }else{
-        self.batata = NO;
-        [self.imgBatata setHidden:!self.batata];
-        
-    }
-    
         
     }];
+    
 
 }
-
-
 
 -(void)decrementaTempo{
    

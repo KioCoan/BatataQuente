@@ -21,6 +21,6 @@
 -(int)retornaNumeroDeJogadores;
 -(NSString*)retornaNomeDeJogaddor:(int)indice;
 -(BOOL)saiuDoJogo:(NSString*)nomeJogador;
-
+-(void)estouPronto:(NSString*)nomeJogador estaPronto:(BOOL)status;
 
 @end
