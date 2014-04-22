@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "ControladorJogadores.h"
 
 
 @interface ViewController : UIViewController <UITextFieldDelegate, MCBrowserViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -21,7 +22,7 @@
 @property BOOL estaVisivel;
 @property BOOL crieiSala;
 @property BOOL sexoMasculino;
-
+@property ControladorJogadores *controladorJogadores;
 
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;

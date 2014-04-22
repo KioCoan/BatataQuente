@@ -33,11 +33,7 @@
     
     
     
-    if ([[self.players objectAtIndex:0]isEqualToString:@""]) {
-        
-        [self.players setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
-    }
-    NSLog(@"%@",self.players);
+    
     [self.appDelegate.mcManager.session myPeerID ];
     self.minhaBatata = [[Batata alloc] init];
     
@@ -59,6 +55,11 @@
     return YES;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    
+    
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [self.imgBatata setHidden:!self.batata];
@@ -121,19 +122,24 @@
     int x;
     NSString *playerRandom ;
     BOOL saiuDoJogo;
+    
+    
     do {
         saiuDoJogo = YES;
-        x = (arc4random() % [self.players count]);
-        playerRandom = [self.players objectAtIndex:x];
-        for (NSString *player in self.players   ) {
-            if ([player isEqualToString:playerRandom]) {
-                saiuDoJogo = NO;
-                
-            }
-        }
+        x = (arc4random() % [self.controladorDeJogadores retornaNumeroDeJogadores]);
+        
+        playerRandom = [self.controladorDeJogadores retornaNomeDeJogaddor:x];
+        
+        saiuDoJogo = [self.controladorDeJogadores saiuDoJogo:playerRandom];
         
         
     } while ([playerRandom isEqualToString:[self.players objectAtIndex:0]] || saiuDoJogo);
+    
+    
+    
+    
+    
+    
     
     return playerRandom;
     

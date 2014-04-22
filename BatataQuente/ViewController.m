@@ -155,14 +155,30 @@ static NSString * XXServiceType = @"batata-quente";
 
 
 - (IBAction)iniciarPartida:(id)sender {
-    //NSLog(@"%@",self.arrConnectedDevices);
+   
+   
+    
+    self.controladorJogadores = [[ControladorJogadores alloc] init];
+    
+    
+    if ([[self.arrConnectedDevices objectAtIndex:0]isEqualToString:@""]) {
+        
+        [self.arrConnectedDevices setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
+    }
+     NSLog(@"%@",self.arrConnectedDevices);
+    for (int i = 0; i<[self.arrConnectedDevices count]; i++) {
+        [self.controladorJogadores insereJogador:[self.arrConnectedDevices objectAtIndex:i]];
+        
+    }
+    
+    
     
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
     
     
     [chat setPlayers:self.arrConnectedDevices];
     [chat setBatata:self.crieiSala];
-    
+    [chat setControladorDeJogadores:self.controladorJogadores];
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:chat animated:YES completion:nil];
     

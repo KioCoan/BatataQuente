@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Jogador.h"
 
 @interface ControladorJogadores : NSObject
 {
-    NSArray *posicaoJogadores;
+    NSMutableArray *jogadores;
 }
+
+-(void)insereJogador:(NSString*)nomeJogador;
+-(BOOL)jgadorPronto:(NSString*)nomeJogador;
+-(int)retornaIndiceJogador:(NSString*)nomeJogador;
+-(void)removeJogador:(NSString*)nomeJogador;
+-(int)retornaNumeroDeJogadores;
+-(NSString*)retornaNomeDeJogaddor:(int)indice;
+-(BOOL)saiuDoJogo:(NSString*)nomeJogador;
 
 
 @end

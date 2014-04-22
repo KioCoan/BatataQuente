@@ -10,6 +10,7 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "Batata.h"
 #import "Audio.h"
+#import "ControladorJogadores.h"
 
 @interface ChatViewController : UIViewController <UITextFieldDelegate>
 
@@ -19,8 +20,10 @@
     NSString *eliminado;
     BOOL proximoEmbatatado;
     BOOL fuiEliminado;
+    
 }
 
+@property ControladorJogadores *controladorDeJogadores;
 @property Audio *audioPlayer;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBatata;
 @property UIImageView *personagem;
