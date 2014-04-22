@@ -25,8 +25,6 @@
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    self.txtMsg.delegate = self;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
     self.current = 20;
@@ -57,6 +55,9 @@
 }
 
 
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
 
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -96,7 +97,7 @@
     [self.imgBatata setUserInteractionEnabled:YES];
     CGRect frame = self.imgBatata.frame;
     
-    [self.imgBatata setFrame:CGRectMake(-260, frame.origin.y, frame.size.width, frame.size.height)];
+    [self.imgBatata setFrame:CGRectMake(-518, frame.origin.y, frame.size.width, frame.size.height)];
     
     
     

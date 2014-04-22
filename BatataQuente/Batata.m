@@ -25,27 +25,11 @@
     CABasicAnimation *move = [CABasicAnimation animationWithKeyPath:@"position.x"];
     move.fromValue = [NSValue valueWithCGPoint:posicao];
     
-    posicao.x += 300;
+    posicao.x += 600;
     
     
     move.toValue = [NSValue valueWithCGPoint:posicao];
-    move.duration = 1.5f;
-    move.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.56 :0.18 :0.25 :1.00];
-    move.removedOnCompletion = NO;
-    move.fillMode = kCAFillModeForwards;
-    
-    return move;
-}
-
--(CABasicAnimation*)animacaoReceber:(CGPoint)posicao{
-    CABasicAnimation *move = [CABasicAnimation animationWithKeyPath:@"position.x"];
-    move.fromValue = [NSValue valueWithCGPoint:posicao];
-    
-    posicao.x -= 300;
-    
-    
-    move.toValue = [NSValue valueWithCGPoint:posicao];
-    move.duration = 1.5f;
+    move.duration = 1;
     move.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.56 :0.18 :0.25 :1.00];
     move.removedOnCompletion = NO;
     move.fillMode = kCAFillModeForwards;

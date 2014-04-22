@@ -1,5 +1,5 @@
 //
-//  Batata.h
+//  ControladorJogadores.h
 //  BatataQuente
 //
 //  Created by Felipe Costa Nascimento on 21/04/14.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Batata : NSObject
+@interface ControladorJogadores : NSObject
+{
+    NSArray *posicaoJogadores;
+}
 
-@property UIImage *imagemBatata;
 
-
--(CABasicAnimation*)animacaoEnviar:(CGPoint)posicao;
 @end

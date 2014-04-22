@@ -19,10 +19,8 @@
 }
 
 @property Audio *audioPlayer;
-@property (weak, nonatomic) IBOutlet UILabel *lblMsgEnviada;
-@property (weak, nonatomic) IBOutlet UITextField *txtMsg;
-@property (weak, nonatomic) IBOutlet UILabel *lbMsg;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBatata;
+@property UIImageView *personagem;
 @property Batata *minhaBatata;
 
 @property BOOL iniciaTempo;

@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemBatata.png" translatesAutoresizingMaskIntoConstraints="NO" id="alj-KZ-0BV">
-                                <rect key="frame" x="138" y="362" width="591" height="715"/>
+                                <rect key="frame" x="150" y="432" width="530" height="643"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUO-UZ-mcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="-238"/>
+            <point key="canvasLocation" x="1138" y="-323"/>
         </scene>
     </scenes>
     <resources>
