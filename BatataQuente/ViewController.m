@@ -186,6 +186,7 @@ static NSString * XXServiceType = @"batata-quente";
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
     MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+        NSLog(@"nome : %@",peerID.displayName);
     NSString *peerDisplayName = peerID.displayName;
     MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
     
@@ -200,8 +201,12 @@ static NSString * XXServiceType = @"batata-quente";
         
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
-                int indexOfPeer = [self.arrConnectedDevices indexOfObject:peerDisplayName];
-                [self.arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+//                int indexOfPeer = [self.arrConnectedDevices indexOfObject:peerDisplayName];
+//                int teste = [self.arrConnectedDevices indexOfObject:@"oi"];
+//                NSLog(@"index %d",indexOfPeer);
+//                [self.arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+                
+                
             }
         }
         
