@@ -18,9 +18,6 @@
         
         jogadores = [[NSMutableArray alloc] init];
         
-        
-        
-        
     }
     
     return self;
