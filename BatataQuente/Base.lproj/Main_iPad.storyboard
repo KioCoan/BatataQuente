@@ -105,7 +105,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoTelaPartida.png" translatesAutoresizingMaskIntoConstraints="NO" id="cmn-mC-0hS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPad-fundoTelaPartida.png" translatesAutoresizingMaskIntoConstraints="NO" id="cmn-mC-0hS">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1033"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemBatata.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2d-7Z-m0m">
-                                <rect key="frame" x="328" y="760" width="181" height="220"/>
+                                <rect key="frame" x="238" y="649" width="293" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-j3-IJd">
@@ -140,10 +140,6 @@
                                     <action selector="actionRestart:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="h1M-gm-bSi"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeMasculino.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sga-vC-VvE">
-                                <rect key="frame" x="42" y="445" width="101" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -171,8 +167,8 @@
     </scenes>
     <resources>
         <image name="convidarJogadores.png" width="369" height="80"/>
-        <image name="fundoTelaPartida.png" width="360" height="639"/>
         <image name="iPad-fundoTelaInicial.png" width="768" height="1024"/>
+        <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>

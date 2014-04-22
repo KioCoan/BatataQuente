@@ -42,6 +42,7 @@
 		BD7B22C71903A386008C637E /* iniciarPartidaOff.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C51903A386008C637E /* iniciarPartidaOff.png */; };
 		BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C61903A386008C637E /* iniciarPartidaOn.png */; };
 		BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */; };
+		BD7DEEE6190712740080D081 /* iPad-fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */; };
 		BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFEC6619020AE8008CBA44 /* MCManager.m */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		BD7B22C51903A386008C637E /* iniciarPartidaOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iniciarPartidaOff.png; path = Imagens/iniciarPartidaOff.png; sourceTree = "<group>"; };
 		BD7B22C61903A386008C637E /* iniciarPartidaOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iniciarPartidaOn.png; path = Imagens/iniciarPartidaOn.png; sourceTree = "<group>"; };
 		BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoTelaInicial.png"; path = "Imagens/iPad-fundoTelaInicial.png"; sourceTree = "<group>"; };
+		BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoTelaPartida.png"; path = "Imagens/iPad-fundoTelaPartida.png"; sourceTree = "<group>"; };
 		BDBFEC6519020AE8008CBA44 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		BDBFEC6619020AE8008CBA44 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +236,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */,
 				BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */,
 				BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */,
 				BD237C3919048BAF005B4D2E /* imagemBatata.png */,
@@ -342,6 +345,7 @@
 				A58C6B5019054E4F0080DB41 /* Queimou.wav in Resources */,
 				A58C6B4F19054E4F0080DB41 /* Batata.wav in Resources */,
 				A520E04018FFF74400E0292C /* InfoPlist.strings in Resources */,
+				BD7DEEE6190712740080D081 /* iPad-fundoTelaPartida.png in Resources */,
 				BD7B22C019037B7A008C637E /* visivelOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
