@@ -160,6 +160,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnRestart" destination="TOo-Ik-Hlo" id="6DT-b5-Her"/>
                         <outlet property="imgBatata" destination="Xg0-Ea-KIK" id="5cv-t3-sHD"/>
                         <outlet property="tempoDecorrido" destination="BIf-gJ-3qy" id="AKP-cY-5fR"/>
                     </connections>

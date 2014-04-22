@@ -27,7 +27,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    self.current = 40;
+    self.current = 20;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
@@ -225,22 +225,32 @@
     if(!self.iniciaTempo){
         return;
     }else if(self.current <= 0){
+        
         [[self audioPlayer]stopSounds];
         NSLog(@"%@",self.players);
         [self.players removeObjectAtIndex:indiceEliminado];
+        
+        
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
             fuiEliminado = YES;
+            [self.btnRestart setEnabled:NO];
             
         }else{
             [[self tempoDecorrido] setText:@"Ganhou!"];
+            
+            if ([self.players count]==1) {
+                [self.btnRestart setEnabled:NO];
+            }
         }
         
         [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
         NSLog(@"%@",self.players);
         return;
+        
+        
     }else if (self.current <= 1){
         [self.imgBatata removeGestureRecognizer:swipe];
         
@@ -263,6 +273,9 @@
 }
 
 -(void)restart{
+    if ([self.players count]==1) {
+        return;
+    }
     if (proximoEmbatatado) {
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];

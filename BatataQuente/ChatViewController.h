@@ -32,6 +32,7 @@
 @property NSString *eliminado;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *btnRestart;
 
 - (IBAction)actionRestart:(id)sender;
 @property NSTimer *timer;
