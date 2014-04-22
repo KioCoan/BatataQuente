@@ -73,7 +73,7 @@
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
     
     NSArray *arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    NSLog(@"%d",[arrayData count]);
+    
     NSDictionary *dict = @{@"tempo": [arrayData objectAtIndex:0],
                            @"peerID": peerID,
                            @"embatatado": [arrayData objectAtIndex:1]

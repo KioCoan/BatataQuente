@@ -16,6 +16,9 @@
 {
     UISwipeGestureRecognizer *swipe;
     int indiceEliminado;
+    NSString *eliminado;
+    BOOL proximoEmbatatado;
+    BOOL fuiEliminado;
 }
 
 @property Audio *audioPlayer;

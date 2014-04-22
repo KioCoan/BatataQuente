@@ -27,7 +27,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    self.current = 20;
+    self.current = 40;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
@@ -66,6 +66,7 @@
     if (self.batata) {
         [[self audioPlayer]playBatata];
     }
+         fuiEliminado = NO;
 }
 
 
@@ -114,22 +115,45 @@
     
 }
 
--(IBAction)btnEnviar:(id)sender{
+
+
+-(NSString*)retornaPlayerRandom{
     int x;
-    NSString *playerRandom;
-    
+    NSString *playerRandom ;
+    BOOL saiuDoJogo;
     do {
+        saiuDoJogo = YES;
         x = (arc4random() % [self.players count]);
         playerRandom = [self.players objectAtIndex:x];
-    } while ([playerRandom isEqualToString:[self.players objectAtIndex:0]]);
+        for (NSString *player in self.players   ) {
+            if ([player isEqualToString:playerRandom]) {
+                saiuDoJogo = NO;
+                
+            }
+        }
+        
+        
+    } while ([playerRandom isEqualToString:[self.players objectAtIndex:0]] || saiuDoJogo);
+    
+    return playerRandom;
+    
+}
+
+-(IBAction)btnEnviar:(id)sender{
+    proximoEmbatatado = YES;
+    NSString *playerRandom  = [self retornaPlayerRandom];
     
     
-   
+    
+    eliminado = playerRandom;
+    
+    [self selecionaIndiceParaEliminar];
     
     [[self audioPlayer]stopSounds];
     
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithDouble:self.current], playerRandom, nil];
     
+    //NSLog(@"%@",eliminado);
     
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -149,16 +173,24 @@
 
 
 
-
-
--(void)didReceiveDataWithNotification:(NSNotification *)notification{
-    NSString *eliminado = [[notification userInfo]objectForKey:@"embatatado"];
-    
+-(void)selecionaIndiceParaEliminar{
     for (int i = 0; i<self.players.count; i++) {
         if ([[self.players objectAtIndex:i] isEqualToString:eliminado] ) {
             indiceEliminado = i;
         }
     }
+}
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    if (fuiEliminado) {
+        return;
+    }
+    proximoEmbatatado = NO;
+    eliminado = [[notification userInfo]objectForKey:@"embatatado"];
+    NSLog(@"%@",eliminado);
+    
+    
+    [self selecionaIndiceParaEliminar];
     
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -172,12 +204,12 @@
         [self.imgBatata setHidden:!self.batata];
         [self ativarAnimacaoReceber];
         [[self audioPlayer]playQuente];
-        NSLog(@"Ta queimando!!!");
+        
 
     }else{
         self.batata = NO;
         [self.imgBatata setHidden:!self.batata];
-        NSLog(@"Esfriou");
+        
     }
     
         
@@ -188,17 +220,18 @@
 
 
 -(void)decrementaTempo{
-   // NSLog(@"%f",self.current);
+   
     
     if(!self.iniciaTempo){
         return;
     }else if(self.current <= 0){
         [[self audioPlayer]stopSounds];
+        NSLog(@"%@",self.players);
+        [self.players removeObjectAtIndex:indiceEliminado];
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
-            [self.players removeObjectAtIndex:indiceEliminado];
-            
+            fuiEliminado = YES;
             
         }else{
             [[self tempoDecorrido] setText:@"Ganhou!"];
@@ -206,8 +239,9 @@
         
         [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
+        NSLog(@"%@",self.players);
         return;
-    }else if (self.current <= 0.5){
+    }else if (self.current <= 1){
         [self.imgBatata removeGestureRecognizer:swipe];
         
     }
@@ -229,9 +263,15 @@
 }
 
 -(void)restart{
+    if (proximoEmbatatado) {
+        self.batata = YES;
+        [self.imgBatata setHidden:!self.batata];
+        [self ativarAnimacaoReceber];
+    }
     [self.imgBatata addGestureRecognizer:swipe];
     self.current = 20;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    
 }
 
 
