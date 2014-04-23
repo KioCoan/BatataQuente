@@ -347,6 +347,7 @@
 
 - (IBAction)actionRestart:(id)sender {
     [self restart];
+    [self.btnRestart setEnabled:NO];
 }
 
 
