@@ -44,6 +44,7 @@
 		BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */; };
 		BD7DEEE6190712740080D081 /* iPad-fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */; };
 		BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFEC6619020AE8008CBA44 /* MCManager.m */; };
+		E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */ = {isa = PBXBuildFile; fileRef = E595146F19083C1C006C6BD4 /* imagemPronto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoTelaPartida.png"; path = "Imagens/iPad-fundoTelaPartida.png"; sourceTree = "<group>"; };
 		BDBFEC6519020AE8008CBA44 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		BDBFEC6619020AE8008CBA44 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
+		E595146F19083C1C006C6BD4 /* imagemPronto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemPronto.png; path = Imagens/imagemPronto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				E595146F19083C1C006C6BD4 /* imagemPronto.png */,
 				BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */,
 				BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */,
 				BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */,
@@ -333,6 +336,7 @@
 				BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
+				E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */,
 				BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */,
 				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
 				BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */,
@@ -511,6 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
 				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,6 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
 				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
