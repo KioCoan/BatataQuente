@@ -41,6 +41,8 @@
     self.fotoPerfil.layer.borderWidth = 1.0f;
     self.fotoPerfil.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
     
+    NSLog(@"Bundle ID: %@", [[NSBundle mainBundle] bundleIdentifier]);
+    
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
@@ -48,6 +50,7 @@
     
     self.lblNomeUsuario.text = user.name;
     self.fotoPerfil.profileID = user.id;
+    
     
 }
 
