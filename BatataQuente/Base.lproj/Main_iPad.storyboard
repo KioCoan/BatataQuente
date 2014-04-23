@@ -186,7 +186,7 @@
         <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
-        <image name="imagemPronto.png" width="212" height="182"/>
+        <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
