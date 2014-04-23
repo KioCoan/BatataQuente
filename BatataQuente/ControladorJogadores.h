@@ -15,12 +15,12 @@
 }
 
 -(void)insereJogador:(NSString*)nomeJogador;
--(BOOL)jgadorPronto:(NSString*)nomeJogador;
+-(BOOL)jogadorEstaPronto:(NSString*)nomeJogador;
 -(int)retornaIndiceJogador:(NSString*)nomeJogador;
 -(void)removeJogador:(int)indiceJogador;
 -(int)retornaNumeroDeJogadores;
 -(NSString*)retornaNomeDeJogaddor:(int)indice;
 -(BOOL)saiuDoJogo:(NSString*)nomeJogador;
--(void)estouPronto:(NSString*)nomeJogador estaPronto:(BOOL)status;
-
+-(void)jogadorComNome:(NSString*)nomeJogador estaPronto:(BOOL)status;
+-(BOOL)todosProntos;
 @end

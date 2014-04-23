@@ -32,7 +32,7 @@
     
     
 }
--(BOOL)jogadorPronto:(NSString*)nomeJogador{
+-(BOOL)jogadorEstaPronto:(NSString*)nomeJogador{
     for (Jogador *j in jogadores){
         if ([[j nome]isEqualToString:nomeJogador]) {
             return [j pronto];
@@ -75,10 +75,22 @@
 -(void)removeJogador:(int)indiceJogador{
     [jogadores removeObjectAtIndex:indiceJogador];
 }
--(void)estouPronto:(NSString *)nomeJogador estaPronto:(BOOL)status{
+
+
+-(void)jogadorComNome:(NSString *)nomeJogador estaPronto:(BOOL)status{
     
     [[jogadores objectAtIndex:[self retornaIndiceJogador:nomeJogador]]setPronto:status];
     
+}
+
+-(BOOL)todosProntos{
+    for (Jogador *j in jogadores){
+        if (![j pronto]) {
+            return NO;
+        }
+    
+    }
+    return YES;
 }
 
 @end

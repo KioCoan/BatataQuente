@@ -56,7 +56,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+    myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     
     
 }
@@ -67,7 +67,10 @@
     if (self.batata) {
         [[self audioPlayer]playBatata];
     }
-         fuiEliminado = NO;
+         //fuiEliminado = NO;
+    
+    //[self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
+    
 }
 
 
@@ -84,6 +87,9 @@
 
 -(void)ativarAnimacaoEnviar{
     
+    if (todosProntos) {
+     
+    
     [self.imgBatata setUserInteractionEnabled:NO];
     
     CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
@@ -91,6 +97,7 @@
     [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
     
     [self btnEnviar:nil];
+    }
 }
 
 -(void)ativarAnimacaoReceber{
@@ -133,7 +140,7 @@
         saiuDoJogo = [self.controladorDeJogadores saiuDoJogo:playerRandom];
         
         
-    } while ([playerRandom isEqualToString:[self.controladorDeJogadores retornaNomeDeJogaddor: 0]] || saiuDoJogo);
+    } while ([playerRandom isEqualToString:myName] || saiuDoJogo);
     
     
     return playerRandom;
@@ -141,35 +148,42 @@
 }
 
 -(IBAction)btnEnviar:(id)sender{
-    proximoEmbatatado = YES;
-    NSString *playerRandom  = [self retornaPlayerRandom];
     
-    
-    
-    eliminado = playerRandom;
-    
-    [self selecionaIndiceParaEliminar];
-    
-    [[self audioPlayer]stopSounds];
-    
-    
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], playerRandom, nil];
-    
-    //NSLog(@"%@",eliminado);
-    
-    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
-    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
-    NSError *error;
-    
-    [self.appDelegate.mcManager.session sendData:dataToSend
-                                     toPeers:allPeers
-                                    withMode:MCSessionSendDataReliable
-                                       error:&error];
-    self.batata = NO;
-    
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
+    if (YES) {
+        
+        
+        proximoEmbatatado = YES;
+        NSString *playerRandom  = [self retornaPlayerRandom];
+        
+        
+        
+        eliminado = playerRandom;
+        
+        [self selecionaIndiceParaEliminar];
+        
+        [[self audioPlayer]stopSounds];
+        
+        
+        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], playerRandom, nil];
+        
+        //NSLog(@"%@",eliminado);
+        
+        NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+        NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+        NSError *error;
+        
+        [self.appDelegate.mcManager.session sendData:dataToSend
+                                             toPeers:allPeers
+                                            withMode:MCSessionSendDataReliable
+                                               error:&error];
+        self.batata = NO;
+        
+        if (error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
     }
+    
     
 }
 
@@ -188,10 +202,16 @@
   
     if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
         NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
-        [self.controladorDeJogadores estouPronto:jogador estaPronto:YES];
+        NSLog(@"%@",jogador);
+        [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
+        todosProntos = [self.controladorDeJogadores todosProntos];
     }else{
         // Passa a batata
-        [self passaBatata:notification];
+        
+       
+            [self passaBatata:notification];
+        NSLog(@"%hhd",todosProntos);
+        
     }
 
 }
@@ -199,9 +219,9 @@
 
 
 -(void)passaBatata:(NSNotification *)notification{
-    if (fuiEliminado) {
-        return;
-    }
+//    if ([self.controladorDeJogadores jogadorEstaPronto:myName]) {
+//        return;
+//    }
     proximoEmbatatado = NO;
     eliminado = [[notification userInfo]objectForKey:@"embatatado"];
     NSLog(@"%@",eliminado);
@@ -215,7 +235,7 @@
         
         self.iniciaTempo = YES;
         
-        if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: [self.controladorDeJogadores retornaNomeDeJogaddor: 0]]) {
+        if ([[[notification userInfo] objectForKey:@"embatatado"]isEqualToString: myName]) {
             
             self.batata = YES;
             [self.imgBatata setHidden:!self.batata];
@@ -244,20 +264,23 @@
         
         [[self audioPlayer]stopSounds];
         
-        [self.controladorDeJogadores removeJogador: indiceEliminado];
+//        [self.controladorDeJogadores removeJogador: indiceEliminado];
         
         
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
-            fuiEliminado = YES;
+//            fuiEliminado = YES;
             [self.btnRestart setEnabled:NO];
+            [self.controladorDeJogadores jogadorComNome:myName estaPronto:NO];
             
         }else{
+            NSLog(@"OK 1");
             [[self tempoDecorrido] setText:@"Ganhou!"];
             
             if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
                 [self.btnRestart setEnabled:NO];
+                NSLog(@"OK 2");
             }
         }
         
@@ -310,4 +333,21 @@
 }
 
 
+- (IBAction)actionPronto:(id)sender {
+    [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
+    
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
+    
+    //NSLog(@"%@",eliminado);
+    
+    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:dataToSend
+                                         toPeers:allPeers
+                                        withMode:MCSessionSendDataReliable
+                                           error:&error];
+    
+}
 @end

@@ -20,6 +20,9 @@
     NSString *eliminado;
     BOOL proximoEmbatatado;
     BOOL fuiEliminado;
+    NSString *myName;
+    BOOL todosProntos;
+    
     
 }
 
@@ -28,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgBatata;
 @property UIImageView *personagem;
 @property Batata *minhaBatata;
+@property (weak, nonatomic) IBOutlet UIButton *btnPronto;
+- (IBAction)actionPronto:(id)sender;
 
 @property BOOL iniciaTempo;
 @property BOOL batata;
