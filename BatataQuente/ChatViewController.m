@@ -57,6 +57,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
+    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
+    
+    UIImageView *img = [[UIImageView alloc] initWithFrame:[posicoes retornaPosicaoBesta]];
+    [img setImage:[UIImage imageNamed:@"imagemPronto.png"]];
+    [self.view addSubview:img];
     
     
 }

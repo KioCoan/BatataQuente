@@ -11,6 +11,7 @@
 #import "Batata.h"
 #import "Audio.h"
 #import "ControladorJogadores.h"
+#import "ControladorDePosicoes.h"
 
 @interface ChatViewController : UIViewController <UITextFieldDelegate>
 
