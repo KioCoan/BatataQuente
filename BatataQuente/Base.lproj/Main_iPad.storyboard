@@ -150,6 +150,10 @@
                                     <action selector="actionPronto:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="khD-mb-JXx"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemPronto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Be2-kF-ZcC">
+                                <rect key="frame" x="122" y="572" width="47" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -182,6 +186,7 @@
         <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
+        <image name="imagemPronto.png" width="212" height="182"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
