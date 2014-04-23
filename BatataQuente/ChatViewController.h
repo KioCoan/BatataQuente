@@ -32,6 +32,8 @@
 @property UIImageView *personagem;
 @property Batata *minhaBatata;
 @property (weak, nonatomic) IBOutlet UIButton *btnPronto;
+
+
 - (IBAction)actionPronto:(id)sender;
 
 @property BOOL iniciaTempo;

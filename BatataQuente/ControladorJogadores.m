@@ -63,14 +63,12 @@
 
 -(BOOL)saiuDoJogo:(NSString *)nomeJogador{
     
+    int i = [self retornaIndiceJogador:nomeJogador];
     
-    for (Jogador *player in jogadores   ) {
-        if ([[player nome ]isEqualToString:nomeJogador]) {
-            return NO;
-            
-        }
-    }
-    return YES;
+    
+    
+    return ![[jogadores objectAtIndex:i] pronto];
+    
 }
 -(void)removeJogador:(int)indiceJogador{
     [jogadores removeObjectAtIndex:indiceJogador];

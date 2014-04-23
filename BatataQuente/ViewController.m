@@ -165,7 +165,7 @@ static NSString * XXServiceType = @"batata-quente";
         
         [self.arrConnectedDevices setObject:[[self.appDelegate.mcManager.session myPeerID ] displayName] atIndexedSubscript:0];
     }
-     NSLog(@"%@",self.arrConnectedDevices);
+    
     for (int i = 0; i<[self.arrConnectedDevices count]; i++) {
         [self.controladorJogadores insereJogador:[self.arrConnectedDevices objectAtIndex:i]];
         

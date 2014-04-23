@@ -87,7 +87,7 @@
 
 -(void)ativarAnimacaoEnviar{
     
-    if (YES) {
+    if (todosProntos) {
      
     
     [self.imgBatata setUserInteractionEnabled:NO];
@@ -141,7 +141,7 @@
         
         
     } while ([playerRandom isEqualToString:myName] || saiuDoJogo);
-    
+    NSLog(@"%@",playerRandom);
     
     return playerRandom;
     
@@ -149,7 +149,7 @@
 
 -(IBAction)btnEnviar:(id)sender{
     
-    if (YES) {
+    if (todosProntos) {
         
         
         proximoEmbatatado = YES;
@@ -164,9 +164,9 @@
         [[self audioPlayer]stopSounds];
         
         
-        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], playerRandom, nil];
+        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], playerRandom, nil];
         
-        //NSLog(@"%@",eliminado);
+        
         
         NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
         NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -199,20 +199,33 @@
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
     
-  
+  NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
+    
     if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
-        NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
-        NSLog(@"%@",jogador);
+        
+        
+        
         [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
         todosProntos = [self.controladorDeJogadores todosProntos];
-    }else{
+    
+    
+    }else if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:2]]){
+        
+        [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
+        
+    }
+    
+    else{
         // Passa a batata
         
        
             [self passaBatata:notification];
-        NSLog(@"%hhd",todosProntos);
+        
         
     }
+    
+    
+    
 
 }
 
@@ -224,7 +237,7 @@
 //    }
     proximoEmbatatado = NO;
     eliminado = [[notification userInfo]objectForKey:@"embatatado"];
-    NSLog(@"%@",eliminado);
+    
     
     
     [self selecionaIndiceParaEliminar];
@@ -273,14 +286,15 @@
 //            fuiEliminado = YES;
             [self.btnRestart setEnabled:NO];
             [self.controladorDeJogadores jogadorComNome:myName estaPronto:NO];
+            [self enviaMensagemDoMeuStatusDe:NO];
             
         }else{
-            NSLog(@"OK 1");
+            
             [[self tempoDecorrido] setText:@"Ganhou!"];
             
             if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
                 [self.btnRestart setEnabled:NO];
-                NSLog(@"OK 2");
+                
             }
         }
         
@@ -322,7 +336,7 @@
         [self ativarAnimacaoReceber];
     }
     [self.imgBatata addGestureRecognizer:swipe];
-    self.current = 20;
+    self.current = 60;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
@@ -336,10 +350,27 @@
 - (IBAction)actionPronto:(id)sender {
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
     
+    
+    
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
     
-    //NSLog(@"%@",eliminado);
+    [self enviaMensagemDoMeuStatusDe:YES];
     
+    
+    
+    if ([self.controladorDeJogadores todosProntos]) {
+        todosProntos = [self.controladorDeJogadores todosProntos];
+    }
+    
+}
+
+-(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
+    NSArray *meuArray;
+    if (pronto) {
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
+    }else{
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], myName, nil];
+    }
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -348,6 +379,7 @@
                                          toPeers:allPeers
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
+
     
 }
 @end
