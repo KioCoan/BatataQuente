@@ -69,7 +69,7 @@
     }
          //fuiEliminado = NO;
     
-    //[self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
+    [self actionPronto:nil];
     
 }
 
@@ -138,10 +138,10 @@
         playerRandom = [self.controladorDeJogadores retornaNomeDeJogaddor:x];
         
         saiuDoJogo = [self.controladorDeJogadores saiuDoJogo:playerRandom];
-        
+        NSLog(@"%@",playerRandom);
         
     } while ([playerRandom isEqualToString:myName] || saiuDoJogo);
-    NSLog(@"%@",playerRandom);
+    
     
     return playerRandom;
     
@@ -275,6 +275,8 @@
         return;
     }else if(self.current <= 0){
         
+        
+        [self.btnRestart setEnabled:YES];
         [[self audioPlayer]stopSounds];
         
 //        [self.controladorDeJogadores removeJogador: indiceEliminado];
@@ -348,16 +350,19 @@
 
 
 - (IBAction)actionPronto:(id)sender {
+    
+    
+    
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
     
     
     
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
+   // NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
     
     [self enviaMensagemDoMeuStatusDe:YES];
     
     
-    
+    [self.btnRestart setEnabled:NO];
     if ([self.controladorDeJogadores todosProntos]) {
         todosProntos = [self.controladorDeJogadores todosProntos];
     }
