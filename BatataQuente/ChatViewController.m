@@ -87,7 +87,7 @@
 
 -(void)ativarAnimacaoEnviar{
     
-    if (todosProntos) {
+    if (YES) {
      
     
     [self.imgBatata setUserInteractionEnabled:NO];
