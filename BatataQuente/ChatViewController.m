@@ -84,6 +84,14 @@
     return YES;
 }
 
+-(BOOL)deviceIsIpad{
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        NSLog(@"iPad");
+        return  YES;
+    }else{
+        return NO;
+    }
+}
 
 -(void)ativarAnimacaoEnviar{
     
@@ -92,7 +100,10 @@
     
     [self.imgBatata setUserInteractionEnabled:NO];
     
-    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
+        
+        
+        
+    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviarWithPosition:self.imgBatata.center andDevice:[self deviceIsIpad]];
     
     [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
     
@@ -110,10 +121,14 @@
     
     
     
-    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviar:self.imgBatata.center];
+    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviarWithPosition:self.imgBatata.center andDevice:[self deviceIsIpad]];
+    
+    
     
     void (^blokAnimation)(void) = ^{
+        
         [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
+        
         [self.imgBatata setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
  
     };

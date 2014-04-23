@@ -55,7 +55,7 @@ static NSString * XXServiceType = @"batata-quente";
     [self setCrieiSala:NO];
 }
 -(void)viewWillAppear:(BOOL)animated{
-   // [self disconnect:nil];
+    
 }
 
 
@@ -178,6 +178,7 @@ static NSString * XXServiceType = @"batata-quente";
     
     
     [chat setBatata:self.crieiSala];
+    
     [chat setControladorDeJogadores:self.controladorJogadores];
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:chat animated:YES completion:nil];

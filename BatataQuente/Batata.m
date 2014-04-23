@@ -21,12 +21,15 @@
 }
 
 
--(CABasicAnimation*)animacaoEnviar:(CGPoint)posicao{
+-(CABasicAnimation*)animacaoEnviarWithPosition:(CGPoint)posicao andDevice:(BOOL)isIpad;{
+    
     CABasicAnimation *move = [CABasicAnimation animationWithKeyPath:@"position.x"];
     move.fromValue = [NSValue valueWithCGPoint:posicao];
-    
-    posicao.x += 600;
-    
+    if (isIpad) {
+        posicao.x += 760;
+    }else{
+        posicao.x += 600;
+    }
     
     move.toValue = [NSValue valueWithCGPoint:posicao];
     move.duration = 1;

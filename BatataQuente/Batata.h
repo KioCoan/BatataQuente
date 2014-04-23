@@ -13,5 +13,5 @@
 @property UIImage *imagemBatata;
 
 
--(CABasicAnimation*)animacaoEnviar:(CGPoint)posicao;
+-(CABasicAnimation*)animacaoEnviarWithPosition:(CGPoint)posicao andDevice:(BOOL)isIpad;
 @end
