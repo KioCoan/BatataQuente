@@ -140,6 +140,16 @@
                                     <action selector="actionRestart:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="h1M-gm-bSi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqt-ka-Ijj">
+                                <rect key="frame" x="57" y="684" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pronto">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionPronto:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="khD-mb-JXx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -155,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnPronto" destination="Zqt-ka-Ijj" id="Nh7-na-Yhk"/>
                         <outlet property="btnRestart" destination="KIS-j3-IJd" id="54W-yn-LGo"/>
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
                         <outlet property="tempoDecorrido" destination="Fq5-oy-rKZ" id="ZSj-Fy-NwR"/>

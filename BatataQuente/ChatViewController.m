@@ -69,7 +69,7 @@
     }
          //fuiEliminado = NO;
     
-    [self actionPronto:nil];
+    //[self actionPronto:nil];
     
 }
 
@@ -295,13 +295,14 @@
             [[self tempoDecorrido] setText:@"Ganhou!"];
             
             if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
-                [self.btnRestart setEnabled:NO];
+                [self.btnRestart setEnabled:YES];
                 
             }
         }
         
         [self.imgBatata removeGestureRecognizer:swipe];
         [self.timer invalidate];
+        
         
         
         return;
@@ -366,7 +367,8 @@
     if ([self.controladorDeJogadores todosProntos]) {
         todosProntos = [self.controladorDeJogadores todosProntos];
     }
-    
+    NSLog(@"OK!");
+    [self.btnPronto setEnabled:NO];
 }
 
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
