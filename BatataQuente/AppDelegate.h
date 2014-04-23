@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MCManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

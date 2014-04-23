@@ -30,11 +30,24 @@
     
     
     [self.loginView setDelegate:self];
+    
+    
     [self.loginView sizeToFit];
+    //self.loginView.readPermissions = @[@"basic_info",@"email",@"user_likes",@"user_photos"];
     self.loginView.readPermissions = @[@"basic_info"];
     
+    //Customiza foto do perfil
+    
+    self.fotoPerfil.layer.borderWidth = 1.0f;
+    self.fotoPerfil.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
+    
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
     
     
+    self.lblNomeUsuario.text = user.name;
+    self.fotoPerfil.profileID = user.id;
     
 }
 
