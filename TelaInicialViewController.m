@@ -27,6 +27,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    [self.loginView setDelegate:self];
+    [self.loginView sizeToFit];
+    self.loginView.readPermissions = @[@"basic_info"];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

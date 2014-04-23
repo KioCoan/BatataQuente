@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface TelaInicialViewController : UIViewController
+@interface TelaInicialViewController : UIViewController <FBLoginViewDelegate>
+
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *fotoPerfil;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+
 
 @end
