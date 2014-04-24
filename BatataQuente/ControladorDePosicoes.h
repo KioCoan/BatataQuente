@@ -13,10 +13,13 @@
 {
     NSArray *posicoesIpadFoto;
     NSArray *posicoesIpadIcone;
-    NSArray *posicoesIpodFoto;
-    NSArray *posicoesIpodIcone;
+    NSArray *posicoesIphoneFoto;
+    NSArray *posicoesIphoneIcone;
 }
 
--(CGRect)retornaPosicaoBesta;
+-(CGRect)retornaPosicaoIpadFoto:(int)index;
+-(CGRect)retornaPosicaoIpadIcone:(int)index;
+-(CGRect)retornaPosicaoIphoneFoto:(int)index;
+-(CGRect)retornaPosicaoIphoneIcone:(int)index;
 
 @end
