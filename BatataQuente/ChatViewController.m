@@ -57,7 +57,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
-    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
+    
+    [self actionPronto:self];
+    
+    [self.imgBatata setHidden:!self.batata];
+    [self.imgBatata setUserInteractionEnabled:self.batata];
+    if (self.batata) {
+        [[self audioPlayer]playBatata];
+    }
+    //ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
     
     //UIImageView *img = [[UIImageView alloc] initWithFrame:[posicoes retornaPosicaoBesta]];
     //[img setImage:[UIImage imageNamed:@"imagemPronto.png"]];
@@ -66,17 +74,6 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [self.imgBatata setHidden:!self.batata];
-    [self.imgBatata setUserInteractionEnabled:self.batata];
-    if (self.batata) {
-        [[self audioPlayer]playBatata];
-    }
-         //fuiEliminado = NO;
-    
-    //[self actionPronto:nil];
-    
-}
 
 
 -(void)didReceiveMemoryWarning{
@@ -223,11 +220,14 @@
     
     if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
         
-        
+        if(!todosProntos){
+            [self enviaMensagemDoMeuStatusDe:YES];
+        }
         
         [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
         todosProntos = [self.controladorDeJogadores todosProntos];
-    
+        
+        
     
     }else if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:2]]){
         
@@ -376,10 +376,7 @@
     
     
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
-    
-    
-    
-   // NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
+
     
     [self enviaMensagemDoMeuStatusDe:YES];
     

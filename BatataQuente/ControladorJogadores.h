@@ -23,4 +23,7 @@
 -(BOOL)saiuDoJogo:(NSString*)nomeJogador;
 -(void)jogadorComNome:(NSString*)nomeJogador estaPronto:(BOOL)status;
 -(BOOL)todosProntos;
+
+
+
 @end

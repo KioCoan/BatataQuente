@@ -25,9 +25,8 @@
 
 
 -(void)insereJogador:(NSString*)nomeJogador{
-    Jogador *j = [[Jogador alloc] init];
-    [j setNome:nomeJogador];
-    [j setPronto:NO];
+    Jogador *j = [[Jogador alloc] initWithNome:nomeJogador estaPronto:NO andImagem:nil];
+
     [jogadores addObject:j];
     
     

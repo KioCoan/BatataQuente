@@ -15,5 +15,6 @@
 @property UIImage *imagem;
 
 
+-(id)initWithNome:(NSString*)nome estaPronto:(BOOL)pronto andImagem:(UIImage*)imagem;
 
 @end

@@ -10,4 +10,16 @@
 
 @implementation Jogador
 
+-(id)initWithNome:(NSString*)nome estaPronto:(BOOL)pronto andImagem:(UIImage*)imagem{
+    self = [super init];
+    
+    if (self) {
+        [self setNome:nome];
+        [self setPronto:pronto];
+        [self setImagem:imagem];
+    }
+    
+    return self;
+}
+
 @end

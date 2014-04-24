@@ -13,7 +13,7 @@
 #import "ControladorJogadores.h"
 #import "ControladorDePosicoes.h"
 
-@interface ChatViewController : UIViewController <UITextFieldDelegate>
+@interface ChatViewController : UIViewController
 
 {
     UISwipeGestureRecognizer *swipe;

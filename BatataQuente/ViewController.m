@@ -144,7 +144,10 @@ static NSString * XXServiceType = @"batata-quente";
     
     [self setCrieiSala:NO];
     [self.btnVisivel setImage:[UIImage imageNamed:@"visivelOff.png"] forState:UIControlStateNormal];
-    [self visivel:nil];
+    
+    if(self.estaVisivel){
+        [self visivel:nil];
+    }
     
     
     [self.arrConnectedDevices removeAllObjects];
