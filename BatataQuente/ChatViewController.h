@@ -23,6 +23,7 @@
     BOOL fuiEliminado;
     NSString *myName;
     BOOL todosProntos;
+    BOOL envieiImagemPraTodos;
     
     
 }

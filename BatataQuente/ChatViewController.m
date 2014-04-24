@@ -57,9 +57,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
-    
+    //[self enviaMinhaImagem];
     self.current = 20;
-    
+    [self.controladorDeJogadores adicionaNoJogador:myName aImagem:self.myImage];
     [self actionPronto:self];
     
     [self.imgBatata setHidden:!self.batata];
@@ -67,6 +67,9 @@
     if (self.batata) {
         [[self audioPlayer]playBatata];
     }
+    envieiImagemPraTodos  = NO;
+    
+    
     //ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
     
     //UIImageView *img = [[UIImageView alloc] initWithFrame:[posicoes retornaPosicaoBesta]];
@@ -221,8 +224,20 @@
     
     switch (tipo) {
         case 1: //Méodo que gerencia as chamadas de pronto
+            
             NSLog(@"Passou %d",tipo);
             [self adicionaJogadorPronto:jogador];
+            
+            
+            //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
+            
+            if (todosProntos && !envieiImagemPraTodos) {
+                [self enviaMinhaImagem];
+                envieiImagemPraTodos = YES;
+                NSLog(@"Enviei");
+            }
+            
+            
             break;
         case 2: // altera pra jogador nao pronto
             NSLog(@"Passou %d",tipo);
@@ -231,7 +246,7 @@
         
         case 3://seta imagem de jogador
             NSLog(@"Passou %d",tipo);
-            [self.controladorDeJogadores adicionaNo:jogador a:[[notification userInfo]objectForKey:@"imagem"]];
+            [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
             break;
         
         default: //Mensagem normal de passagem de batatas
@@ -409,6 +424,7 @@
         [self mostrarDicaInicial];
     }
     
+    //[self enviaMinhaImagem];
     
     NSLog(@"OK!");
     [self.btnPronto setEnabled:NO];
