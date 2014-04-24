@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "Reachability.h"
+#import "ViewController.h"
 
 @interface TelaInicialViewController : UIViewController <FBLoginViewDelegate>
 
@@ -20,4 +21,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNomeUsuario;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imagemCapturada;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnProximaTela;
+
+- (IBAction)actionProximaTela;
+
+- (IBAction)capturaImagem:(id)sender;
 @end

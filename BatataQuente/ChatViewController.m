@@ -47,8 +47,8 @@
     
     self.audioPlayer = [[Audio alloc] init];
     
-    //self.myPersonagem.image = self.myImage;
-    //self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
+    self.myPersonagem.image = self.myImage;
+    self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     
     
 }
@@ -59,6 +59,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     //[self enviaMinhaImagem];
     self.current = 20;
@@ -265,7 +268,7 @@
     //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
    
     
-    if(todosProntos && !envieiMensagemToPronto){
+    if(!todosProntos && !envieiMensagemToPronto){
         //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
         [self enviaMensagemDoMeuStatusDe:YES];
         envieiMensagemToPronto = YES;
@@ -441,7 +444,7 @@
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
     NSArray *meuArray;
     if (pronto) {
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], self.myImage,myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
     }else{
          meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
     }

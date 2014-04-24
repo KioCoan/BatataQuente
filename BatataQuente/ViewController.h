@@ -23,7 +23,7 @@
 @property BOOL crieiSala;
 @property BOOL sexoMasculino;
 @property ControladorJogadores *controladorJogadores;
-
+@property UIImage *myImage;
 
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;

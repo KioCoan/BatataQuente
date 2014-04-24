@@ -49,10 +49,11 @@ static NSString * XXServiceType = @"batata-quente";
     [self.tbldispositivos setDataSource:self];
     self.estaVisivel = false;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
-    [self.iconePersonagem addGestureRecognizer:tap];
-    self.sexoMasculino = YES;
+    //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
+    //[self.iconePersonagem addGestureRecognizer:tap];
+    //self.sexoMasculino = YES;
     [self setCrieiSala:NO];
+    [self.iconePersonagem setImage:self.myImage];
 }
 -(void)viewWillAppear:(BOOL)animated{
     

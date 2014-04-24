@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMz-vw-J77">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMz-vw-J77">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -23,6 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="actionProximaTela" destination="RMz-vw-J77" eventType="touchUpInside" id="QAE-cZ-JkE"/>
                                     <segue destination="AHz-ct-oQZ" kind="modal" id="X7I-NA-0ev"/>
                                 </connections>
                             </button>
@@ -59,7 +60,7 @@
         <!--View Controller-->
         <scene sceneID="bdQ-p9-pl2">
             <objects>
-                <viewController id="AHz-ct-oQZ" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lobby" id="AHz-ct-oQZ" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2hJ-UM-K0y"/>
                         <viewControllerLayoutGuide type="bottom" id="Nov-4k-lW8"/>

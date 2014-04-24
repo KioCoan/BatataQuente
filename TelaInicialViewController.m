@@ -134,4 +134,32 @@
 }
 */
 
+- (UIImage*)capturaImagem {
+    
+    UIImage *imagemCapturada = [[UIImage alloc] init];
+    
+    for (NSObject *obj in [self.fotoPerfil subviews]) {
+        if ([obj isMemberOfClass:[UIImageView class]]) {
+            UIImageView *objImg = (UIImageView *)obj;
+            imagemCapturada = objImg.image;
+            break;
+        }
+    }
+    return imagemCapturada;
+}
+- (IBAction)actionProximaTela {
+
+    ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
+    
+    [lobby setMyImage:[self capturaImagem]];
+    
+    
+    lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:lobby animated:YES completion:nil];
+    
+    
+    
+    
+
+}
 @end
