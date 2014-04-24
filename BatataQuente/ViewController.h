@@ -24,6 +24,7 @@
 @property BOOL sexoMasculino;
 @property ControladorJogadores *controladorJogadores;
 
+
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;
 - (IBAction)disconnect:(id)sender;

@@ -89,5 +89,9 @@
     }
     return YES;
 }
+-(void)adicionaNo:(NSString*)player a:(UIImage*)imagem{
+    int i = [self retornaIndiceJogador:player];
+    [[jogadores objectAtIndex:i]setImagem:imagem];
+}
 
 @end

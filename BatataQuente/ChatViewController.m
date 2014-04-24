@@ -27,7 +27,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveDataWithNotification:) name:@"MCDidReceiveDataNotification" object:nil];
     
-    self.current = 20;
+    
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
@@ -57,6 +57,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
+    
+    self.current = 20;
     
     [self actionPronto:self];
     
@@ -101,9 +103,7 @@
      
     
     [self.imgBatata setUserInteractionEnabled:NO];
-    
-        
-        
+
         
     CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviarWithPosition:self.imgBatata.center andDevice:[self deviceIsIpad]];
     
@@ -181,7 +181,7 @@
         [[self audioPlayer]stopSounds];
         
         
-        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], playerRandom, nil];
+        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:4],[NSNumber numberWithDouble:self.current],@"imagem",playerRandom, nil];
         
         
         
@@ -217,42 +217,46 @@
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
     
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
+    int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
     
-    if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
+    switch (tipo) {
+        case 1: //Méodo que gerencia as chamadas de pronto
+            NSLog(@"Passou %d",tipo);
+            [self adicionaJogadorPronto:jogador];
+            break;
+        case 2: // altera pra jogador nao pronto
+            NSLog(@"Passou %d",tipo);
+            [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
+            break;
         
-        //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
-        if(!todosProntos){
-            //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
-            [self enviaMensagemDoMeuStatusDe:YES];
-        }
+        case 3://seta imagem de jogador
+            NSLog(@"Passou %d",tipo);
+            [self.controladorDeJogadores adicionaNo:jogador a:[[notification userInfo]objectForKey:@"imagem"]];
+            break;
         
-        [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
-        todosProntos = [self.controladorDeJogadores todosProntos];
-        
-        
-        //SE TODOS ESTIVEREM PRONTOS, É CHAMADO UM MÉTODO QUE MOSTRA UMA MENSAGEM PARA QUEM ESTIVER COM A BATATA INICIAL, E PARA QUEM NÃO ESTIVER, APENAS LIMPA A TELA
-        if(todosProntos){
-            [self mostrarDicaInicial];
-        }
-        
-    
-    }else if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:2]]){
-        
-        [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
-        
-    }
-    
-    else{
-        // Passa a batata
-        
-       
+        default: //Mensagem normal de passagem de batatas
+            NSLog(@"Passou %d",tipo);
             [self passaBatata:notification];
-        
-        
+            break;
     }
 
 }
-
+-(void)adicionaJogadorPronto:(NSString*)jogador{
+    //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
+    if(!todosProntos){
+        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
+        [self enviaMensagemDoMeuStatusDe:YES];
+    }
+    
+    [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
+    todosProntos = [self.controladorDeJogadores todosProntos];
+    
+    
+    //SE TODOS ESTIVEREM PRONTOS, É CHAMADO UM MÉTODO QUE MOSTRA UMA MENSAGEM PARA QUEM ESTIVER COM A BATATA INICIAL, E PARA QUEM NÃO ESTIVER, APENAS LIMPA A TELA
+    if(todosProntos){
+        [self mostrarDicaInicial];
+    }
+}
 
 -(void)mostrarDicaInicial{
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -413,9 +417,9 @@
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
     NSArray *meuArray;
     if (pronto) {
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
     }else{
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
     }
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -428,4 +432,29 @@
 
     
 }
+
+-(void)enviaMinhaImagem{
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
+    
+    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:dataToSend
+                                         toPeers:allPeers
+                                        withMode:MCSessionSendDataReliable
+                                           error:&error];
+}
+
+//-(void)adicionaImagensNaTela{
+//   
+//    for (int i = 1; <#condition#>; <#increment#>) {
+//        <#statements#>
+//    }
+//    
+//    if ([self deviceIsIpad]) {
+//        
+//    }
+//}
+
 @end

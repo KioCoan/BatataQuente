@@ -26,7 +26,7 @@
     
     
 }
-
+@property UIImage *myImage;
 @property ControladorJogadores *controladorDeJogadores;
 @property Audio *audioPlayer;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBatata;

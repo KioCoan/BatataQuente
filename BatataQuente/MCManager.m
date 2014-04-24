@@ -77,7 +77,8 @@
     NSDictionary *dict = @{@"tipo": [arrayData objectAtIndex:0],
                            @"tempo": [arrayData objectAtIndex:1],
                            @"peerID": peerID,
-                           @"embatatado": [arrayData objectAtIndex:2]
+                           @"imagem": [arrayData objectAtIndex:2],
+                           @"embatatado": [arrayData objectAtIndex:3]
                            };
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"

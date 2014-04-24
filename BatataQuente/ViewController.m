@@ -181,8 +181,10 @@ static NSString * XXServiceType = @"batata-quente";
     
     
     [chat setBatata:self.crieiSala];
-    
+    [chat setMyImage:[[self iconePersonagem] image]];
     [chat setControladorDeJogadores:self.controladorJogadores];
+    
+    
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:chat animated:YES completion:nil];
     
