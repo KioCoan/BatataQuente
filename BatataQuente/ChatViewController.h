@@ -49,6 +49,7 @@
 @property NSTimer *timer;
 @property NSTimeInterval current;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblMensagens;
 
 @property (weak, nonatomic) IBOutlet UILabel *tempoDecorrido;
 

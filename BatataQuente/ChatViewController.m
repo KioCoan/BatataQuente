@@ -168,7 +168,7 @@
     
     if (todosProntos) {
         
-        
+        self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
         NSString *playerRandom  = [self retornaPlayerRandom];
         
@@ -220,13 +220,20 @@
     
     if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:1]]) {
         
+        //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
         if(!todosProntos){
+            //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
             [self enviaMensagemDoMeuStatusDe:YES];
         }
         
         [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
         todosProntos = [self.controladorDeJogadores todosProntos];
         
+        
+        //SE TODOS ESTIVEREM PRONTOS, É CHAMADO UM MÉTODO QUE MOSTRA UMA MENSAGEM PARA QUEM ESTIVER COM A BATATA INICIAL, E PARA QUEM NÃO ESTIVER, APENAS LIMPA A TELA
+        if(todosProntos){
+            [self mostrarDicaInicial];
+        }
         
     
     }else if ([[[notification userInfo]objectForKey:@"tipo"]isEqualToNumber:[NSNumber numberWithInt:2]]){
@@ -243,12 +250,23 @@
         
         
     }
-    
-    
-    
 
 }
 
+
+-(void)mostrarDicaInicial{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    
+        if(self.batata){
+            
+            self.lblMensagens.text = @"Arraste sobre a batata para iniciar.";
+            
+        }else{
+            self.lblMensagens.text = @"";
+        }
+        
+    }];
+}
 
 
 -(void)passaBatata:(NSNotification *)notification{
@@ -384,7 +402,10 @@
     [self.btnRestart setEnabled:NO];
     if ([self.controladorDeJogadores todosProntos]) {
         todosProntos = [self.controladorDeJogadores todosProntos];
+        [self mostrarDicaInicial];
     }
+    
+    
     NSLog(@"OK!");
     [self.btnPronto setEnabled:NO];
 }

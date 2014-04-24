@@ -163,7 +163,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIf-gJ-3qy">
-                                <rect key="frame" x="133" y="176" width="78" height="21"/>
+                                <rect key="frame" x="124" y="111" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -211,6 +211,13 @@
                                 <rect key="frame" x="230" y="283" width="26" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aguardando todos os jogadores..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="obo-PW-Rk1">
+                                <rect key="frame" x="93" y="162" width="134" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -229,6 +236,7 @@
                         <outlet property="btnPronto" destination="3V1-gA-z9P" id="SIh-bO-phl"/>
                         <outlet property="btnRestart" destination="TOo-Ik-Hlo" id="6DT-b5-Her"/>
                         <outlet property="imgBatata" destination="Xg0-Ea-KIK" id="5cv-t3-sHD"/>
+                        <outlet property="lblMensagens" destination="obo-PW-Rk1" id="Ssn-El-dKo"/>
                         <outlet property="tempoDecorrido" destination="BIf-gJ-3qy" id="AKP-cY-5fR"/>
                     </connections>
                 </viewController>

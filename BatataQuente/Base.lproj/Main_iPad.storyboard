@@ -109,12 +109,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1033"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aguardando todos os jogadores..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-m3-Eg0">
+                                <rect key="frame" x="275" y="271" width="218" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeMasculino.png" translatesAutoresizingMaskIntoConstraints="NO" id="CI5-zD-hlg">
                                 <rect key="frame" x="636" y="490" width="116" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-oy-rKZ">
-                                <rect key="frame" x="345" y="376" width="78" height="21"/>
+                                <rect key="frame" x="345" y="224" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -176,6 +183,7 @@
                         <outlet property="btnPronto" destination="Zqt-ka-Ijj" id="Nh7-na-Yhk"/>
                         <outlet property="btnRestart" destination="KIS-j3-IJd" id="54W-yn-LGo"/>
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
+                        <outlet property="lblMensagens" destination="ebr-m3-Eg0" id="DaH-Pq-BEV"/>
                         <outlet property="tempoDecorrido" destination="Fq5-oy-rKZ" id="ZSj-Fy-NwR"/>
                     </connections>
                 </viewController>
