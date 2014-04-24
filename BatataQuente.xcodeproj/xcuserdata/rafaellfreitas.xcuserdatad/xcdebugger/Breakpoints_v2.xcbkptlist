@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420042448.680799"
+            timestampString = "420053325.176754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "-passaBatata:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420042448.680799"
+            timestampString = "420053325.176754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "-actionRestart:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,13 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420042448.680799"
+            timestampString = "420053325.176754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "@implementation ChatViewController"
-            landmarkType = "3">
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "-restart"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420042448.680799"
+            timestampString = "420053325.176754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-didReceiveDataWithNotification:"
             landmarkType = "5">
          </BreakpointContent>
