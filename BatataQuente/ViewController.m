@@ -174,9 +174,9 @@ static NSString * XXServiceType = @"batata-quente";
         
     }
     
+    [self.controladorJogadores adicionaNoJogador:[self.appDelegate.mcManager.peerID displayName] aImagem:self.iconePersonagem.image];
     
-    
-    ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];;
+    ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];
     
     
     

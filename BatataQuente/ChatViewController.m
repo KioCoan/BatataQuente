@@ -47,6 +47,9 @@
     
     self.audioPlayer = [[Audio alloc] init];
     
+    self.myPersonagem.image = self.myImage;
+    self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
+    
     
 }
 

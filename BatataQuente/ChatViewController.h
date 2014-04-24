@@ -27,6 +27,10 @@
     
     
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *myPersonagem;
+@property (weak, nonatomic) IBOutlet UILabel *lblMeuNome;
+
 @property UIImage *myImage;
 @property ControladorJogadores *controladorDeJogadores;
 @property Audio *audioPlayer;
