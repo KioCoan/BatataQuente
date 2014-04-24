@@ -464,7 +464,7 @@
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
 }
-
+//
 //-(void)adicionaImagensNaTela{
 //   
 //    for (int i = 1; <#condition#>; <#increment#>) {
