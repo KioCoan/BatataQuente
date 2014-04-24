@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "Reachability.h"
 
 @interface TelaInicialViewController : UIViewController <FBLoginViewDelegate>
 
