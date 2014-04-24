@@ -49,13 +49,25 @@ static NSString * XXServiceType = @"batata-quente";
     [self.tbldispositivos setDataSource:self];
     self.estaVisivel = false;
     
-    //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
-    //[self.iconePersonagem addGestureRecognizer:tap];
-    //self.sexoMasculino = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
+    [self.iconePersonagem addGestureRecognizer:tap];
+    self.sexoMasculino = YES;
     [self setCrieiSala:NO];
-    [self.iconePersonagem setImage:self.myImage];
+    
+    
+    
+    //configuracao foto
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
+    
+    [self.iconePersonagem setImage:self.myImage];
+    //self.iconePersonagem.layer.borderWidth = 1.0f;
+    CGRect x = self.iconePersonagem.bounds;
+    
+    self.iconePersonagem.layer.cornerRadius = CGRectGetHeight(x)/2.0f;
+    //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
+    self.iconePersonagem.clipsToBounds = YES;
     
 }
 
