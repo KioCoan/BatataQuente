@@ -93,5 +93,9 @@
     int i = [self retornaIndiceJogador:player];
     [[jogadores objectAtIndex:i]setImagem:imagem];
 }
+-(UIImage*)retornaImagemDoGogador:(int)i{
+    
+    return [[jogadores objectAtIndex:i]imagem ];
+}
 
 @end

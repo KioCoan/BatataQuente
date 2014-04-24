@@ -24,6 +24,7 @@
     NSString *myName;
     BOOL todosProntos;
     BOOL envieiImagemPraTodos;
+    BOOL envieiMensagemToPronto;
     
     
 }

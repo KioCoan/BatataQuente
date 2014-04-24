@@ -47,8 +47,8 @@
     
     self.audioPlayer = [[Audio alloc] init];
     
-    self.myPersonagem.image = self.myImage;
-    self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
+    //self.myPersonagem.image = self.myImage;
+    //self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     
     
 }
@@ -71,6 +71,7 @@
         [[self audioPlayer]playBatata];
     }
     envieiImagemPraTodos  = NO;
+    envieiMensagemToPronto = NO;
     
     
     //ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
@@ -81,6 +82,7 @@
     
     
 }
+
 
 
 
@@ -261,9 +263,12 @@
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
     //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
-    if(!todosProntos){
+   
+    
+    if(todosProntos && !envieiMensagemToPronto){
         //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
         [self enviaMensagemDoMeuStatusDe:YES];
+        envieiMensagemToPronto = YES;
     }
     
     [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
@@ -436,7 +441,7 @@
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
     NSArray *meuArray;
     if (pronto) {
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], self.myImage,myName, nil];
     }else{
          meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
     }
@@ -452,6 +457,22 @@
     
 }
 
+-(void)respondoMensagemDePronto:(NSNotification *)notification{
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage,myName, nil];
+    
+    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+    //NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSArray *peer = [[notification userInfo]objectForKey:@"peerID"];
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:dataToSend
+                                         toPeers:peer
+                                        withMode:MCSessionSendDataReliable
+                                           error:&error];
+    
+    
+}
+
 -(void)enviaMinhaImagem{
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
     
@@ -464,16 +485,51 @@
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
 }
-//
-//-(void)adicionaImagensNaTela{
-//   
-//    for (int i = 1; <#condition#>; <#increment#>) {
-//        <#statements#>
-//    }
-//    
-//    if ([self deviceIsIpad]) {
-//        
-//    }
-//}
+
+-(void)adicionaImagensNaTela{
+    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc] init];
+    BOOL isIpad = [self deviceIsIpad];
+    CGRect pos;
+    for (int i = 1; i<=[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
+        if (isIpad) {
+            pos = [posicoes retornaPosicaoIpadFoto:i];
+        }else{
+            pos = [posicoes retornaPosicaoIphoneFoto:i];
+        }
+        
+       
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:pos];
+            [imageView setImage:[self.controladorDeJogadores retornaImagemDoGogador:i]];
+            [self.view addSubview:imageView];
+        
+        
+        
+    }
+    
+    if ([self deviceIsIpad]) {
+        
+    }
+}
+
+-(void)exibeImagemDoJogador:(NSString*)nome imagem:(UIImage*)imagem{
+    
+    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc] init];
+    BOOL isIpad = [self deviceIsIpad];
+    CGRect pos;
+    
+    for (int i = 1; i<=[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
+        if (isIpad) {
+            pos = [posicoes retornaPosicaoIpadFoto:i];
+        }else{
+            pos = [posicoes retornaPosicaoIphoneFoto:i];
+        }
+        int i = [self.controladorDeJogadores retornaIndiceJogador:nome];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:pos];
+        [imageView setImage:[self.controladorDeJogadores retornaImagemDoGogador:i]];
+        [self.view addSubview:imageView];
+    }
+}
 
 @end

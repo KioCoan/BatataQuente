@@ -24,7 +24,7 @@
 -(void)jogadorComNome:(NSString*)nomeJogador estaPronto:(BOOL)status;
 -(BOOL)todosProntos;
 -(void)adicionaNoJogador:(NSString*)player aImagem:(UIImage*)imagem;
-
+-(UIImage*)retornaImagemDoGogador:(int)i;
 
 
 @end
