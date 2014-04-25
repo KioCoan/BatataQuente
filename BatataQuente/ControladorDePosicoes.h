@@ -22,4 +22,6 @@
 -(CGRect)retornaPosicaoIphoneFoto:(int)index;
 -(CGRect)retornaPosicaoIphoneIcone:(int)index;
 
+-(int)countVetorPosicoes;
+
 @end

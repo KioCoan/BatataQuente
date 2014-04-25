@@ -47,7 +47,6 @@
     
     self.audioPlayer = [[Audio alloc] init];
     
-    self.myPersonagem.image = self.myImage;
     self.lblMeuNome.text = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     
     
@@ -77,11 +76,18 @@
     envieiMensagemToPronto = NO;
     
     
-    //ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc]init];
+    if(self.deviceIsIpad){
+        CGRect frame = self.view.frame;
+        frame.size.height = 632;
+        imagensTela = [[ImagensTelaPartida alloc] initWithFrame:frame isIpad:YES];
+        
+    }else{
+        CGRect frame = self.view.frame;
+        frame.size.height = 318;
+        imagensTela = [[ImagensTelaPartida alloc] initWithFrame:frame isIpad:NO];
+    }
     
-    //UIImageView *img = [[UIImageView alloc] initWithFrame:[posicoes retornaPosicaoBesta]];
-    //[img setImage:[UIImage imageNamed:@"imagemPronto.png"]];
-    //[self.view addSubview:img];
+    [[self view] addSubview:imagensTela];
     
     
 }
@@ -185,7 +191,7 @@
         
         
         
-        eliminado = playerRandom;
+        self.eliminado = playerRandom;
         
         [self selecionaIndiceParaEliminar];
         
@@ -219,7 +225,7 @@
 
 -(void)selecionaIndiceParaEliminar{
     for (int i = 0; i<[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
-        if ([eliminado isEqualToString:[self.controladorDeJogadores retornaNomeDeJogaddor:i]] ) {
+        if ([self.eliminado isEqualToString:[self.controladorDeJogadores retornaNomeDeJogaddor:i]] ) {
             indiceEliminado = i;
         }
     }
@@ -229,39 +235,42 @@
     
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
     int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
-    
-    switch (tipo) {
-        case 1: //Méodo que gerencia as chamadas de pronto
-            
-            NSLog(@"Passou %d",tipo);
-            [self adicionaJogadorPronto:jogador];
-            
-            
-            //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
-            
-            if (todosProntos && !envieiImagemPraTodos) {
-                [self enviaMinhaImagem];
-                envieiImagemPraTodos = YES;
-                NSLog(@"Enviei");
-            }
-            
-            
-            break;
-        case 2: // altera pra jogador nao pronto
-            NSLog(@"Passou %d",tipo);
-            [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
-            break;
-        
-        case 3://seta imagem de jogador
-            NSLog(@"Passou %d",tipo);
-            [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
-            break;
-        
-        default: //Mensagem normal de passagem de batatas
-            NSLog(@"Passou %d",tipo);
-            [self passaBatata:notification];
-            break;
-    }
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        switch (tipo) {
+            case 1: //Méodo que gerencia as chamadas de pronto
+                
+                NSLog(@"Passou %d",tipo);
+                [self adicionaJogadorPronto:jogador];
+                
+                
+                //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
+                
+                if (todosProntos && !envieiImagemPraTodos) {
+                    [self enviaMinhaImagem];
+                    envieiImagemPraTodos = YES;
+                    NSLog(@"Enviei");
+                }
+                
+                
+                break;
+            case 2: // altera pra jogador nao pronto
+                NSLog(@"Passou %d",tipo);
+                [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
+                break;
+                
+            case 3://seta imagem de jogador
+                NSLog(@"Passou %d",tipo);
+                
+                [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
+                [self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
+                break;
+                
+            default: //Mensagem normal de passagem de batatas
+                NSLog(@"Passou %d",tipo);
+                [self passaBatata:notification];
+                break;
+        }
+    }];
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
@@ -271,7 +280,7 @@
     if(!todosProntos && !envieiMensagemToPronto){
         //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
         [self enviaMensagemDoMeuStatusDe:YES];
-        envieiMensagemToPronto = YES;
+        
     }
     
     [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
@@ -280,12 +289,13 @@
     
     //SE TODOS ESTIVEREM PRONTOS, É CHAMADO UM MÉTODO QUE MOSTRA UMA MENSAGEM PARA QUEM ESTIVER COM A BATATA INICIAL, E PARA QUEM NÃO ESTIVER, APENAS LIMPA A TELA
     if(todosProntos){
+        envieiMensagemToPronto = YES;
         [self mostrarDicaInicial];
     }
 }
 
 -(void)mostrarDicaInicial{
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    
     
         if(self.batata){
             
@@ -295,7 +305,7 @@
             self.lblMensagens.text = @"";
         }
         
-    }];
+    
 }
 
 
@@ -304,7 +314,7 @@
 //        return;
 //    }
     proximoEmbatatado = NO;
-    eliminado = [[notification userInfo]objectForKey:@"embatatado"];
+    self.eliminado = [[notification userInfo]objectForKey:@"embatatado"];
     
     
     
@@ -397,6 +407,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 -(void)restart{
     if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
         return;
@@ -420,9 +431,7 @@
 
 
 - (IBAction)actionPronto:(id)sender {
-    
-    
-    
+
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
 
     
@@ -440,6 +449,7 @@
     NSLog(@"OK!");
     [self.btnPronto setEnabled:NO];
 }
+
 
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
     NSArray *meuArray;
@@ -489,50 +499,17 @@
                                            error:&error];
 }
 
--(void)adicionaImagensNaTela{
-    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc] init];
-    BOOL isIpad = [self deviceIsIpad];
-    CGRect pos;
-    for (int i = 1; i<=[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
-        if (isIpad) {
-            pos = [posicoes retornaPosicaoIpadFoto:i];
-        }else{
-            pos = [posicoes retornaPosicaoIphoneFoto:i];
-        }
+
+
+-(void)adicionaImagensNaTela:(NSString*)nome imagem:(UIImage*)imagem{
+        int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
-       
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:pos];
-            [imageView setImage:[self.controladorDeJogadores retornaImagemDoGogador:i]];
-            [self.view addSubview:imageView];
-        
-        
-        
-    }
+        [imagensTela setImagemFoto:index-1 imagem:imagem];
     
-    if ([self deviceIsIpad]) {
-        
-    }
+    
+    
 }
 
--(void)exibeImagemDoJogador:(NSString*)nome imagem:(UIImage*)imagem{
-    
-    ControladorDePosicoes *posicoes = [[ControladorDePosicoes alloc] init];
-    BOOL isIpad = [self deviceIsIpad];
-    CGRect pos;
-    
-    for (int i = 1; i<=[self.controladorDeJogadores retornaNumeroDeJogadores]; i++) {
-        if (isIpad) {
-            pos = [posicoes retornaPosicaoIpadFoto:i];
-        }else{
-            pos = [posicoes retornaPosicaoIphoneFoto:i];
-        }
-        int i = [self.controladorDeJogadores retornaIndiceJogador:nome];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:pos];
-        [imageView setImage:[self.controladorDeJogadores retornaImagemDoGogador:i]];
-        [self.view addSubview:imageView];
-    }
-}
+
 
 @end

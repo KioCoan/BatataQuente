@@ -147,19 +147,19 @@
     }
     return imagemCapturada;
 }
+
+
 - (IBAction)actionProximaTela {
 
     ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
     
+
     [lobby setMyImage:[self capturaImagem]];
     
     
     lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:lobby animated:YES completion:nil];
-    
-    
-    
-    
 
 }
+
 @end

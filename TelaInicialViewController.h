@@ -21,11 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNomeUsuario;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imagemCapturada;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnProximaTela;
 
 - (IBAction)actionProximaTela;
 
-- (IBAction)capturaImagem:(id)sender;
 @end

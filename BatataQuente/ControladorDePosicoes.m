@@ -54,10 +54,13 @@
 }
 
 
+-(int)countVetorPosicoes{
+    return posicoesIpadFoto.count;
+}
+
 //POSIÇÕES DO ICONE E FOTO NO iPod ------------------------------------------
 -(void)inicializaArrayDePosicoesIphoneIcone{
     posicoesIphoneIcone = [NSArray arrayWithObjects:
-                        [NSValue valueWithCGRect:CGRectMake(149, 74, 26, 22)],
                         [NSValue valueWithCGRect:CGRectMake(149, 74, 26, 22)],
                         [NSValue valueWithCGRect:CGRectMake(88, 98, 26, 22)],
                         [NSValue valueWithCGRect:CGRectMake(206, 98, 26, 22)],
@@ -70,7 +73,6 @@
 
 -(void)inicializaArrayDePosicoesIphoneFoto{
     posicoesIphoneFoto = [NSArray arrayWithObjects:
-                        [NSValue valueWithCGRect:CGRectMake(129, 8, 63, 65)],
                         [NSValue valueWithCGRect:CGRectMake(129, 8, 63, 65)],
                         [NSValue valueWithCGRect:CGRectMake(28, 52, 63, 65)],
                         [NSValue valueWithCGRect:CGRectMake(226, 52, 63, 65)],

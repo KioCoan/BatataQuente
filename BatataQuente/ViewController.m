@@ -60,6 +60,7 @@ static NSString * XXServiceType = @"batata-quente";
     
 }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     [self.iconePersonagem setImage:self.myImage];
     //self.iconePersonagem.layer.borderWidth = 1.0f;

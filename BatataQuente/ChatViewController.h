@@ -12,24 +12,24 @@
 #import "Audio.h"
 #import "ControladorJogadores.h"
 #import "ControladorDePosicoes.h"
+#import "ImagensTelaPartida.h"
 
 @interface ChatViewController : UIViewController
 
 {
     UISwipeGestureRecognizer *swipe;
     int indiceEliminado;
-    NSString *eliminado;
+    NSString *_eliminado;
     BOOL proximoEmbatatado;
     BOOL fuiEliminado;
     NSString *myName;
     BOOL todosProntos;
     BOOL envieiImagemPraTodos;
     BOOL envieiMensagemToPronto;
-    
+    ImagensTelaPartida *imagensTela;
     
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *myPersonagem;
 @property (weak, nonatomic) IBOutlet UILabel *lblMeuNome;
 
 @property UIImage *myImage;

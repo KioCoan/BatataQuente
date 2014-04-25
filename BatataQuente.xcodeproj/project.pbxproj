@@ -37,6 +37,8 @@
 		BD237C3D1904D70A005B4D2E /* Batata.m in Sources */ = {isa = PBXBuildFile; fileRef = BD237C3C1904D70A005B4D2E /* Batata.m */; };
 		BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */; };
 		BD3FE66B1905FF71005CBCA6 /* ControladorJogadores.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */; };
+		BD5A1A12190A110C00D46269 /* ImagensTelaPartida.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */; };
+		BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5A1A16190A4B5500D46269 /* imagemEliminado.png */; };
 		BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22B719035E10008C637E /* iconeFeminino.png */; };
 		BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22B819035E10008C637E /* iconeMasculino.png */; };
 		BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22BB190362B6008C637E /* fundoTelaInicial.png */; };
@@ -106,6 +108,9 @@
 		BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaPartida.png; path = Imagens/fundoTelaPartida.png; sourceTree = "<group>"; };
 		BD3FE6691905FF71005CBCA6 /* ControladorJogadores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControladorJogadores.h; sourceTree = "<group>"; };
 		BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControladorJogadores.m; sourceTree = "<group>"; };
+		BD5A1A10190A110C00D46269 /* ImagensTelaPartida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagensTelaPartida.h; sourceTree = "<group>"; };
+		BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagensTelaPartida.m; sourceTree = "<group>"; };
+		BD5A1A16190A4B5500D46269 /* imagemEliminado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemEliminado.png; path = Imagens/imagemEliminado.png; sourceTree = "<group>"; };
 		BD7B22B719035E10008C637E /* iconeFeminino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconeFeminino.png; path = Imagens/iconeFeminino.png; sourceTree = "<group>"; };
 		BD7B22B819035E10008C637E /* iconeMasculino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconeMasculino.png; path = Imagens/iconeMasculino.png; sourceTree = "<group>"; };
 		BD7B22BB190362B6008C637E /* fundoTelaInicial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaInicial.png; path = Imagens/fundoTelaInicial.png; sourceTree = "<group>"; };
@@ -211,6 +216,8 @@
 				A541DC6E1906E7050083AF06 /* Jogador.m */,
 				A5251F35190858FF00AA6BAD /* ControladorDePosicoes.h */,
 				A5251F36190858FF00AA6BAD /* ControladorDePosicoes.m */,
+				BD5A1A10190A110C00D46269 /* ImagensTelaPartida.h */,
+				BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */,
 			);
 			path = BatataQuente;
 			sourceTree = "<group>";
@@ -257,6 +264,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BD5A1A16190A4B5500D46269 /* imagemEliminado.png */,
 				E595146F19083C1C006C6BD4 /* imagemPronto.png */,
 				BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */,
 				BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */,
@@ -355,6 +363,7 @@
 				BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
+				BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */,
 				E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */,
 				BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */,
 				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
@@ -400,6 +409,7 @@
 				84A84E101908382900FD6ECD /* TelaInicialViewController.m in Sources */,
 				848940A819098EC70094DD03 /* Reachability.m in Sources */,
 				A520E04218FFF74400E0292C /* main.m in Sources */,
+				BD5A1A12190A110C00D46269 /* ImagensTelaPartida.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
