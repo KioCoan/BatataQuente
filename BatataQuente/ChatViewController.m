@@ -276,7 +276,7 @@
             [self passaBatata:notification];
             break;
     }
-    //}];
+   // }];
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
@@ -304,7 +304,7 @@
 
 -(void)mostrarDicaInicial{
     
-    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         if(self.batata){
             
             self.lblMensagens.text = @"Arraste sobre a batata para iniciar.";
@@ -312,7 +312,7 @@
         }else{
             self.lblMensagens.text = @"";
         }
-        
+    }];
     
 }
 
@@ -329,7 +329,7 @@
     [self selecionaIndiceParaEliminar];
     
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
         self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
         
         self.iniciaTempo = YES;
@@ -349,7 +349,7 @@
         }
         
         
-    }];
+   // }];
     
 
 }
@@ -495,7 +495,7 @@
 }
 
 -(void)enviaMinhaImagem{
-    dispatch_async(dispatch_get_main_queue(), ^{
+    //dispatch_async(dispatch_get_main_queue(), ^{
     
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
     
@@ -507,17 +507,18 @@
                                          toPeers:allPeers
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
-    });
+    //});
 }
 
 
 
 -(void)adicionaImagensNaTela:(NSString*)nome imagem:(UIImage*)imagem{
-        int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
         [imagensTela setImagemFoto:index-1 imagem:imagem];
     
-    
+    }];
     
 }
 
