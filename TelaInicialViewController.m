@@ -155,12 +155,24 @@
     
 
     
-    [lobby setMyImage:[self capturaImagem]];
+    [lobby setMyImage: [self alterarTamanhoImagem]];
     
     
     lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:lobby animated:YES completion:nil];
 
+}
+
+- (UIImage *)alterarTamanhoImagem{
+    UIImage *image = [self capturaImagem];
+    CGSize newSize = CGSizeMake(250, 259);
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

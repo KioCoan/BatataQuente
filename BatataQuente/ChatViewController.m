@@ -91,7 +91,7 @@
     [[self view] addSubview:imagensTela];
    
     [self.view bringSubviewToFront:self.btnRestart];
-    [self.view sendSubviewToBack:imagensTela];
+    //[self.view sendSubviewToBack:imagensTela];
     
 }
 
@@ -423,7 +423,7 @@
         [self ativarAnimacaoReceber];
     }
     [self.imgBatata addGestureRecognizer:swipe];
-    self.current = 60;
+    self.current = 20;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
@@ -515,6 +515,8 @@
     
     
 }
+
+
 
 
 
