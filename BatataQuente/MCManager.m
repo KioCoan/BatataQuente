@@ -74,6 +74,7 @@
     
     NSArray *arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
+    
     NSDictionary *dict = @{@"tipo": [arrayData objectAtIndex:0],
                            @"tempo": [arrayData objectAtIndex:1],
                            @"peerID": peerID,

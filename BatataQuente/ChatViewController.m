@@ -33,6 +33,7 @@
     
     
     
+    //self.myPersonagem.image = self.myImage;
     
     [self.appDelegate.mcManager.session myPeerID ];
     self.minhaBatata = [[Batata alloc] init];
@@ -62,7 +63,7 @@
     [super viewWillAppear:animated];
     
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
-    //[self enviaMinhaImagem];
+    [self enviaMinhaImagem];
     self.current = 20;
     [self.controladorDeJogadores adicionaNoJogador:myName aImagem:self.myImage];
     [self actionPronto:self];
@@ -88,7 +89,7 @@
     }
     
     [[self view] addSubview:imagensTela];
-    
+   
     
 }
 
@@ -235,61 +236,63 @@
     
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
     int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        switch (tipo) {
-            case 1: //Méodo que gerencia as chamadas de pronto
-                
-                NSLog(@"Passou %d",tipo);
-                [self adicionaJogadorPronto:jogador];
-                
-                
-                //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
-                
-                if (todosProntos && !envieiImagemPraTodos) {
-                    [self enviaMinhaImagem];
-                    envieiImagemPraTodos = YES;
-                    NSLog(@"Enviei");
-                }
-                
-                
-                break;
-            case 2: // altera pra jogador nao pronto
-                NSLog(@"Passou %d",tipo);
-                [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
-                break;
-                
-            case 3://seta imagem de jogador
-                NSLog(@"Passou %d",tipo);
-                
-                [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
-                [self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
-                break;
-                
-            default: //Mensagem normal de passagem de batatas
-                NSLog(@"Passou %d",tipo);
-                [self passaBatata:notification];
-                break;
-        }
-    }];
+    
+    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    switch (tipo) {
+        case 1: //Méodo que gerencia as chamadas de pronto
+            
+            NSLog(@"Passou %d",tipo);
+            [self adicionaJogadorPronto:jogador];
+            
+            
+            //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
+           // NSLog(@"PAssou 1 %hhd , %hhd", todosProntos, envieiMensagemToPronto);
+            if (todosProntos && !envieiImagemPraTodos) {
+                [self enviaMinhaImagem];
+                envieiImagemPraTodos = YES;
+                NSLog(@"Enviei");
+            }
+            
+            
+            break;
+        case 2: // altera pra jogador nao pronto
+            NSLog(@"Passou %d",tipo);
+            [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
+            break;
+            
+        case 3://seta imagem de jogador
+            NSLog(@"Passou %d",tipo);
+            [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
+            break;
+            
+        default: //Mensagem normal de passagem de batatas
+            NSLog(@"Passou %d",tipo);
+            [self passaBatata:notification];
+            break;
+    }
+    //}];
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
     //VERIFICA SE FALTA ALGUM JOGADOR CLICAR EM INICIAR
    
-    
-    if(!todosProntos && !envieiMensagemToPronto){
-        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
-        [self enviaMensagemDoMeuStatusDe:YES];
-        
-    }
-    
     [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
     todosProntos = [self.controladorDeJogadores todosProntos];
+    NSLog(@" Todos Prontos %hhd",todosProntos);
+    
+    
+    NSLog(@"Adiciona %hhd , %hhd", todosProntos, envieiMensagemToPronto);
+    if(todosProntos && !envieiMensagemToPronto){
+        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
+        [self enviaMensagemDoMeuStatusDe:YES];
+        envieiMensagemToPronto = YES;
+    }
+    
     
     
     //SE TODOS ESTIVEREM PRONTOS, É CHAMADO UM MÉTODO QUE MOSTRA UMA MENSAGEM PARA QUEM ESTIVER COM A BATATA INICIAL, E PARA QUEM NÃO ESTIVER, APENAS LIMPA A TELA
     if(todosProntos){
-        envieiMensagemToPronto = YES;
         [self mostrarDicaInicial];
     }
 }
@@ -497,6 +500,7 @@
                                          toPeers:allPeers
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
+   
 }
 
 
