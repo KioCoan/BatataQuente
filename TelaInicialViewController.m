@@ -165,7 +165,7 @@
 
 - (UIImage *)alterarTamanhoImagem{
     UIImage *image = [self capturaImagem];
-    CGSize newSize = CGSizeMake(250, 259);
+    CGSize newSize = CGSizeMake(150, 156);
     
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     
