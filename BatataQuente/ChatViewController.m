@@ -90,6 +90,8 @@
     
     [[self view] addSubview:imagensTela];
    
+    [self.view bringSubviewToFront:self.btnRestart];
+    [self.view sendSubviewToBack:imagensTela];
     
 }
 
