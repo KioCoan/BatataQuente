@@ -62,13 +62,20 @@ static NSString * XXServiceType = @"batata-quente";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.iconePersonagem setImage:self.myImage];
-    //self.iconePersonagem.layer.borderWidth = 1.0f;
-    CGRect x = self.iconePersonagem.bounds;
+    if(self.myImage == nil){
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
+        
+    }else{
+        [self.iconePersonagem setImage:self.myImage];
+        //self.iconePersonagem.layer.borderWidth = 1.0f;
+        CGRect x = self.iconePersonagem.bounds;
+        
+        self.iconePersonagem.layer.cornerRadius = CGRectGetHeight(x)/2.0f;
+        //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
+        self.iconePersonagem.clipsToBounds = YES;
+    }
     
-    self.iconePersonagem.layer.cornerRadius = CGRectGetHeight(x)/2.0f;
-    //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
-    self.iconePersonagem.clipsToBounds = YES;
+    
     
 }
 

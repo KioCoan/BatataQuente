@@ -154,6 +154,7 @@
     ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
     
 
+    
     [lobby setMyImage:[self capturaImagem]];
     
     
