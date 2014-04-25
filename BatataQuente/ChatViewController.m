@@ -239,7 +239,7 @@
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
     int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
     switch (tipo) {
         case 1: //Méodo que gerencia as chamadas de pronto
             
@@ -263,17 +263,20 @@
             break;
             
         case 3://seta imagem de jogador
+          
             NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
-            break;
+            
+           
+               break;
             
         default: //Mensagem normal de passagem de batatas
             NSLog(@"Passou %d",tipo);
             [self passaBatata:notification];
             break;
     }
-    }];
+    //}];
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
@@ -492,6 +495,8 @@
 }
 
 -(void)enviaMinhaImagem{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
     
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
@@ -502,7 +507,7 @@
                                          toPeers:allPeers
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
-   
+    });
 }
 
 
