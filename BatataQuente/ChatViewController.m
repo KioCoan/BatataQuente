@@ -237,7 +237,7 @@
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
     int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
     
-    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
     switch (tipo) {
         case 1: //Méodo que gerencia as chamadas de pronto
             
@@ -271,7 +271,7 @@
             [self passaBatata:notification];
             break;
     }
-    //}];
+    }];
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
