@@ -20,6 +20,6 @@
 
 
 - (id)initWithFrame:(CGRect)frame isIpad:(BOOL)device;
--(void)setImagemFoto:(int)index imagem:(UIImage*)img;
+-(void)setImagemFoto:(int)index imagem:(NSString*)img;
 
 @end

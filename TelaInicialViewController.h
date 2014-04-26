@@ -14,15 +14,10 @@
 @interface TelaInicialViewController : UIViewController <FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *fotoPerfil;
-
-
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *lblNomeUsuario;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *btnProximaTela;
+
 
 - (IBAction)actionProximaTela;
 

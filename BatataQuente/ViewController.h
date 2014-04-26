@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "ControladorJogadores.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface ViewController : UIViewController <UITextFieldDelegate, MCBrowserViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -19,11 +20,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtNome;
 @property (weak, nonatomic) IBOutlet UITableView *tbldispositivos;
 @property (weak, nonatomic) IBOutlet UIButton *btnDisconnect;
+
+@property FBProfilePictureView *fotoPerfil;
 @property BOOL estaVisivel;
 @property BOOL crieiSala;
-@property BOOL sexoMasculino;
 @property ControladorJogadores *controladorJogadores;
-@property UIImage *myImage;
+@property NSString *myImage;
+@property NSString *imgFace;
 
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;

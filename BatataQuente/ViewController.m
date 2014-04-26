@@ -51,7 +51,7 @@ static NSString * XXServiceType = @"batata-quente";
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
     [self.iconePersonagem addGestureRecognizer:tap];
-    self.sexoMasculino = YES;
+
     [self setCrieiSala:NO];
     
     
@@ -61,18 +61,28 @@ static NSString * XXServiceType = @"batata-quente";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
+    
+    self.fotoPerfil = [[FBProfilePictureView alloc] initWithFrame:self.iconePersonagem.frame];
+    [self.fotoPerfil addGestureRecognizer:tap];
+    self.fotoPerfil.userInteractionEnabled = YES;
+    
     
     if(self.myImage == nil){
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
+        self.myImage = @"iconeMasculino.png";
+        self.imgFace = nil;
+
         
     }else{
-        [self.iconePersonagem setImage:self.myImage];
-        //self.iconePersonagem.layer.borderWidth = 1.0f;
-        CGRect x = self.iconePersonagem.bounds;
+        self.imgFace = self.myImage;
+        [self.fotoPerfil setProfileID:self.myImage];
         
-        self.iconePersonagem.layer.cornerRadius = CGRectGetHeight(x)/2.0f;
-        //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
-        self.iconePersonagem.clipsToBounds = YES;
+        self.fotoPerfil.layer.borderWidth = 1.0f;
+        self.fotoPerfil.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
+        
+        self.iconePersonagem.hidden = YES;
+        [[self view] addSubview:self.fotoPerfil];
     }
     
     
@@ -87,16 +97,51 @@ static NSString * XXServiceType = @"batata-quente";
 }
 
 -(void)mudaImagemPersonagem{
-    if(self.sexoMasculino){
-        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
-        self.sexoMasculino = NO;
+    if(!self.imgFace){
+        [self exibeImagensPadrao];
     
     }else{
+        [self exibeImagenDoFace];
+    }
+    
+    
+    
+}
+
+
+-(void)exibeImagensPadrao{
+    if([self.myImage isEqualToString:@"iconeMasculino.png"]){
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
+        self.myImage = @"iconeFeminino.png";
+        
+    }else{
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
-        self.sexoMasculino = YES;
+        self.myImage = @"iconeMasculino.png";
+        
     }
 }
 
+
+-(void)exibeImagenDoFace{
+    if([self.myImage isEqualToString:@"iconeMasculino.png"]){
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
+        self.myImage = @"iconeFeminino.png";
+        
+    }else if([self.myImage isEqualToString:@"iconeFeminino.png"]){
+        [self.iconePersonagem setImage:[UIImage imageNamed:self.imgFace]];
+        self.myImage = self.imgFace;
+        [[self view] bringSubviewToFront:self.fotoPerfil];
+        self.iconePersonagem.hidden = YES;
+        self.fotoPerfil.hidden = NO;
+        
+    }else{
+        [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
+        self.myImage = @"iconeMasculino.png";
+        [[self view] bringSubviewToFront:self.iconePersonagem];
+        self.iconePersonagem.hidden = NO;
+        self.fotoPerfil.hidden = YES;
+    }
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -195,14 +240,14 @@ static NSString * XXServiceType = @"batata-quente";
         
     }
     
-    [self.controladorJogadores adicionaNoJogador:[self.appDelegate.mcManager.peerID displayName] aImagem:self.iconePersonagem.image];
+    [self.controladorJogadores adicionaNoJogador:[self.appDelegate.mcManager.peerID displayName] aImagem:self.myImage];
     
     ChatViewController *chat = [self.storyboard instantiateViewControllerWithIdentifier:@"viewChat"];
     
     
     
     [chat setBatata:self.crieiSala];
-    [chat setMyImage:[[self iconePersonagem] image]];
+    [chat setMyImage:self.myImage];
     
     NSLog(@"%@", [[self iconePersonagem] image]);
     [chat setControladorDeJogadores:self.controladorJogadores];

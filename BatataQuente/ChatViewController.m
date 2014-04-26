@@ -284,10 +284,7 @@
    
     [self.controladorDeJogadores jogadorComNome:jogador estaPronto:YES];
     todosProntos = [self.controladorDeJogadores todosProntos];
-    NSLog(@" Todos Prontos %hhd",todosProntos);
-    
-    
-    NSLog(@"Adiciona %hhd , %hhd", todosProntos, envieiMensagemToPronto);
+
     if(todosProntos && !envieiMensagemToPronto){
         //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
         [self enviaMensagemDoMeuStatusDe:YES];
@@ -515,7 +512,7 @@
 
 
 
--(void)adicionaImagensNaTela:(NSString*)nome imagem:(UIImage*)imagem{
+-(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem{
     //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
     //dispatch_async(dispatch_get_main_queue(), ^{
     int index = [self.controladorDeJogadores retornaIndiceJogador:nome];

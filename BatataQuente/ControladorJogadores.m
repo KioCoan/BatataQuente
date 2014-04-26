@@ -89,11 +89,11 @@
     }
     return YES;
 }
--(void)adicionaNoJogador:(NSString*)player aImagem:(UIImage*)imagem{
+-(void)adicionaNoJogador:(NSString*)player aImagem:(NSString*)imagem{
     int i = [self retornaIndiceJogador:player];
     [[jogadores objectAtIndex:i]setImagem:imagem];
 }
--(UIImage*)retornaImagemDoGogador:(int)i{
+-(NSString*)retornaImagemDoGogador:(int)i{
     
     return [[jogadores objectAtIndex:i]imagem ];
 }

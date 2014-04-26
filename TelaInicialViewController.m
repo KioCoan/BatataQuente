@@ -46,8 +46,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    
+    [super viewWillAppear:animated];
     [self verificaConexao];
+    
 }
 
 - (void)configuracaoObjetosFacebook: (BOOL)opcao{
@@ -147,18 +148,35 @@
 }
 
 
+- (IBAction)teste:(id)sender {
+    FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
+    NSString *teste = @"100002301463835";
+    [foto setProfileID:@"100002301463835.png"];
+    if ([teste rangeOfString:@".png"].location == NSNotFound) {
+        NSLog(@"nao contem");
+    }
+    
+    [[self view] addSubview:foto];
+}
+
 - (IBAction)actionProximaTela {
 
     ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
     //[self.fotoPerfil.subviews objectAtIndex:0];
     NSLog(@"Estou indo para proximo tela");
     
-    [lobby setMyImage: [self capturaImagem]];
+    if(self.verificaConexao){
+        [lobby setMyImage: self.fotoPerfil.profileID];
+    
+    }else{
+        [lobby setMyImage: nil];
+    }
     
     
     lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:lobby animated:YES completion:nil];
 }
+
 
 - (UIImage *)alterarTamanhoImagem{
     NSLog(@"Alterando tamanho da imagem");

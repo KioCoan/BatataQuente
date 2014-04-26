@@ -12,9 +12,9 @@
 
 @property NSString *nome;
 @property BOOL pronto;
-@property UIImage *imagem;
+@property NSString *imagem;
 
 
--(id)initWithNome:(NSString*)nome estaPronto:(BOOL)pronto andImagem:(UIImage*)imagem;
+-(id)initWithNome:(NSString*)nome estaPronto:(BOOL)pronto andImagem:(NSString*)imagem;
 
 @end

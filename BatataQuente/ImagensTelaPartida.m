@@ -65,9 +65,9 @@
 
 
 
--(void)setImagemFoto:(int)index imagem:(UIImage*)img{
+-(void)setImagemFoto:(int)index imagem:(NSString*)img{
     UIImageView *imgViewFoto = [arrayFotos objectAtIndex:index];
-    [imgViewFoto setImage:img];
+    [imgViewFoto setImage:[UIImage imageNamed:img]];
     
     [arrayFotos replaceObjectAtIndex:index withObject:imgViewFoto];
     
