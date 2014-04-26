@@ -71,6 +71,9 @@
 
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
+    if(!data){
+        
+    }
     
     NSArray *arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     

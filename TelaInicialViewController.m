@@ -138,13 +138,11 @@
     
     UIImage *imagemCapturada = [[UIImage alloc] init];
     
-    for (NSObject *obj in [self.fotoPerfil subviews]) {
-        if ([obj isMemberOfClass:[UIImageView class]]) {
-            UIImageView *objImg = (UIImageView *)obj;
-            imagemCapturada = objImg.image;
-            break;
-        }
-    }
+    UIImageView *imgView = [self.fotoPerfil.subviews objectAtIndex:0];
+    
+    imagemCapturada = imgView.image;
+    
+     NSLog(@"Pegando imagem do facebook");
     return imagemCapturada;
 }
 
@@ -152,18 +150,18 @@
 - (IBAction)actionProximaTela {
 
     ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
-    
-
+    //[self.fotoPerfil.subviews objectAtIndex:0];
+    NSLog(@"Estou indo para proximo tela");
     
     [lobby setMyImage: [self alterarTamanhoImagem]];
     
     
     lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:lobby animated:YES completion:nil];
 
 }
 
 - (UIImage *)alterarTamanhoImagem{
+    NSLog(@"Alterando tamanho da imagem");
     UIImage *image = [self capturaImagem];
     CGSize newSize = CGSizeMake(150, 156);
     
