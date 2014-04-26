@@ -50,6 +50,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnRestart;
+@property (weak, nonatomic) IBOutlet UIButton *btnVoltar;
 
 - (IBAction)actionRestart:(id)sender;
 @property NSTimer *timer;
