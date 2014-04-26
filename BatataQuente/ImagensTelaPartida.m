@@ -8,6 +8,7 @@
 //
 
 #import "ImagensTelaPartida.h"
+#import "Reachability.h"
 
 @implementation ImagensTelaPartida
 
@@ -67,15 +68,11 @@
 
 -(void)setImagemFoto:(int)index imagem:(NSString*)img{
     
+    
+    
     if(![self isImagemDoFace:img]){
-        CGRect frame = [[arrayFotos objectAtIndex:index] frame];
-        FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:frame];
-        [foto setProfileID:img];
-        foto.layer.borderWidth = 1.0f;
-        foto.layer.cornerRadius = CGRectGetWidth(foto.bounds) / 2.0f;
         
-        [arrayFotos replaceObjectAtIndex:index withObject:foto];
-
+        [self adicionarImagemFacebook:index :img];
     
     }else{
         UIImageView *imgViewFoto = [arrayFotos objectAtIndex:index];
@@ -97,6 +94,33 @@
     
     [self addSubview:[arrayIcones objectAtIndex:index]];
 }
+
+
+
+-(void)adicionarImagemFacebook:(int)index :(NSString*)img{
+    Reachability *networkReability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReability currentReachabilityStatus];
+    
+    if(networkStatus == NotReachable){
+        UIImageView *imgViewFoto = [arrayFotos objectAtIndex:index];
+        [imgViewFoto setImage:[UIImage imageNamed:@"foto-padrao-facebook.jpg"]];
+        imgViewFoto.layer.borderWidth = 1.0f;
+        imgViewFoto.layer.cornerRadius = CGRectGetWidth(imgViewFoto.bounds) / 2.0f;
+        
+        [arrayFotos replaceObjectAtIndex:index withObject:imgViewFoto];
+        
+        return;
+    }
+    
+    CGRect frame = [[arrayFotos objectAtIndex:index] frame];
+    FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:frame];
+    [foto setProfileID:img];
+    foto.layer.borderWidth = 1.0f;
+    foto.layer.cornerRadius = CGRectGetWidth(foto.bounds) / 2.0f;
+    
+    [arrayFotos replaceObjectAtIndex:index withObject:foto];
+}
+
 
 
 -(BOOL)isImagemDoFace:(NSString*)img{

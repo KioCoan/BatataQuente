@@ -53,18 +53,11 @@ static NSString * XXServiceType = @"batata-quente";
     [self.iconePersonagem addGestureRecognizer:tap];
 
     [self setCrieiSala:NO];
+
     
-    
-    
-    //configuracao foto
-    
-}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
-    
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mudaImagemPersonagem)];
     self.fotoPerfil = [[FBProfilePictureView alloc] initWithFrame:self.iconePersonagem.frame];
-    [self.fotoPerfil addGestureRecognizer:tap];
+    [self.fotoPerfil addGestureRecognizer:tap2];
     self.fotoPerfil.userInteractionEnabled = YES;
     
     
@@ -72,7 +65,7 @@ static NSString * XXServiceType = @"batata-quente";
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
         self.myImage = @"iconeMasculino.png";
         self.imgFace = nil;
-
+        
         
     }else{
         self.imgFace = self.myImage;
@@ -80,12 +73,16 @@ static NSString * XXServiceType = @"batata-quente";
         
         self.fotoPerfil.layer.borderWidth = 1.0f;
         self.fotoPerfil.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
-        
-        self.iconePersonagem.hidden = YES;
         [[self view] addSubview:self.fotoPerfil];
+        
+        
+        [[self iconePersonagem] setImage:nil];
+        [[self iconePersonagem] setBackgroundColor:[UIColor whiteColor]];
+        self.iconePersonagem.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
     }
+
     
-    
+    //configuracao foto
     
 }
 
@@ -95,6 +92,7 @@ static NSString * XXServiceType = @"batata-quente";
     [super didReceiveMemoryWarning];
     
 }
+
 
 -(void)mudaImagemPersonagem{
     if(!self.imgFace){
@@ -108,7 +106,7 @@ static NSString * XXServiceType = @"batata-quente";
     
 }
 
-
+//SE O CARA ESTIVER USANDO A FOTO DO FACE ELE TERÁ 2 OPÇÕES DE IMAGENS PADRÕES
 -(void)exibeImagensPadrao{
     if([self.myImage isEqualToString:@"iconeMasculino.png"]){
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
@@ -122,10 +120,12 @@ static NSString * XXServiceType = @"batata-quente";
 }
 
 
+//SE O CARA ESTIVER USANDO A FOTO DO FACE ELE TERÁ 3 OPÇÕES DE IMAGENS
 -(void)exibeImagenDoFace{
     if([self.myImage isEqualToString:@"iconeMasculino.png"]){
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeFeminino.png"]];
         self.myImage = @"iconeFeminino.png";
+        
         
     }else if([self.myImage isEqualToString:@"iconeFeminino.png"]){
         [self.iconePersonagem setImage:[UIImage imageNamed:self.imgFace]];
@@ -138,10 +138,12 @@ static NSString * XXServiceType = @"batata-quente";
         [self.iconePersonagem setImage:[UIImage imageNamed:@"iconeMasculino.png"]];
         self.myImage = @"iconeMasculino.png";
         [[self view] bringSubviewToFront:self.iconePersonagem];
+        [[self iconePersonagem] setBackgroundColor:[UIColor clearColor]];
         self.iconePersonagem.hidden = NO;
         self.fotoPerfil.hidden = YES;
     }
 }
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
