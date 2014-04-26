@@ -153,17 +153,17 @@
     //[self.fotoPerfil.subviews objectAtIndex:0];
     NSLog(@"Estou indo para proximo tela");
     
-    [lobby setMyImage: [self alterarTamanhoImagem]];
+    [lobby setMyImage: [self capturaImagem]];
     
     
     lobby.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
+    [self presentViewController:lobby animated:YES completion:nil];
 }
 
 - (UIImage *)alterarTamanhoImagem{
     NSLog(@"Alterando tamanho da imagem");
     UIImage *image = [self capturaImagem];
-    CGSize newSize = CGSizeMake(150, 156);
+    CGSize newSize = CGSizeMake(250, 259);
     
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     

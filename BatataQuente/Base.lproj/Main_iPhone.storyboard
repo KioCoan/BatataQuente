@@ -24,11 +24,10 @@
                                 </state>
                                 <connections>
                                     <action selector="actionProximaTela" destination="RMz-vw-J77" eventType="touchUpInside" id="QAE-cZ-JkE"/>
-                                    <segue destination="AHz-ct-oQZ" kind="modal" id="X7I-NA-0ev"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6no-wE-gOx" customClass="FBProfilePictureView">
-                                <rect key="frame" x="116" y="84" width="80" height="80"/>
+                                <rect key="frame" x="114" y="121" width="93" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -140,7 +139,6 @@
                         <outlet property="iconePersonagem" destination="i6Z-k1-KkL" id="YD1-bO-C4k"/>
                         <outlet property="tbldispositivos" destination="t5p-mG-iFX" id="7kV-bM-A2L"/>
                         <outlet property="txtNome" destination="GbU-oC-mBP" id="y8K-hd-Yxz"/>
-                        <segue destination="fgZ-Nq-nVc" kind="modal" identifier="viewChat" id="ir8-wa-wl5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k45-OQ-59g" sceneMemberID="firstResponder"/>

@@ -63,7 +63,7 @@
     [super viewWillAppear:animated];
     
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
-    [self enviaMinhaImagem];
+    //[self enviaMinhaImagem];
     self.current = 20;
     [self.controladorDeJogadores adicionaNoJogador:myName aImagem:self.myImage];
     [self actionPronto:self];
@@ -304,7 +304,8 @@
 
 -(void)mostrarDicaInicial{
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //dispatch_async(dispatch_get_main_queue(), ^{
         if(self.batata){
             
             self.lblMensagens.text = @"Arraste sobre a batata para iniciar.";
@@ -312,7 +313,7 @@
         }else{
             self.lblMensagens.text = @"";
         }
-    }];
+    //});
     
 }
 
@@ -462,9 +463,9 @@
 -(void)enviaMensagemDoMeuStatusDe:(BOOL)pronto{
     NSArray *meuArray;
     if (pronto) {
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithDouble:self.current], @"imagem", myName, nil];
     }else{
-         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], @"imagem",myName, nil];
+         meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],[NSNumber numberWithDouble:self.current], @"imagem", myName, nil];
     }
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -499,6 +500,8 @@
     
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
     
+    
+    
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -513,12 +516,13 @@
 
 
 -(void)adicionaImagensNaTela:(NSString*)nome imagem:(UIImage*)imagem{
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    //dispatch_async(dispatch_get_main_queue(), ^{
     int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
         [imagensTela setImagemFoto:index-1 imagem:imagem];
     
-    }];
+    //});
     
 }
 

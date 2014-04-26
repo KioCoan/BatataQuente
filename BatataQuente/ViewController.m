@@ -203,15 +203,14 @@ static NSString * XXServiceType = @"batata-quente";
     
     [chat setBatata:self.crieiSala];
     [chat setMyImage:[[self iconePersonagem] image]];
+    
+    NSLog(@"%@", [[self iconePersonagem] image]);
     [chat setControladorDeJogadores:self.controladorJogadores];
     
     
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:chat animated:YES completion:nil];
     
-    
-    
-    //[self performSegueWithIdentifier:@"viewChat" sender:nil];
 }
 
 
@@ -244,10 +243,6 @@ static NSString * XXServiceType = @"batata-quente";
         
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
-//                int indexOfPeer = [self.arrConnectedDevices indexOfObject:peerDisplayName];
-//                int teste = [self.arrConnectedDevices indexOfObject:@"oi"];
-//                NSLog(@"index %d",indexOfPeer);
-//                [self.arrConnectedDevices removeObjectAtIndex:indexOfPeer];
                 
                 
             }
@@ -268,7 +263,6 @@ static NSString * XXServiceType = @"batata-quente";
     }
     
     }];
-    [self.btnIniciar setNeedsDisplay];
 }
 
 
