@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ControladorDePosicoes.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ImagensTelaPartida : UIView
 {

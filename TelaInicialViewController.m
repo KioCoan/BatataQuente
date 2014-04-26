@@ -152,9 +152,7 @@
     FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
     NSString *teste = @"100002301463835";
     [foto setProfileID:@"100002301463835.png"];
-    if ([teste rangeOfString:@".png"].location == NSNotFound) {
-        NSLog(@"nao contem");
-    }
+    
     
     [[self view] addSubview:foto];
 }

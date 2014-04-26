@@ -66,10 +66,25 @@
 
 
 -(void)setImagemFoto:(int)index imagem:(NSString*)img{
-    UIImageView *imgViewFoto = [arrayFotos objectAtIndex:index];
-    [imgViewFoto setImage:[UIImage imageNamed:img]];
     
-    [arrayFotos replaceObjectAtIndex:index withObject:imgViewFoto];
+    if(![self isImagemDoFace:img]){
+        CGRect frame = [[arrayFotos objectAtIndex:index] frame];
+        FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:frame];
+        [foto setProfileID:img];
+        foto.layer.borderWidth = 1.0f;
+        foto.layer.cornerRadius = CGRectGetWidth(foto.bounds) / 2.0f;
+        
+        [arrayFotos replaceObjectAtIndex:index withObject:foto];
+
+    
+    }else{
+        UIImageView *imgViewFoto = [arrayFotos objectAtIndex:index];
+        [imgViewFoto setImage:[UIImage imageNamed:img]];
+        
+        [arrayFotos replaceObjectAtIndex:index withObject:imgViewFoto];
+    }
+    
+    
     
     [self addSubview:[arrayFotos objectAtIndex:index]];
     
@@ -81,6 +96,15 @@
     [arrayIcones replaceObjectAtIndex:index withObject:imgViewIcone];
     
     [self addSubview:[arrayIcones objectAtIndex:index]];
+}
+
+
+-(BOOL)isImagemDoFace:(NSString*)img{
+    if ([img rangeOfString:@".png"].location == NSNotFound) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

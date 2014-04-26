@@ -450,7 +450,7 @@
         [self mostrarDicaInicial];
     }
     
-    //[self enviaMinhaImagem];
+    [self enviaMinhaImagem];
     
     NSLog(@"OK!");
     [self.btnPronto setEnabled:NO];
