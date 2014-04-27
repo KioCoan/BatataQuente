@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="kup-m0-ybP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="kup-m0-ybP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -129,7 +129,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="voltar:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="ohb-5T-TQn"/>
+                                    <action selector="voltar:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="FtC-Vh-eXN"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemBatata.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2d-7Z-m0m">
@@ -173,6 +173,7 @@
                     <connections>
                         <outlet property="btnPronto" destination="Zqt-ka-Ijj" id="Nh7-na-Yhk"/>
                         <outlet property="btnRestart" destination="KIS-j3-IJd" id="54W-yn-LGo"/>
+                        <outlet property="btnVoltar" destination="dIj-iy-hqq" id="o6K-N1-SL5"/>
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
                         <outlet property="lblMensagens" destination="ebr-m3-Eg0" id="DaH-Pq-BEV"/>
                         <outlet property="tempoDecorrido" destination="Fq5-oy-rKZ" id="ZSj-Fy-NwR"/>
