@@ -202,7 +202,7 @@
         [[self audioPlayer]stopSounds];
         
         
-        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:4],[NSNumber numberWithDouble:self.current],@"imagem",playerRandom, nil];
+        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:5],[NSNumber numberWithDouble:self.current],@"imagem",playerRandom, nil];
         
         
         
@@ -267,10 +267,16 @@
           
             NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
-            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
-            
+            //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:NO];
            
                break;
+            
+        case 4: //jogador perdeu
+            
+            NSLog(@"Passou %d", tipo);
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
+            
             
         default: //Mensagem normal de passagem de batatas
             NSLog(@"Passou %d",tipo);
@@ -370,6 +376,7 @@
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
+            [self enviaMensagemPerdi:YES];
 //            fuiEliminado = YES;
             [self.btnRestart setEnabled:NO];
             [self.controladorDeJogadores jogadorComNome:myName estaPronto:NO];
@@ -477,6 +484,19 @@
     
 }
 
+-(void)enviaMensagemPerdi: (BOOL)perdi{
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:4],[NSNumber numberWithDouble:self.current], @"imagemEliminado", myName, nil];
+    
+    NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
+    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:dataToSend
+                                         toPeers:allPeers
+                                        withMode:MCSessionSendDataReliable
+                                           error:&error];
+}
+
 -(void)respondoMensagemDePronto:(NSNotification *)notification{
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage,myName, nil];
     
@@ -513,12 +533,18 @@
 
 
 
--(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem{
+-(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem perdeu:(BOOL)perdeu{
     //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
     //dispatch_async(dispatch_get_main_queue(), ^{
     int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
+    if (!perdeu) {
         [imagensTela setImagemFoto:index-1 imagem:imagem];
+    }else{
+        [imagensTela alteraIcone:index-1 status:NO];
+    }
+    
+    
     
     //});
     

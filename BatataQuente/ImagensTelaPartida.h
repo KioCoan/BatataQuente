@@ -22,5 +22,6 @@
 
 - (id)initWithFrame:(CGRect)frame isIpad:(BOOL)device;
 -(void)setImagemFoto:(int)index imagem:(NSString*)img;
+-(void)alteraIcone:(int)index status:(BOOL)status;
 
 @end

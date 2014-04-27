@@ -86,13 +86,15 @@
     [self addSubview:[arrayFotos objectAtIndex:index]];
     
     
-    
+   /*
     UIImageView *imgViewIcone = [arrayIcones objectAtIndex:index];
     [imgViewIcone setImage:[UIImage imageNamed:@"imagemPronto.png"]];
     
     [arrayIcones replaceObjectAtIndex:index withObject:imgViewIcone];
     
-    [self addSubview:[arrayIcones objectAtIndex:index]];
+    [self addSubview:[arrayIcones objectAtIndex:index]];  */
+    
+    [self alteraIcone:index status:YES];
 }
 
 
@@ -119,6 +121,23 @@
     foto.layer.cornerRadius = CGRectGetWidth(foto.bounds) / 2.0f;
     
     [arrayFotos replaceObjectAtIndex:index withObject:foto];
+}
+
+-(void)alteraIcone:(int)index status:(BOOL)status{
+    UIImageView *imgViewIcone = [arrayIcones objectAtIndex:index];
+    
+    if (status) {
+        [imgViewIcone setImage:[UIImage imageNamed:@"imagemPronto.png"]];
+    }else{
+        [imgViewIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
+    }
+    
+    
+    
+    [arrayIcones replaceObjectAtIndex:index withObject:imgViewIcone];
+    
+    [self addSubview:[arrayIcones objectAtIndex:index]];
+
 }
 
 
