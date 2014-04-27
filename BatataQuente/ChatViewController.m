@@ -262,6 +262,17 @@
         case 2: // altera pra jogador nao pronto
             //NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
+            
+            //verifica se é o fim do jogo
+            if ([self.tempoDecorrido.text isEqual:@"Ganhou!"]) {
+                if ([self fimJogo]) {
+                    [self enviaMensagemVencedor];
+                    //self.btnRestart.enabled = YES;
+                    [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
+                }
+
+            }
             break;
             
         case 3://seta imagem de jogador
@@ -273,10 +284,14 @@
            
                break;
             
-        case 4: //jogador perdeu
+        case 4: //Vencedor
             
             //NSLog(@"Passou %d", tipo);
-            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
+            
+            
+            self.btnRestart.enabled = YES;
+            [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
+            
             
             break;
             
@@ -364,8 +379,11 @@
 
 - (BOOL)fimJogo{
     
+    if ([self.controladorDeJogadores retornaNumeroDeJogadoresProntos] <= 1) {
+        return YES;
+    }
     
-    return YES;
+    return NO;
 }
 
 -(void)decrementaTempo{
@@ -385,7 +403,7 @@
         if (self.batata ) {
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
-            [self enviaMensagemPerdi:YES];
+            //[self enviaMensagemPerdi:YES];
 //            fuiEliminado = YES;
             [self.btnRestart setEnabled:NO];
             [self.controladorDeJogadores jogadorComNome:myName estaPronto:NO];
@@ -395,10 +413,12 @@
             
             [[self tempoDecorrido] setText:@"Ganhou!"];
             
-            if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
+            
+            
+           /* if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
                 [self.btnRestart setEnabled:YES];
                 
-            }
+            }*/
         }
         
         [self.imgBatata removeGestureRecognizer:swipe];
@@ -417,8 +437,10 @@
     self.current -=1;
     int x = self.current;
     [[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
-
+    
+    
     [self.view setNeedsDisplay];
+    
 }
 
 
@@ -427,11 +449,12 @@
 
 - (IBAction)voltar:(id)sender {
     
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
--(void)restart{
+-(void)continuar{
     //NSLog(@"numero jogadores %d",[self.controladorDeJogadores retornaNumeroDeJogadores]);
     if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
         return;
@@ -449,7 +472,14 @@
 
 
 - (IBAction)actionRestart:(id)sender {
-    [self restart];
+    
+    if ([self.btnRestart.titleLabel.text isEqual:@"Restart"]) {
+        [self.btnRestart setTitle:@"Continue" forState:UIControlStateNormal];
+    }else{
+        [self continuar];
+    }
+    
+    
     [self.btnRestart setEnabled:NO];
 }
 
@@ -494,8 +524,8 @@
     
 }
 
--(void)enviaMensagemPerdi: (BOOL)perdi{
-    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:4],[NSNumber numberWithDouble:self.current], @"imagemEliminado", myName, nil];
+-(void)enviaMensagemVencedor{
+    NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:4],[NSNumber numberWithDouble:self.current], @"imagem", myName, nil];
     
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;

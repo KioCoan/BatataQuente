@@ -25,6 +25,7 @@
 -(BOOL)todosProntos;
 -(void)adicionaNoJogador:(NSString*)player aImagem:(NSString*)imagem;
 -(UIImage*)retornaImagemDoGogador:(int)i;
+- (int)retornaNumeroDeJogadoresProntos;
 
 
 @end

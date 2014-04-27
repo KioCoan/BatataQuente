@@ -98,4 +98,16 @@
     return [[jogadores objectAtIndex:i]imagem ];
 }
 
+- (int)retornaNumeroDeJogadoresProntos{
+    int n = 0;
+    for (Jogador *j in jogadores){
+        if ([j pronto]) {
+            n+= 1;
+        }
+    }
+    NSLog(@"numero de jogadores %d",n);
+    return n;
+
+}
+
 @end
