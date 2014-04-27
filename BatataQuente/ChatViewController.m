@@ -191,6 +191,7 @@
         
         self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
+        NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
         NSString *playerRandom  = [self retornaPlayerRandom];
         
         
@@ -217,7 +218,7 @@
         self.batata = NO;
         
         if (error) {
-            NSLog(@"%@", [error localizedDescription]);
+           // NSLog(@"%@", [error localizedDescription]);
         }
         
     }
@@ -244,7 +245,7 @@
     switch (tipo) {
         case 1: //Méodo que gerencia as chamadas de pronto
             
-            NSLog(@"Passou %d",tipo);
+            //NSLog(@"Passou %d",tipo);
             [self adicionaJogadorPronto:jogador];
             
             
@@ -253,19 +254,19 @@
             if (todosProntos && !envieiImagemPraTodos) {
                 [self enviaMinhaImagem];
                 envieiImagemPraTodos = YES;
-                NSLog(@"Enviei");
+                //NSLog(@"Enviei");
             }
             
             
             break;
         case 2: // altera pra jogador nao pronto
-            NSLog(@"Passou %d",tipo);
+            //NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
             break;
             
         case 3://seta imagem de jogador
           
-            NSLog(@"Passou %d",tipo);
+            //NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
             //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:NO];
@@ -274,9 +275,10 @@
             
         case 4: //jogador perdeu
             
-            NSLog(@"Passou %d", tipo);
+            //NSLog(@"Passou %d", tipo);
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
             
+            break;
             
         default: //Mensagem normal de passagem de batatas
             NSLog(@"Passou %d",tipo);
@@ -327,6 +329,7 @@
 //        return;
 //    }
     proximoEmbatatado = NO;
+    NSLog(@"proximo embatatado: %hhd",proximoEmbatatado);
     self.eliminado = [[notification userInfo]objectForKey:@"embatatado"];
     
     
@@ -357,6 +360,12 @@
    // }];
     
 
+}
+
+- (BOOL)fimJogo{
+    
+    
+    return YES;
 }
 
 -(void)decrementaTempo{
@@ -423,6 +432,7 @@
 
 
 -(void)restart{
+    //NSLog(@"numero jogadores %d",[self.controladorDeJogadores retornaNumeroDeJogadores]);
     if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
         return;
     }
