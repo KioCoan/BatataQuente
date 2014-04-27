@@ -49,6 +49,7 @@
 		BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22C61903A386008C637E /* iniciarPartidaOn.png */; };
 		BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */; };
 		BD7DEEE6190712740080D081 /* iPad-fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */; };
+		BDAAAF63190CD6C600140E12 /* fundoDadosUsuario.png in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */; };
 		BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFEC6619020AE8008CBA44 /* MCManager.m */; };
 		BDC92594190C5DAB008C1CC3 /* foto-padrao-facebook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */; };
 		E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */ = {isa = PBXBuildFile; fileRef = E595146F19083C1C006C6BD4 /* imagemPronto.png */; };
@@ -122,6 +123,7 @@
 		BD7B22C61903A386008C637E /* iniciarPartidaOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iniciarPartidaOn.png; path = Imagens/iniciarPartidaOn.png; sourceTree = "<group>"; };
 		BD7DEEE31907049C0080D081 /* iPad-fundoTelaInicial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoTelaInicial.png"; path = "Imagens/iPad-fundoTelaInicial.png"; sourceTree = "<group>"; };
 		BD7DEEE5190712740080D081 /* iPad-fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoTelaPartida.png"; path = "Imagens/iPad-fundoTelaPartida.png"; sourceTree = "<group>"; };
+		BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoDadosUsuario.png; path = Imagens/fundoDadosUsuario.png; sourceTree = "<group>"; };
 		BDBFEC6519020AE8008CBA44 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		BDBFEC6619020AE8008CBA44 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
 		BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "foto-padrao-facebook.jpg"; path = "Imagens/foto-padrao-facebook.jpg"; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */,
 				BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */,
 				BD5A1A16190A4B5500D46269 /* imagemEliminado.png */,
 				E595146F19083C1C006C6BD4 /* imagemPronto.png */,
@@ -366,6 +369,7 @@
 				BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
+				BDAAAF63190CD6C600140E12 /* fundoDadosUsuario.png in Resources */,
 				BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */,
 				BDC92594190C5DAB008C1CC3 /* foto-padrao-facebook.jpg in Resources */,
 				E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */,

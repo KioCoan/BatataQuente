@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="kup-m0-ybP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="kup-m0-ybP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -156,6 +156,25 @@
                                     <action selector="actionPronto:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="khD-mb-JXx"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoDadosUsuario.png" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-Qw-FGL">
+                                <rect key="frame" x="-4" y="859" width="322" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeMasculino.png" translatesAutoresizingMaskIntoConstraints="NO" id="zed-M5-JCc">
+                                <rect key="frame" x="7" y="869" width="144" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUl-Zr-keE">
+                                <rect key="frame" x="152" y="989" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagemPronto.png" translatesAutoresizingMaskIntoConstraints="NO" id="H62-ae-TVR">
+                                <rect key="frame" x="159" y="938" width="39" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -176,6 +195,9 @@
                         <outlet property="btnVoltar" destination="dIj-iy-hqq" id="o6K-N1-SL5"/>
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
                         <outlet property="lblMensagens" destination="ebr-m3-Eg0" id="DaH-Pq-BEV"/>
+                        <outlet property="lblMeuNome" destination="FUl-Zr-keE" id="Oov-LP-egF"/>
+                        <outlet property="meuIcone" destination="H62-ae-TVR" id="x7Q-vb-2zN"/>
+                        <outlet property="minhaImagem" destination="zed-M5-JCc" id="P0j-sC-IO8"/>
                         <outlet property="tempoDecorrido" destination="Fq5-oy-rKZ" id="ZSj-Fy-NwR"/>
                     </connections>
                 </viewController>
@@ -238,10 +260,12 @@
     </scenes>
     <resources>
         <image name="convidarJogadores.png" width="369" height="80"/>
+        <image name="fundoDadosUsuario.png" width="322" height="171"/>
         <image name="iPad-fundoTelaInicial.png" width="768" height="1024"/>
         <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
+        <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>

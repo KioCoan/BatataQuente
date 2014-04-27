@@ -61,6 +61,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    [self adicionarMinhaImagem];
     
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     //[self enviaMinhaImagem];
@@ -97,7 +98,24 @@
 }
 
 
-
+-(void)adicionarMinhaImagem{
+    if ([self.myImage rangeOfString:@".png"].location == NSNotFound) {
+        CGRect frame = self.minhaImagem.frame;
+        frame.size.height -= 2;
+        FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:frame];
+        [foto setProfileID:self.myImage];
+        foto.layer.borderWidth = 1.0f;
+        foto.layer.cornerRadius = CGRectGetWidth(foto.bounds) / 2.0f;
+        
+        [[self minhaImagem] setHidden:YES];
+        
+        [[self view] addSubview:foto];
+        return;
+    }
+    
+    [self.minhaImagem setImage:[UIImage imageNamed:self.myImage]];
+    
+}
 
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
@@ -401,6 +419,7 @@
         
         
         if (self.batata ) {
+            [self.meuIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
             [[self tempoDecorrido] setText:@"Perdeu!!"];
             [[self audioPlayer]playQueimou];
             //[self enviaMensagemPerdi:YES];

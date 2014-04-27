@@ -36,11 +36,6 @@
         UIImageView *imgFoto = [[UIImageView alloc] initWithFrame:[controladorPosicoes retornaPosicaoIpadFoto:i]];
         UIImageView *imgIcone = [[UIImageView alloc] initWithFrame:[controladorPosicoes retornaPosicaoIpadIcone:i]];
         
-        CGRect x = imgFoto.bounds;
-        
-        imgFoto.layer.cornerRadius = CGRectGetHeight(x)/2;
-        //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
-        imgFoto.clipsToBounds = YES;
         
         [arrayFotos addObject:imgFoto];
         [arrayIcones addObject:imgIcone];
@@ -53,11 +48,6 @@
         UIImageView *imgFoto = [[UIImageView alloc] initWithFrame:[controladorPosicoes retornaPosicaoIphoneFoto:i]];
         UIImageView *imgIcone = [[UIImageView alloc] initWithFrame:[controladorPosicoes retornaPosicaoIphoneIcone:i]];
         
-        CGRect x = imgFoto.bounds;
-        
-        imgFoto.layer.cornerRadius = CGRectGetHeight(x)/2;
-        //self.iconePersonagem.layer.borderColor = [UIColor clearColor].CGColor;
-        imgFoto.clipsToBounds = YES;
         
         [arrayFotos addObject:imgFoto];
         [arrayIcones addObject:imgIcone];

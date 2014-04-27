@@ -48,7 +48,9 @@
 
 @property NSString *eliminado;
 
+@property (weak, nonatomic) IBOutlet UIImageView *meuIcone;
 
+@property (weak, nonatomic) IBOutlet UIImageView *minhaImagem;
 @property (weak, nonatomic) IBOutlet UIButton *btnRestart;
 @property (weak, nonatomic) IBOutlet UIButton *btnVoltar;
 
