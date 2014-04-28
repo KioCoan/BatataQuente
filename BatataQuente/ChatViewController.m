@@ -270,7 +270,7 @@
             
             
             [self adicionaJogadorPronto:jogador];
-            
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] icone:YES status:YES];
             
             //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
            
@@ -279,13 +279,15 @@
                 envieiImagemPraTodos = YES;
                 //NSLog(@"Enviei");
             }
-            
+            todosProntos = [self.controladorDeJogadores todosProntos];
             
             break;
         case 2: // altera pra jogador nao pronto
             //NSLog(@"Passou %d",tipo);
             [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
-            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
+            //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] icone:YES status:NO];
+            
             
             //verifica se é o fim do jogo
             
@@ -309,8 +311,8 @@
             
             [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
             
-            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:NO];
-           
+            //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:NO];
+            [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] icone:NO status:NO];
                break;
             
         case 4: //Vencedor
@@ -493,11 +495,58 @@
     
 }
 
+- (void)restart{
+    
+   
+    //setando batata
+    
+    envieiMensagemToPronto = NO;
+    
+    if (proximoEmbatatado) {
+        self.batata = YES;
+        [self.imgBatata setHidden:!self.batata];
+        [self ativarAnimacaoReceber];
+    }else{
+        self.batata = NO;
+        [self.imgBatata setHidden:!self.batata];
+        [[self audioPlayer]playBatata];
+    }
+    [self.imgBatata addGestureRecognizer:swipe];
+    self.current = [self retornaTempo];
+    
+    todosProntos = [self.controladorDeJogadores todosProntos];
+    
+    //envia mensagem de pronto
+    [self enviaMensagemDoMeuStatusDe:YES];
+    
+    //reenvia mensagem de pronto
+    
+//    if(todosProntos && !envieiMensagemToPronto){
+//        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
+//        [self enviaMensagemDoMeuStatusDe:YES];
+//        envieiMensagemToPronto = YES;
+//    }
+    
+    
+    
+    
+
+    if (todosProntos) {
+        
+        
+        [self mostrarDicaInicial];
+    }
+    
+    
+}
+
 
 - (IBAction)actionRestart:(id)sender {
     
     if ([self.btnRestart.titleLabel.text isEqual:@"Restart"]) {
         [self.btnRestart setTitle:@"Continue" forState:UIControlStateNormal];
+        [self restart];
+        
     }else{
         [self continuar];
     }
@@ -595,14 +644,17 @@
 
 
 
--(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem perdeu:(BOOL)perdeu{
+-(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem icone:(BOOL)icone status:(BOOL)status{
     
     int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
-    if (!perdeu) {
+    if (!icone) {
+        //envia imagem
         [imagensTela setImagemFoto:index-1 imagem:imagem];
     }else{
-        [imagensTela alteraIcone:index-1 status:NO];
+        
+        //envia icone
+        [imagensTela alteraIcone:index-1 status:status];
     }
     
     

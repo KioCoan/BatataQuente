@@ -84,7 +84,7 @@
     
     [self addSubview:[arrayIcones objectAtIndex:index]];  */
     
-    [self alteraIcone:index status:YES];
+    //[self alteraIcone:index status:YES];
 }
 
 
