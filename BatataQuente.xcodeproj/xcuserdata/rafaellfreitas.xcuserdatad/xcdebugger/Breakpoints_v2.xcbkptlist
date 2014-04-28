@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420147422.322932"
+            timestampString = "420385510.505429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "-passaBatata:"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
+            landmarkName = "-adicionaJogadorPronto:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,12 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420147422.322932"
+            timestampString = "420385510.505429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
-            landmarkName = "-restart"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "-decrementaTempo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BatataQuente/ChatViewController.m"
-            timestampString = "420147422.322932"
+            timestampString = "420385510.505429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "416"
-            endingLineNumber = "416"
-            landmarkName = "-voltar:"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "-decrementaTempo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -33,7 +33,7 @@
     
     
     
-    //self.myPersonagem.image = self.myImage;
+    
     
     [self.appDelegate.mcManager.session myPeerID ];
     self.minhaBatata = [[Batata alloc] init];
@@ -65,7 +65,7 @@
     
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
     //[self enviaMinhaImagem];
-    self.current = 20;
+    self.current = [self retornaTempo];
     [self.controladorDeJogadores adicionaNoJogador:myName aImagem:self.myImage];
     [self actionPronto:self];
     
@@ -93,8 +93,12 @@
    
     [self.view bringSubviewToFront:self.btnRestart];
     [self.view bringSubviewToFront:self.btnVoltar];
-    //[self.view sendSubviewToBack:imagensTela];
     
+    
+}
+
+-(int)retornaTempo{
+    return (arc4random() % 20) +10 +[self.controladorDeJogadores retornaNumeroDeJogadores];
 }
 
 
@@ -259,16 +263,16 @@
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
     int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
     
-    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    
     switch (tipo) {
         case 1: //Méodo que gerencia as chamadas de pronto
             
-            //NSLog(@"Passou %d",tipo);
+            
             [self adicionaJogadorPronto:jogador];
             
             
             //Quando todos estiverem prontos envio minha imagem (Somente uma vez)
-           // NSLog(@"PAssou 1 %hhd , %hhd", todosProntos, envieiMensagemToPronto);
+           
             if (todosProntos && !envieiImagemPraTodos) {
                 [self enviaMinhaImagem];
                 envieiImagemPraTodos = YES;
@@ -295,16 +299,16 @@
             
         case 3://seta imagem de jogador
           
-            //NSLog(@"Passou %d",tipo);
+            
             [self.controladorDeJogadores adicionaNoJogador:jogador aImagem:[[notification userInfo]objectForKey:@"imagem"]];
-            //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo]objectForKey:@"imagem"]];
+            
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:NO];
            
                break;
             
         case 4: //Vencedor
             
-            //NSLog(@"Passou %d", tipo);
+            
             
             
             self.btnRestart.enabled = YES;
@@ -314,11 +318,11 @@
             break;
             
         default: //Mensagem normal de passagem de batatas
-            NSLog(@"Passou %d",tipo);
+            
             [self passaBatata:notification];
             break;
     }
-   // }];
+   
 
 }
 -(void)adicionaJogadorPronto:(NSString*)jogador{
@@ -343,8 +347,7 @@
 
 -(void)mostrarDicaInicial{
     
-    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-    //dispatch_async(dispatch_get_main_queue(), ^{
+    
         if(self.batata){
             
             self.lblMensagens.text = @"Arraste sobre a batata para iniciar.";
@@ -352,15 +355,13 @@
         }else{
             self.lblMensagens.text = @"";
         }
-    //});
+    
     
 }
 
 
 -(void)passaBatata:(NSNotification *)notification{
-//    if ([self.controladorDeJogadores jogadorEstaPronto:myName]) {
-//        return;
-//    }
+
     proximoEmbatatado = NO;
     NSLog(@"proximo embatatado: %hhd",proximoEmbatatado);
     self.eliminado = [[notification userInfo]objectForKey:@"embatatado"];
@@ -415,29 +416,25 @@
         [self.btnRestart setEnabled:YES];
         [[self audioPlayer]stopSounds];
         
-//        [self.controladorDeJogadores removeJogador: indiceEliminado];
+
         
         
         if (self.batata ) {
             [self.meuIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
-            [[self tempoDecorrido] setText:@"Perdeu!!"];
+            [[self tempoDecorrido] setText:@"Você foi eliminado"];
             [[self audioPlayer]playQueimou];
-            //[self enviaMensagemPerdi:YES];
-//            fuiEliminado = YES;
+            
             [self.btnRestart setEnabled:NO];
             [self.controladorDeJogadores jogadorComNome:myName estaPronto:NO];
             [self enviaMensagemDoMeuStatusDe:NO];
             
         }else{
+            NSString *eliminacao = [NSString stringWithFormat:@"%@ eliminado", self.eliminado];
+            [[self tempoDecorrido] setText:eliminacao];
             
-            [[self tempoDecorrido] setText:@"Ganhou!"];
             
             
-            
-           /* if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
-                [self.btnRestart setEnabled:YES];
-                
-            }*/
+           
         }
         
         [self.imgBatata removeGestureRecognizer:swipe];
@@ -454,8 +451,8 @@
     }
     
     self.current -=1;
-    int x = self.current;
-    [[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
+    //int x = self.current;
+    //[[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
     
     
     [self.view setNeedsDisplay];
@@ -474,7 +471,7 @@
 
 
 -(void)continuar{
-    //NSLog(@"numero jogadores %d",[self.controladorDeJogadores retornaNumeroDeJogadores]);
+
     if ([self.controladorDeJogadores retornaNumeroDeJogadores]==1) {
         return;
     }
@@ -484,7 +481,7 @@
         [self ativarAnimacaoReceber];
     }
     [self.imgBatata addGestureRecognizer:swipe];
-    self.current = 20;
+    self.current = [self retornaTempo];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
@@ -559,7 +556,7 @@
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage,myName, nil];
     
     NSData *dataToSend = [NSKeyedArchiver archivedDataWithRootObject:meuArray];
-    //NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    
     NSArray *peer = [[notification userInfo]objectForKey:@"peerID"];
     NSError *error;
     
@@ -572,7 +569,7 @@
 }
 
 -(void)enviaMinhaImagem{
-    //dispatch_async(dispatch_get_main_queue(), ^{
+    
     
     NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithDouble:self.current], self.myImage ,myName, nil];
     
@@ -586,14 +583,13 @@
                                          toPeers:allPeers
                                         withMode:MCSessionSendDataReliable
                                            error:&error];
-    //});
+    
 }
 
 
 
 -(void)adicionaImagensNaTela:(NSString*)nome imagem:(NSString*)imagem perdeu:(BOOL)perdeu{
-    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-    //dispatch_async(dispatch_get_main_queue(), ^{
+    
     int index = [self.controladorDeJogadores retornaIndiceJogador:nome];
         
     if (!perdeu) {
@@ -604,7 +600,7 @@
     
     
     
-    //});
+    
     
 }
 
