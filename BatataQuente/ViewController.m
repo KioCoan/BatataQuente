@@ -190,7 +190,10 @@ static NSString * XXServiceType = @"batata-quente";
         
         self.estaVisivel = !self.estaVisivel;
         [self mudaImagemBtnVisivel];
+    if ([self.arrConnectedDevices count]<1) {
         [[self arrConnectedDevices]addObject: [[self txtNome] text]];
+    }
+    
         [self.appDelegate.mcManager advertiseSelf:self.estaVisivel];
   
     
@@ -291,15 +294,20 @@ static NSString * XXServiceType = @"batata-quente";
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
                 
-                
+                for (NSString *user in self.arrConnectedDevices) {
+                    
+                    if ([[peerID displayName]isEqualToString:user]) {
+                        [self.arrConnectedDevices removeObject:user];
+                    }
+                }
             }
         }
         
         [self.tbldispositivos reloadData];
         
         BOOL peersExist = ([[self.appDelegate.mcManager.session connectedPeers] count] == 0);
-        [self.btnDisconnect setEnabled:!peersExist];
-        [self.txtNome setEnabled:peersExist];
+        //[self.btnDisconnect setEnabled:!peersExist];
+        //[self.txtNome setEnabled:peersExist];
         
         if(peersExist){
             
