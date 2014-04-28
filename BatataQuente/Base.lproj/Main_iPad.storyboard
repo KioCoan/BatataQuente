@@ -108,24 +108,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1033"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aguardando todos os jogadores..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-m3-Eg0">
-                                <rect key="frame" x="275" y="271" width="218" height="212"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aguardando todos os jogadores..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-m3-Eg0">
+                                <rect key="frame" x="275" y="274" width="224" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-oy-rKZ">
-                                <rect key="frame" x="345" y="224" width="78" height="21"/>
+                                <rect key="frame" x="350" y="236" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIj-iy-hqq">
-                                <rect key="frame" x="10" y="13" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIj-iy-hqq">
+                                <rect key="frame" x="5" y="11" width="101" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Voltar">
+                                <state key="normal" image="imagemBtnVoltar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -144,16 +144,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionRestart:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="h1M-gm-bSi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqt-ka-Ijj">
-                                <rect key="frame" x="57" y="684" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pronto">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionPronto:" destination="yd1-ZV-Bun" eventType="touchUpInside" id="khD-mb-JXx"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoDadosUsuario.png" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-Qw-FGL">
@@ -190,7 +180,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnPronto" destination="Zqt-ka-Ijj" id="Nh7-na-Yhk"/>
                         <outlet property="btnRestart" destination="KIS-j3-IJd" id="54W-yn-LGo"/>
                         <outlet property="btnVoltar" destination="dIj-iy-hqq" id="o6K-N1-SL5"/>
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
@@ -265,6 +254,7 @@
         <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
+        <image name="imagemBtnVoltar.png" width="200" height="80"/>
         <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>

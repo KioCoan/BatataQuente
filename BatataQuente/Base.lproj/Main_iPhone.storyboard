@@ -168,10 +168,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-eO-ar8">
-                                <rect key="frame" x="10" y="13" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-eO-ar8">
+                                <rect key="frame" x="2" y="7" width="55" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Voltar">
+                                <state key="normal" image="imagemBtnVoltar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -190,16 +190,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionRestart:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="iX4-SQ-VpO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V1-gA-z9P">
-                                <rect key="frame" x="20" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pronto">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionPronto:" destination="fgZ-Nq-nVc" eventType="touchUpInside" id="OuL-G7-qrg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aguardando todos os jogadores..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="obo-PW-Rk1">
@@ -243,7 +233,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnPronto" destination="3V1-gA-z9P" id="SIh-bO-phl"/>
                         <outlet property="btnRestart" destination="TOo-Ik-Hlo" id="6DT-b5-Her"/>
                         <outlet property="btnVoltar" destination="V4g-eO-ar8" id="JI0-Of-SCK"/>
                         <outlet property="imgBatata" destination="Xg0-Ea-KIK" id="5cv-t3-sHD"/>
@@ -266,6 +255,7 @@
         <image name="fundoTelaPartida.png" width="360" height="639"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
+        <image name="imagemBtnVoltar.png" width="200" height="80"/>
         <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
         <image name="visivelOff.png" width="199" height="215"/>

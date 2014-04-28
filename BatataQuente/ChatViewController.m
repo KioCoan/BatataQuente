@@ -520,7 +520,6 @@
     [self enviaMinhaImagem];
     
     NSLog(@"OK!");
-    [self.btnPronto setEnabled:NO];
 }
 
 

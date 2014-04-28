@@ -62,24 +62,24 @@
 -(void)inicializaArrayDePosicoesIphoneIcone{
     posicoesIphoneIcone = [NSArray arrayWithObjects:
                         [NSValue valueWithCGRect:CGRectMake(149, 74, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(88, 98, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(206, 98, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(66, 187, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(230, 188, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(66, 282, 26, 22)],
-                        [NSValue valueWithCGRect:CGRectMake(230, 283, 26, 22)],nil];
+                        [NSValue valueWithCGRect:CGRectMake(77, 105, 26, 22)],
+                        [NSValue valueWithCGRect:CGRectMake(217, 107, 26, 22)],
+                        [NSValue valueWithCGRect:CGRectMake(67, 203, 26, 22)],
+                        [NSValue valueWithCGRect:CGRectMake(230, 204, 26, 22)],
+                        [NSValue valueWithCGRect:CGRectMake(66, 309, 26, 22)],
+                        [NSValue valueWithCGRect:CGRectMake(230, 310, 26, 22)],nil];
 }
 
 
 -(void)inicializaArrayDePosicoesIphoneFoto{
     posicoesIphoneFoto = [NSArray arrayWithObjects:
                         [NSValue valueWithCGRect:CGRectMake(129, 8, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(28, 52, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(226, 52, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(7, 141, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(251, 142, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(7, 236, 63, 65)],
-                        [NSValue valueWithCGRect:CGRectMake(251, 237, 63, 65)],nil];
+                        [NSValue valueWithCGRect:CGRectMake(17, 59, 63, 65)],
+                        [NSValue valueWithCGRect:CGRectMake(237, 61, 63, 65)],
+                        [NSValue valueWithCGRect:CGRectMake(7, 157, 63, 65)],
+                        [NSValue valueWithCGRect:CGRectMake(250, 159, 63, 65)],
+                        [NSValue valueWithCGRect:CGRectMake(7, 263, 63, 65)],
+                        [NSValue valueWithCGRect:CGRectMake(250, 264, 63, 65)],nil];
 }
 
 
@@ -90,24 +90,24 @@
 -(void)inicializaArrayDePosicoesIpadIcone{
     posicoesIpadIcone = [NSArray arrayWithObjects:
                          [NSValue valueWithCGRect:CGRectMake(364, 133, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(160, 176, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(556, 176, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(122, 369, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(601, 371, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(122, 573, 47, 41)],
-                         [NSValue valueWithCGRect:CGRectMake(601, 574, 47, 41)],nil];
+                         [NSValue valueWithCGRect:CGRectMake(160, 177, 47, 41)],
+                         [NSValue valueWithCGRect:CGRectMake(567, 176, 47, 41)],
+                         [NSValue valueWithCGRect:CGRectMake(122, 370, 47, 41)],
+                         [NSValue valueWithCGRect:CGRectMake(604, 370, 47, 41)],
+                         [NSValue valueWithCGRect:CGRectMake(122, 577, 47, 41)],
+                         [NSValue valueWithCGRect:CGRectMake(604, 573, 47, 41)],nil];
 }
 
 
 -(void)inicializaArrayDePosicoesIpadFoto{
     posicoesIpadFoto = [NSArray arrayWithObjects:
                         [NSValue valueWithCGRect:CGRectMake(326, 12, 116, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(51, 92, 116, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(591, 92, 116, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(13, 286, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(636, 287, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(13, 489, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(636, 490, 166, 120)],nil];
+                        [NSValue valueWithCGRect:CGRectMake(52, 94, 116, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(602, 94, 116, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(13, 287, 166, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(639, 287, 166, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(13, 493, 166, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(639, 490, 166, 120)],nil];
 }
 
 @end

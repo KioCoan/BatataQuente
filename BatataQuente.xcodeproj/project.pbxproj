@@ -37,6 +37,7 @@
 		BD237C3D1904D70A005B4D2E /* Batata.m in Sources */ = {isa = PBXBuildFile; fileRef = BD237C3C1904D70A005B4D2E /* Batata.m */; };
 		BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */; };
 		BD3FE66B1905FF71005CBCA6 /* ControladorJogadores.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */; };
+		BD573DCC190E0C2E00899EE6 /* imagemBtnVoltar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */; };
 		BD5A1A12190A110C00D46269 /* ImagensTelaPartida.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */; };
 		BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5A1A16190A4B5500D46269 /* imagemEliminado.png */; };
 		BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7B22B719035E10008C637E /* iconeFeminino.png */; };
@@ -110,6 +111,7 @@
 		BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaPartida.png; path = Imagens/fundoTelaPartida.png; sourceTree = "<group>"; };
 		BD3FE6691905FF71005CBCA6 /* ControladorJogadores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControladorJogadores.h; sourceTree = "<group>"; };
 		BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControladorJogadores.m; sourceTree = "<group>"; };
+		BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemBtnVoltar.png; path = Imagens/imagemBtnVoltar.png; sourceTree = "<group>"; };
 		BD5A1A10190A110C00D46269 /* ImagensTelaPartida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagensTelaPartida.h; sourceTree = "<group>"; };
 		BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagensTelaPartida.m; sourceTree = "<group>"; };
 		BD5A1A16190A4B5500D46269 /* imagemEliminado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemEliminado.png; path = Imagens/imagemEliminado.png; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */,
 				BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */,
 				BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */,
 				BD5A1A16190A4B5500D46269 /* imagemEliminado.png */,
@@ -366,6 +369,7 @@
 			files = (
 				BD237C3A19048BAF005B4D2E /* imagemBatata.png in Resources */,
 				A520E04C18FFF74400E0292C /* Main_iPad.storyboard in Resources */,
+				BD573DCC190E0C2E00899EE6 /* imagemBtnVoltar.png in Resources */,
 				BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,

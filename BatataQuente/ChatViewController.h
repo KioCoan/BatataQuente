@@ -38,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgBatata;
 @property UIImageView *personagem;
 @property Batata *minhaBatata;
-@property (weak, nonatomic) IBOutlet UIButton *btnPronto;
 
 
 - (IBAction)actionPronto:(id)sender;
