@@ -288,14 +288,20 @@
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
             
             //verifica se é o fim do jogo
-            if ([self.lblStatus.text isEqualToString:@"Ganhou!"]) {
+            
+            if ([self.controladorDeJogadores jogadorEstaPronto:myName]) {
                 if ([self fimJogo]) {
                     [self enviaMensagemVencedor];
                     //self.btnRestart.enabled = YES;
                     [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
                 }
-
             }
+            /*
+            
+            if ([self.lblStatus.text isEqualToString:@"Ganhou!"]) {
+                
+
+            }*/
             break;
             
         case 3://seta imagem de jogador
