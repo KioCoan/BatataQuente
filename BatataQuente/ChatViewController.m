@@ -219,6 +219,7 @@
         
         
         self.eliminado = playerRandom;
+        [[self lblStatus] setText:[NSString stringWithFormat:@"%@ está com a batata.", playerRandom]];
         
         [self selecionaIndiceParaEliminar];
         
@@ -287,7 +288,7 @@
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
             
             //verifica se é o fim do jogo
-            if ([self.tempoDecorrido.text isEqual:@"Ganhou!"]) {
+            if ([self.lblStatus.text isEqualToString:@"Ganhou!"]) {
                 if ([self fimJogo]) {
                     [self enviaMensagemVencedor];
                     //self.btnRestart.enabled = YES;
@@ -382,12 +383,12 @@
             [self.imgBatata setHidden:!self.batata];
             [self ativarAnimacaoReceber];
             [[self audioPlayer]playQuente];
-            
+            [[self lblStatus] setText:@"Você está com a batata"];
             
         }else{
             self.batata = NO;
             [self.imgBatata setHidden:!self.batata];
-            
+            [[self lblStatus] setText:[NSString stringWithFormat:@"%@ está com a batata", self.eliminado]];
         }
         
         
@@ -421,7 +422,7 @@
         
         if (self.batata ) {
             [self.meuIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
-            [[self tempoDecorrido] setText:@"Você foi eliminado"];
+            [[self lblStatus] setText:@"Você foi eliminado"];
             [[self audioPlayer]playQueimou];
             
             [self.btnRestart setEnabled:NO];
@@ -429,8 +430,8 @@
             [self enviaMensagemDoMeuStatusDe:NO];
             
         }else{
-            NSString *eliminacao = [NSString stringWithFormat:@"%@ eliminado", self.eliminado];
-            [[self tempoDecorrido] setText:eliminacao];
+            
+            [[self lblStatus] setText:[NSString stringWithFormat:@"%@ eliminado", self.eliminado]];
             
             
             

@@ -238,9 +238,9 @@
                         <outlet property="imgBatata" destination="Xg0-Ea-KIK" id="5cv-t3-sHD"/>
                         <outlet property="lblMensagens" destination="obo-PW-Rk1" id="Ssn-El-dKo"/>
                         <outlet property="lblMeuNome" destination="cSy-f0-ua9" id="upT-SV-Pek"/>
+                        <outlet property="lblStatus" destination="BIf-gJ-3qy" id="aOX-Hf-BVU"/>
                         <outlet property="meuIcone" destination="BgF-vb-fPO" id="c4o-aY-qY8"/>
                         <outlet property="minhaImagem" destination="JZD-eg-Pab" id="BtU-oT-O0F"/>
-                        <outlet property="tempoDecorrido" destination="BIf-gJ-3qy" id="AKP-cY-5fR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AI6-6I-EJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>

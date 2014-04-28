@@ -185,9 +185,9 @@
                         <outlet property="imgBatata" destination="R2d-7Z-m0m" id="1rz-I2-ocu"/>
                         <outlet property="lblMensagens" destination="ebr-m3-Eg0" id="DaH-Pq-BEV"/>
                         <outlet property="lblMeuNome" destination="FUl-Zr-keE" id="Oov-LP-egF"/>
+                        <outlet property="lblStatus" destination="Fq5-oy-rKZ" id="6KF-cG-5mN"/>
                         <outlet property="meuIcone" destination="H62-ae-TVR" id="x7Q-vb-2zN"/>
                         <outlet property="minhaImagem" destination="zed-M5-JCc" id="P0j-sC-IO8"/>
-                        <outlet property="tempoDecorrido" destination="Fq5-oy-rKZ" id="ZSj-Fy-NwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1EI-Tz-UNk" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -59,7 +59,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblMensagens;
 
-@property (weak, nonatomic) IBOutlet UILabel *tempoDecorrido;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 
 - (IBAction)voltar:(id)sender;
 
