@@ -66,7 +66,7 @@
     
         self.lblNomeUsuario.text = user.name;
         self.fotoPerfil.profileID = user.id;
-    
+   // [self verificaConexao];
     
     
 }
@@ -111,7 +111,9 @@
         
         
         [[[UIAlertView alloc]initWithTitle:@"Sem conexão a internet" message:@"Conecte primeiro na internet" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
-        
+        [FBSession.activeSession close];
+        [FBSession.activeSession closeAndClearTokenInformation];
+        self.lblNomeUsuario.text = @"Não Logado";
         return NO;
     }
     return YES;
