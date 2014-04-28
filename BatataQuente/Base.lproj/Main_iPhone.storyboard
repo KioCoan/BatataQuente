@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoPrimeiraTela.png" translatesAutoresizingMaskIntoConstraints="NO" id="5bl-yK-R8y">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoBatataQuente.png" translatesAutoresizingMaskIntoConstraints="NO" id="5bl-yK-R8y">
+                                <rect key="frame" x="8" y="8" width="305" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7X-Em-9g6">
@@ -255,14 +255,15 @@
     <resources>
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoDadosUsuario.png" width="322" height="171"/>
-        <image name="fundoPrimeiraTela.png" width="360" height="640"/>
         <image name="fundoTelaInicial.png" width="360" height="639"/>
         <image name="fundoTelaPartida.png" width="360" height="639"/>
+        <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="iconeMasculino.png" width="217" height="225"/>
         <image name="imagemBatata.png" width="441" height="535"/>
         <image name="imagemBtnVoltar.png" width="200" height="80"/>
         <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
+        <image name="logoBatataQuente.png" width="700" height="372"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

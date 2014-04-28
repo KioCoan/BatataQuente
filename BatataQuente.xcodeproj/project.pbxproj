@@ -53,7 +53,7 @@
 		BDAAAF63190CD6C600140E12 /* fundoDadosUsuario.png in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */; };
 		BDBFEC6719020AE8008CBA44 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFEC6619020AE8008CBA44 /* MCManager.m */; };
 		BDC92594190C5DAB008C1CC3 /* foto-padrao-facebook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */; };
-		E53ADCAA190EF88900CF4CC5 /* fundoPrimeiraTela.png in Resources */ = {isa = PBXBuildFile; fileRef = E53ADCA9190EF88900CF4CC5 /* fundoPrimeiraTela.png */; };
+		E53ADCAC190EFAAA00CF4CC5 /* logoBatataQuente.png in Resources */ = {isa = PBXBuildFile; fileRef = E53ADCAB190EFAAA00CF4CC5 /* logoBatataQuente.png */; };
 		E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */ = {isa = PBXBuildFile; fileRef = E595146F19083C1C006C6BD4 /* imagemPronto.png */; };
 /* End PBXBuildFile section */
 
@@ -130,7 +130,7 @@
 		BDBFEC6519020AE8008CBA44 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		BDBFEC6619020AE8008CBA44 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
 		BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "foto-padrao-facebook.jpg"; path = "Imagens/foto-padrao-facebook.jpg"; sourceTree = "<group>"; };
-		E53ADCA9190EF88900CF4CC5 /* fundoPrimeiraTela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoPrimeiraTela.png; path = Imagens/fundoPrimeiraTela.png; sourceTree = "<group>"; };
+		E53ADCAB190EFAAA00CF4CC5 /* logoBatataQuente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoBatataQuente.png; path = Imagens/logoBatataQuente.png; sourceTree = "<group>"; };
 		E595146F19083C1C006C6BD4 /* imagemPronto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemPronto.png; path = Imagens/imagemPronto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,7 +272,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
-				E53ADCA9190EF88900CF4CC5 /* fundoPrimeiraTela.png */,
+				E53ADCAB190EFAAA00CF4CC5 /* logoBatataQuente.png */,
 				BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */,
 				BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */,
 				BDC92593190C5DAB008C1CC3 /* foto-padrao-facebook.jpg */,
@@ -390,7 +390,7 @@
 				A520E04918FFF74400E0292C /* Main_iPhone.storyboard in Resources */,
 				BD7B22BF19037B7A008C637E /* visivelOff.png in Resources */,
 				A58C6B5019054E4F0080DB41 /* Queimou.wav in Resources */,
-				E53ADCAA190EF88900CF4CC5 /* fundoPrimeiraTela.png in Resources */,
+				E53ADCAC190EFAAA00CF4CC5 /* logoBatataQuente.png in Resources */,
 				A58C6B4F19054E4F0080DB41 /* Batata.wav in Resources */,
 				A520E04018FFF74400E0292C /* InfoPlist.strings in Resources */,
 				BD7DEEE6190712740080D081 /* iPad-fundoTelaPartida.png in Resources */,
