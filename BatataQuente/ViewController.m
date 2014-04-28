@@ -35,7 +35,7 @@ static NSString * XXServiceType = @"batata-quente";
     [self.txtNome setDelegate:self];
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[self.appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -84,6 +84,11 @@ static NSString * XXServiceType = @"batata-quente";
     
     //configuracao foto
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //[self.txtNome setText:self.myName];
 }
 
 
@@ -192,8 +197,13 @@ static NSString * XXServiceType = @"batata-quente";
         [self mudaImagemBtnVisivel];
     if ([self.arrConnectedDevices count]<1) {
         [[self arrConnectedDevices]addObject: [[self txtNome] text]];
+        
     }
-    
+    if ([[self.txtNome text]isEqualToString:@""]) {
+        [[self.appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    }else{
+        [[self.appDelegate mcManager] setupPeerAndSessionWithDisplayName:[self.txtNome text]];
+    }
         [self.appDelegate.mcManager advertiseSelf:self.estaVisivel];
   
     

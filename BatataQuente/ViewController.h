@@ -27,6 +27,7 @@
 @property ControladorJogadores *controladorJogadores;
 @property NSString *myImage;
 @property NSString *imgFace;
+@property NSString *myName;
 
 - (IBAction)btnProcurar:(id)sender;
 - (IBAction)visivel:(id)sender;

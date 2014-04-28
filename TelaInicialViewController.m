@@ -152,7 +152,7 @@
 
 - (IBAction)teste:(id)sender {
     FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
-    NSString *teste = @"100002301463835";
+    
     [foto setProfileID:@"100002301463835.png"];
     
     
@@ -167,7 +167,7 @@
     
     if(self.verificaConexao){
         [lobby setMyImage: self.fotoPerfil.profileID];
-    
+         [lobby setMyName:[self.lblNomeUsuario text]];
     }else{
         [lobby setMyImage: nil];
     }

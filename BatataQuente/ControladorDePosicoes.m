@@ -104,10 +104,10 @@
                         [NSValue valueWithCGRect:CGRectMake(326, 12, 116, 120)],
                         [NSValue valueWithCGRect:CGRectMake(52, 94, 116, 120)],
                         [NSValue valueWithCGRect:CGRectMake(602, 94, 116, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(13, 287, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(639, 287, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(13, 493, 166, 120)],
-                        [NSValue valueWithCGRect:CGRectMake(639, 490, 166, 120)],nil];
+                        [NSValue valueWithCGRect:CGRectMake(13, 287, 116, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(639, 287, 116, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(13, 493, 116, 120)],
+                        [NSValue valueWithCGRect:CGRectMake(639, 490, 116, 120)],nil];
 }
 
 @end
