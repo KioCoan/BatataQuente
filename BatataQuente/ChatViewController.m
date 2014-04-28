@@ -501,7 +501,8 @@
     //setando batata
     
     envieiMensagemToPronto = NO;
-    
+    [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
+    [self setIniciaTempo:YES];
     if (proximoEmbatatado) {
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];
@@ -521,13 +522,13 @@
     
     //reenvia mensagem de pronto
     
-//    if(todosProntos && !envieiMensagemToPronto){
-//        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
-//        [self enviaMensagemDoMeuStatusDe:YES];
-//        envieiMensagemToPronto = YES;
-//    }
+    if(todosProntos && !envieiMensagemToPronto){
+        //REENVIA O STATUS DE PRONTO PARA TODOS, ASSIM, TODOS FICAM ATUALIZADOS MESMO QUEM ENTRAR POR ÚLTIMO
+        [self enviaMensagemDoMeuStatusDe:YES];
+        envieiMensagemToPronto = YES;
+    }
     
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
     
 
