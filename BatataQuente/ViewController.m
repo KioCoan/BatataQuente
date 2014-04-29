@@ -88,7 +88,12 @@ static NSString * XXServiceType = @"batata-quente";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self.txtNome setText:self.myName];
+    
+    if (![self.myName isEqualToString:@"Não Logado"]) {
+        [self.txtNome setText:self.myName];
+    }
+    
+    
 }
 
 

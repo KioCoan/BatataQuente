@@ -219,7 +219,7 @@
         
         
         self.eliminado = playerRandom;
-        [[self lblStatus] setText:[NSString stringWithFormat:@"%@ está com a batata.", playerRandom]];
+        [[self lblMensagens] setText:[NSString stringWithFormat:@"%@ está com a batata.", playerRandom]];
         
         [self selecionaIndiceParaEliminar];
         
@@ -391,12 +391,12 @@
             [self.imgBatata setHidden:!self.batata];
             [self ativarAnimacaoReceber];
             [[self audioPlayer]playQuente];
-            [[self lblStatus] setText:@"Você está com a batata"];
+            [[self lblMensagens] setText:@"Você está com a batata"];
             
         }else{
             self.batata = NO;
             [self.imgBatata setHidden:!self.batata];
-            [[self lblStatus] setText:[NSString stringWithFormat:@"%@ está com a batata", self.eliminado]];
+            [[self lblMensagens] setText:[NSString stringWithFormat:@"%@ está com a batata", self.eliminado]];
         }
         
         
@@ -430,7 +430,7 @@
         
         if (self.batata ) {
             [self.meuIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
-            [[self lblStatus] setText:@"Você foi eliminado"];
+            [[self lblMensagens] setText:@"Você foi eliminado"];
             [[self audioPlayer]playQueimou];
             
             [self.btnRestart setEnabled:NO];
@@ -439,7 +439,7 @@
             
         }else{
             
-            [[self lblStatus] setText:[NSString stringWithFormat:@"%@ eliminado", self.eliminado]];
+            [[self lblMensagens] setText:[NSString stringWithFormat:@"%@ eliminado", self.eliminado]];
             
             
             
