@@ -212,12 +212,7 @@
     
     if (todosProntos) {
         
-        /*
-        if (restart) {
-            self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
-            restart = NO;
-        }*/
-        
+                
         self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
         NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
@@ -287,10 +282,6 @@
                 //NSLog(@"Enviei");
             }
             
-            if (todosProntos && restart) {
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
-                restart = NO;
-            }
             
             break;
         case 2: // altera pra jogador nao pronto
@@ -517,7 +508,7 @@
     
    
     //setando batata
-    restart = YES;
+    
     
     envieiMensagemToPronto = NO;
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
@@ -558,7 +549,7 @@
         
         [self mostrarDicaInicial];
     }
-    //self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
 
