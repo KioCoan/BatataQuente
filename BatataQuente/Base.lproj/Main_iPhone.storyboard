@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CFD-g8-IyV" customClass="FBLoginView">
-                                <rect key="frame" x="0.0" y="453" width="82" height="34"/>
+                                <rect key="frame" x="18" y="454" width="46" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
