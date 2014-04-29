@@ -212,6 +212,12 @@
     
     if (todosProntos) {
         
+        /*
+        if (restart) {
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+            restart = NO;
+        }*/
+        
         self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
         NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
@@ -280,7 +286,11 @@
                 envieiImagemPraTodos = YES;
                 //NSLog(@"Enviei");
             }
-            todosProntos = [self.controladorDeJogadores todosProntos];
+            
+            if (todosProntos && restart) {
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+                restart = NO;
+            }
             
             break;
         case 2: // altera pra jogador nao pronto
@@ -507,6 +517,7 @@
     
    
     //setando batata
+    restart = YES;
     
     envieiMensagemToPronto = NO;
     [self.controladorDeJogadores jogadorComNome:myName estaPronto:YES];
@@ -515,10 +526,12 @@
         self.batata = YES;
         [self.imgBatata setHidden:!self.batata];
         [self ativarAnimacaoReceber];
+        [[self audioPlayer]playBatata];
+        
     }else{
         self.batata = NO;
         [self.imgBatata setHidden:!self.batata];
-        [[self audioPlayer]playBatata];
+        
     }
     [self.imgBatata addGestureRecognizer:swipe];
     self.current = [self retornaTempo];
@@ -527,7 +540,7 @@
     
     //envia mensagem de pronto
     [self enviaMensagemDoMeuStatusDe:YES];
-    
+    [self.meuIcone setImage:[UIImage imageNamed:@"imagemPronto.png"]];
     //reenvia mensagem de pronto
     
     if(todosProntos && !envieiMensagemToPronto){
@@ -545,7 +558,7 @@
         
         [self mostrarDicaInicial];
     }
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    //self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
 

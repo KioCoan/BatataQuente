@@ -29,7 +29,7 @@
     ImagensTelaPartida *imagensTela;
     NSTimer *timerBatata;
     NSTimeInterval currentBatata;
-    
+    BOOL restart;
 }
 
 
