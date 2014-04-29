@@ -64,7 +64,7 @@
     [self adicionarMinhaImagem];
     
     myName = [self.controladorDeJogadores retornaNomeDeJogaddor:0];
-    //[self enviaMinhaImagem];
+    
     self.current = [self retornaTempo];
     [self.controladorDeJogadores adicionaNoJogador:myName aImagem:self.myImage];
     [self actionPronto:self];
@@ -241,7 +241,7 @@
         self.batata = NO;
         
         if (error) {
-           // NSLog(@"%@", [error localizedDescription]);
+            NSLog(@"%@", [error localizedDescription]);
         }
         
     }
@@ -283,7 +283,7 @@
             
             break;
         case 2: // altera pra jogador nao pronto
-            //NSLog(@"Passou %d",tipo);
+            
             [self.controladorDeJogadores jogadorComNome:jogador estaPronto:NO];
             //[self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] perdeu:YES];
             [self adicionaImagensNaTela:jogador imagem:[[notification userInfo] objectForKey:@"imagem"] icone:YES status:NO];
@@ -298,12 +298,7 @@
                     [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
                 }
             }
-            /*
             
-            if ([self.lblStatus.text isEqualToString:@"Ganhou!"]) {
-                
-
-            }*/
             break;
             
         case 3://seta imagem de jogador
@@ -380,7 +375,7 @@
     [self selecionaIndiceParaEliminar];
     
     
-    //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    
         self.current = [[[notification userInfo] objectForKey:@"tempo"] intValue];
         
         self.iniciaTempo = YES;
@@ -400,7 +395,7 @@
         }
         
         
-   // }];
+   
     
 
 }
@@ -460,9 +455,6 @@
     }
     
     self.current -=1;
-    //int x = self.current;
-    //[[self tempoDecorrido] setText:[NSString stringWithFormat: @"%d",x]];
-    
     
     [self.view setNeedsDisplay];
     
@@ -528,7 +520,7 @@
         envieiMensagemToPronto = YES;
     }
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
+    
     
     
 
@@ -537,7 +529,7 @@
         
         [self mostrarDicaInicial];
     }
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementaTempo) userInfo:nil repeats:YES];
     
 }
 
