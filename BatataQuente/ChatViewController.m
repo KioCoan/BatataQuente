@@ -143,23 +143,24 @@
 -(void)ativarAnimacaoEnviar{
     
     if (todosProntos) {
-     
-    
-    [self.imgBatata setUserInteractionEnabled:NO];
-
         
-    CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviarWithPosition:self.imgBatata.center andDevice:[self deviceIsIpad]];
-    
-    [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
-    
-    [self btnEnviar:nil];
+        [self.lblStatus setText:@""];
+        [self.imgBatata setUserInteractionEnabled:NO];
+        
+        
+        CABasicAnimation *animacao = [[self minhaBatata] animacaoEnviarWithPosition:self.imgBatata.center andDevice:[self deviceIsIpad]];
+        
+        [[[self imgBatata] layer] addAnimation:animacao forKey:nil];
+        
+        [self btnEnviar:nil];
     }
 }
 
 -(void)ativarAnimacaoReceber{
     
     
-    [self.imgBatata setUserInteractionEnabled:YES];
+//    [self.imgBatata setUserInteractionEnabled:YES];
+    timerBatata = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(decrementaTempoDaBatata) userInfo:nil repeats:YES];
     CGRect frame = self.imgBatata.frame;
     
     [self.imgBatata setFrame:CGRectMake(-518, frame.origin.y, frame.size.width, frame.size.height)];
@@ -370,7 +371,7 @@
     NSLog(@"proximo embatatado: %hhd",proximoEmbatatado);
     self.eliminado = [[notification userInfo]objectForKey:@"embatatado"];
     
-    
+    currentBatata = 1.5;
     
     [self selecionaIndiceParaEliminar];
     
@@ -398,6 +399,21 @@
    
     
 
+}
+-(void)decrementaTempoDaBatata{
+    
+    
+    if (currentBatata <=0) {
+        [self.imgBatata setUserInteractionEnabled:YES];
+        [self.lblStatus setText:@"OK"];
+        [timerBatata invalidate];
+        
+    }else{
+        currentBatata -=0.5;
+        [self.lblStatus setText:[NSString stringWithFormat:@"%.1f",currentBatata]];
+    }
+    
+    
 }
 
 - (BOOL)fimJogo{

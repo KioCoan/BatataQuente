@@ -27,8 +27,13 @@
     BOOL envieiImagemPraTodos;
     BOOL envieiMensagemToPronto;
     ImagensTelaPartida *imagensTela;
+    NSTimer *timerBatata;
+    NSTimeInterval currentBatata;
     
 }
+
+
+
 
 @property (weak, nonatomic) IBOutlet UILabel *lblMeuNome;
 
