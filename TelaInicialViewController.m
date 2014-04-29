@@ -35,6 +35,7 @@
     [self.loginView sizeToFit];
     self.loginView.readPermissions = @[@"basic_info",@"email",@"user_likes",@"user_photos"];
     //self.loginView.readPermissions = @[@"basic_info"];
+
     
     //Customiza foto do perfil
     
@@ -43,6 +44,10 @@
     
     NSLog(@"Bundle ID: %@", [[NSBundle mainBundle] bundleIdentifier]);
     
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

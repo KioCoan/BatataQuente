@@ -52,7 +52,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gve-Sm-VID">
-                                <rect key="frame" x="20" y="924" width="87" height="30"/>
+                                <rect key="frame" x="28" y="924" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Desconectar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeMasculino.png" translatesAutoresizingMaskIntoConstraints="NO" id="LvX-sh-Gt4">
-                                <rect key="frame" x="487" y="26" width="186" height="193"/>
+                                <rect key="frame" x="484" y="20" width="193" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -206,35 +206,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPad-fundoPrimeiraTela.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Rj-zO-Ots">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="if4-hy-1vI" customClass="FBProfilePictureView">
-                                <rect key="frame" x="290" y="67" width="189" height="189"/>
+                                <rect key="frame" x="288" y="725" width="193" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osd-Oa-N9i" customClass="FBLoginView">
-                                <rect key="frame" x="257" y="408" width="255" height="45"/>
+                                <rect key="frame" x="7" y="805" width="209" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WX-rs-x6u">
-                                <rect key="frame" x="350" y="297" width="172" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WX-rs-x6u">
+                                <rect key="frame" x="239" y="959" width="290" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmS-mw-Gyu">
-                                <rect key="frame" x="567" y="864" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmS-mw-Gyu">
+                                <rect key="frame" x="228" y="415" width="313" height="223"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Proxima">
+                                <state key="normal" image="botaoJogar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="actionProximaTela" destination="kup-m0-ybP" eventType="touchUpInside" id="J3D-YI-f7v"/>
                                 </connections>
                             </button>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoBatataQuente.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-VZ-TpW">
+                                <rect key="frame" x="34" y="20" width="700" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="fotoPerfil" destination="if4-hy-1vI" id="vj5-fF-FrA"/>
@@ -248,15 +256,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="botaoJogar.png" width="460" height="340"/>
         <image name="convidarJogadores.png" width="369" height="80"/>
         <image name="fundoDadosUsuario.png" width="322" height="171"/>
+        <image name="iPad-fundoPrimeiraTela.png" width="768" height="1024"/>
         <image name="iPad-fundoTelaInicial.png" width="768" height="1024"/>
         <image name="iPad-fundoTelaPartida.png" width="768" height="1024"/>
-        <image name="iconeMasculino.png" width="217" height="225"/>
+        <image name="iconeMasculino.png" width="217" height="217"/>
         <image name="imagemBatata.png" width="441" height="535"/>
         <image name="imagemBtnVoltar.png" width="200" height="80"/>
         <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
+        <image name="logoBatataQuente.png" width="920" height="460"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

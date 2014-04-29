@@ -37,6 +37,9 @@
 		BD237C3D1904D70A005B4D2E /* Batata.m in Sources */ = {isa = PBXBuildFile; fileRef = BD237C3C1904D70A005B4D2E /* Batata.m */; };
 		BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */; };
 		BD3FE66B1905FF71005CBCA6 /* ControladorJogadores.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */; };
+		BD555757190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png in Resources */ = {isa = PBXBuildFile; fileRef = BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */; };
+		BD555759190F7D5600A94EEE /* botaoJogar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD555758190F7D5600A94EEE /* botaoJogar.png */; };
+		BD55575B190F831200A94EEE /* fundoPrimeiraTela.png in Resources */ = {isa = PBXBuildFile; fileRef = BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */; };
 		BD573DCC190E0C2E00899EE6 /* imagemBtnVoltar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */; };
 		BD5A1A12190A110C00D46269 /* ImagensTelaPartida.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */; };
 		BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5A1A16190A4B5500D46269 /* imagemEliminado.png */; };
@@ -112,6 +115,9 @@
 		BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaPartida.png; path = Imagens/fundoTelaPartida.png; sourceTree = "<group>"; };
 		BD3FE6691905FF71005CBCA6 /* ControladorJogadores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControladorJogadores.h; sourceTree = "<group>"; };
 		BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControladorJogadores.m; sourceTree = "<group>"; };
+		BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoPrimeiraTela.png"; path = "Imagens/iPad-fundoPrimeiraTela.png"; sourceTree = "<group>"; };
+		BD555758190F7D5600A94EEE /* botaoJogar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = botaoJogar.png; path = Imagens/botaoJogar.png; sourceTree = "<group>"; };
+		BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoPrimeiraTela.png; path = Imagens/fundoPrimeiraTela.png; sourceTree = "<group>"; };
 		BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagemBtnVoltar.png; path = Imagens/imagemBtnVoltar.png; sourceTree = "<group>"; };
 		BD5A1A10190A110C00D46269 /* ImagensTelaPartida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagensTelaPartida.h; sourceTree = "<group>"; };
 		BD5A1A11190A110C00D46269 /* ImagensTelaPartida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagensTelaPartida.m; sourceTree = "<group>"; };
@@ -272,6 +278,9 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */,
+				BD555758190F7D5600A94EEE /* botaoJogar.png */,
+				BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */,
 				E53ADCAB190EFAAA00CF4CC5 /* logoBatataQuente.png */,
 				BD573DCB190E0C2E00899EE6 /* imagemBtnVoltar.png */,
 				BDAAAF62190CD6C600140E12 /* fundoDadosUsuario.png */,
@@ -377,11 +386,14 @@
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
 				BDAAAF63190CD6C600140E12 /* fundoDadosUsuario.png in Resources */,
+				BD55575B190F831200A94EEE /* fundoPrimeiraTela.png in Resources */,
+				BD555757190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png in Resources */,
 				BD5A1A17190A4B5500D46269 /* imagemEliminado.png in Resources */,
 				BDC92594190C5DAB008C1CC3 /* foto-padrao-facebook.jpg in Resources */,
 				E595147019083C1C006C6BD4 /* imagemPronto.png in Resources */,
 				BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */,
 				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
+				BD555759190F7D5600A94EEE /* botaoJogar.png in Resources */,
 				BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */,
 				BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */,
 				BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */,
