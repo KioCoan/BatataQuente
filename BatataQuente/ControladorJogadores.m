@@ -43,12 +43,22 @@
 
 
 -(int)retornaIndiceJogador:(NSString*)nomeJogador{
-    for (Jogador *j in jogadores){
-        if ([[j nome]isEqualToString:nomeJogador]) {
-            return [jogadores indexOfObject:j];
+    
+    for (int i = 0; i<[jogadores count]; i++) {
+        if ([[[jogadores objectAtIndex:i ] nome]isEqualToString:nomeJogador]) {
+            NSLog(@"%d",i);
+            return i;
         }
- 
     }
+    
+    
+//    for (Jogador *j in jogadores){
+//        if ([[j nome]isEqualToString:nomeJogador]) {
+//            NSLog(@"%d",[jogadores indexOfObject:j]);
+//            return [jogadores indexOfObject:j];
+//        }
+// 
+//    }
     return -1;
 }
 
