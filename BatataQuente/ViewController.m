@@ -269,7 +269,7 @@ static NSString * XXServiceType = @"batata-quente";
     [chat setBatata:self.crieiSala];
     [chat setMyImage:self.myImage];
     
-    NSLog(@"%@", [[self iconePersonagem] image]);
+    //NSLog(@"%@", [[self iconePersonagem] image]);
     [chat setControladorDeJogadores:self.controladorJogadores];
     
     
@@ -293,7 +293,7 @@ static NSString * XXServiceType = @"batata-quente";
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
     MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
-        NSLog(@"nome : %@",peerID.displayName);
+        //NSLog(@"nome : %@",peerID.displayName);
     NSString *peerDisplayName = peerID.displayName;
     MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
     

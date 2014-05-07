@@ -133,7 +133,7 @@
 
 -(BOOL)deviceIsIpad{
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        NSLog(@"iPad");
+        
         return  YES;
     }else{
         return NO;
@@ -199,7 +199,7 @@
         playerRandom = [self.controladorDeJogadores retornaNomeDeJogaddor:x];
         
         saiuDoJogo = [self.controladorDeJogadores saiuDoJogo:playerRandom];
-        NSLog(@"%@",playerRandom);
+        //NSLog(@"%@",playerRandom);
         
     } while ([playerRandom isEqualToString:myName] || saiuDoJogo);
     
@@ -215,7 +215,7 @@
                 
         self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
-        NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
+        //NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
         NSString *playerRandom  = [self retornaPlayerRandom];
         
         
@@ -369,7 +369,7 @@
 -(void)passaBatata:(NSNotification *)notification{
 
     proximoEmbatatado = NO;
-    NSLog(@"proximo embatatado: %hhd",proximoEmbatatado);
+    
     self.eliminado = [[notification userInfo]objectForKey:@"embatatado"];
     
     currentBatata = 1.5;
@@ -585,7 +585,7 @@
     
     [self enviaMinhaImagem];
     
-    NSLog(@"OK!");
+    
 }
 
 

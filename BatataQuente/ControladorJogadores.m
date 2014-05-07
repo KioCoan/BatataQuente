@@ -46,7 +46,7 @@
     
     for (int i = 0; i<[jogadores count]; i++) {
         if ([[[jogadores objectAtIndex:i ] nome]isEqualToString:nomeJogador]) {
-            NSLog(@"%d",i);
+            
             return i;
         }
     }
@@ -115,7 +115,7 @@
             n+= 1;
         }
     }
-    NSLog(@"numero de jogadores %d",n);
+    
     return n;
 
 }

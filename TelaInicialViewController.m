@@ -150,7 +150,7 @@
     
     imagemCapturada = imgView.image;
     
-     NSLog(@"Pegando imagem do facebook");
+     //NSLog(@"Pegando imagem do facebook");
     return imagemCapturada;
 }
 
@@ -168,7 +168,7 @@
 
     ViewController *lobby = [self.storyboard instantiateViewControllerWithIdentifier:@"lobby"];
     //[self.fotoPerfil.subviews objectAtIndex:0];
-    NSLog(@"Estou indo para proximo tela");
+    //NSLog(@"Estou indo para proximo tela");
     
     if(self.verificaConexao){
         [lobby setMyImage: self.fotoPerfil.profileID];
@@ -184,7 +184,7 @@
 
 
 - (UIImage *)alterarTamanhoImagem{
-    NSLog(@"Alterando tamanho da imagem");
+    //NSLog(@"Alterando tamanho da imagem");
     UIImage *image = [self capturaImagem];
     CGSize newSize = CGSizeMake(250, 259);
     
