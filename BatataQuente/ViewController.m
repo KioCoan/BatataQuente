@@ -308,13 +308,16 @@ static NSString * XXServiceType = @"batata-quente";
         
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
+                NSMutableArray *toDelete = [NSMutableArray array];
                 
                 for (NSString *user in self.arrConnectedDevices) {
                     
                     if ([[peerID displayName]isEqualToString:user]) {
-                        [self.arrConnectedDevices removeObject:user];
+                        [toDelete addObject:user];
+                        //[self.arrConnectedDevices removeObject:user];
                     }
                 }
+                [self.arrConnectedDevices removeObjectsInArray:toDelete];
             }
         }
         
