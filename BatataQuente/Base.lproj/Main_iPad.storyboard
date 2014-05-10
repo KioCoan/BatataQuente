@@ -214,12 +214,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="if4-hy-1vI" customClass="FBProfilePictureView">
-                                <rect key="frame" x="288" y="725" width="193" height="193"/>
+                                <rect key="frame" x="288" y="756" width="193" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osd-Oa-N9i" customClass="FBLoginView">
-                                <rect key="frame" x="7" y="805" width="209" height="57"/>
+                                <rect key="frame" x="7" y="836" width="209" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -240,8 +240,8 @@
                                     <action selector="actionProximaTela" destination="kup-m0-ybP" eventType="touchUpInside" id="J3D-YI-f7v"/>
                                 </connections>
                             </button>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoBatataQuente.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-VZ-TpW">
-                                <rect key="frame" x="34" y="20" width="700" height="350"/>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-embatatando.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-VZ-TpW">
+                                <rect key="frame" x="46" y="20" width="676" height="289"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -270,7 +270,7 @@
         <image name="imagemBtnVoltar.png" width="200" height="80"/>
         <image name="imagemPronto.png" width="50" height="43"/>
         <image name="iniciarPartidaOff.png" width="300" height="110"/>
-        <image name="logoBatataQuente.png" width="920" height="460"/>
+        <image name="logo-embatatando.png" width="1100" height="472"/>
         <image name="visivelOff.png" width="199" height="215"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

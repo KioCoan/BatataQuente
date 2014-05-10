@@ -37,6 +37,7 @@
 		BD237C3D1904D70A005B4D2E /* Batata.m in Sources */ = {isa = PBXBuildFile; fileRef = BD237C3C1904D70A005B4D2E /* Batata.m */; };
 		BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */; };
 		BD3FE66B1905FF71005CBCA6 /* ControladorJogadores.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */; };
+		BD4D3EAC191DA911004485AA /* logo-embatatando.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4D3EAB191DA911004485AA /* logo-embatatando.png */; };
 		BD555757190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png in Resources */ = {isa = PBXBuildFile; fileRef = BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */; };
 		BD555759190F7D5600A94EEE /* botaoJogar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD555758190F7D5600A94EEE /* botaoJogar.png */; };
 		BD55575B190F831200A94EEE /* fundoPrimeiraTela.png in Resources */ = {isa = PBXBuildFile; fileRef = BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */; };
@@ -115,6 +116,7 @@
 		BD3FE6671905F54B005CBCA6 /* fundoTelaPartida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoTelaPartida.png; path = Imagens/fundoTelaPartida.png; sourceTree = "<group>"; };
 		BD3FE6691905FF71005CBCA6 /* ControladorJogadores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControladorJogadores.h; sourceTree = "<group>"; };
 		BD3FE66A1905FF71005CBCA6 /* ControladorJogadores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControladorJogadores.m; sourceTree = "<group>"; };
+		BD4D3EAB191DA911004485AA /* logo-embatatando.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-embatatando.png"; path = "Imagens/logo-embatatando.png"; sourceTree = "<group>"; };
 		BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-fundoPrimeiraTela.png"; path = "Imagens/iPad-fundoPrimeiraTela.png"; sourceTree = "<group>"; };
 		BD555758190F7D5600A94EEE /* botaoJogar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = botaoJogar.png; path = Imagens/botaoJogar.png; sourceTree = "<group>"; };
 		BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fundoPrimeiraTela.png; path = Imagens/fundoPrimeiraTela.png; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		BD7B22B619035DDE008C637E /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				BD4D3EAB191DA911004485AA /* logo-embatatando.png */,
 				BD55575A190F831200A94EEE /* fundoPrimeiraTela.png */,
 				BD555758190F7D5600A94EEE /* botaoJogar.png */,
 				BD555756190F70DA00A94EEE /* iPad-fundoPrimeiraTela.png */,
@@ -351,7 +354,7 @@
 				ORGANIZATIONNAME = "Rafael Aparecido de Freitas";
 				TargetAttributes = {
 					A520E03118FFF74400E0292C = {
-						DevelopmentTeam = AAXRVGUSKH;
+						DevelopmentTeam = RB36YDUG62;
 					};
 					A520E05518FFF74400E0292C = {
 						TestTargetID = A520E03118FFF74400E0292C;
@@ -397,6 +400,7 @@
 				BD7B22C219038A76008C637E /* convidarJogadores.png in Resources */,
 				BD7B22C81903A386008C637E /* iniciarPartidaOn.png in Resources */,
 				BD555759190F7D5600A94EEE /* botaoJogar.png in Resources */,
+				BD4D3EAC191DA911004485AA /* logo-embatatando.png in Resources */,
 				BD7B22BA19035E10008C637E /* iconeMasculino.png in Resources */,
 				BD3FE6681905F54B005CBCA6 /* fundoTelaPartida.png in Resources */,
 				BD7B22B919035E10008C637E /* iconeFeminino.png in Resources */,
