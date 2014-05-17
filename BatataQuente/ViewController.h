@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtNome;
 @property (weak, nonatomic) IBOutlet UITableView *tbldispositivos;
 @property (weak, nonatomic) IBOutlet UIButton *btnDisconnect;
+@property BOOL voltouDoJogo;
+
 
 @property FBProfilePictureView *fotoPerfil;
 @property BOOL estaVisivel;

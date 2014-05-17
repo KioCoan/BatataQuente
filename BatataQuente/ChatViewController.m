@@ -483,7 +483,7 @@
 
 - (IBAction)voltar:(id)sender {
     
-    
+    [self.viewController setVoltouDoJogo:YES ];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -13,7 +13,7 @@
 #import "ControladorJogadores.h"
 #import "ControladorDePosicoes.h"
 #import "ImagensTelaPartida.h"
-
+#import "ViewController.h"
 @interface ChatViewController : UIViewController
 
 {
@@ -35,7 +35,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *lblMeuNome;
-
+@property ViewController *viewController;
 @property NSString *myImage;
 @property ControladorJogadores *controladorDeJogadores;
 @property Audio *audioPlayer;

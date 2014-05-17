@@ -81,14 +81,17 @@ static NSString * XXServiceType = @"batata-quente";
         self.iconePersonagem.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
     }
 
-    
+    [self setVoltouDoJogo:NO];
     //configuracao foto
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    if (self.voltouDoJogo) {
+        [self disconnect:nil];
+        [self setVoltouDoJogo:NO];
+    }
     if (![self.myName isEqualToString:@"Não Logado"]) {
         [self.txtNome setText:self.myName];
     }
@@ -271,9 +274,10 @@ static NSString * XXServiceType = @"batata-quente";
     
     //NSLog(@"%@", [[self iconePersonagem] image]);
     [chat setControladorDeJogadores:self.controladorJogadores];
-    
+    [chat setViewController:self];
     
     chat.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
     [self presentViewController:chat animated:YES completion:nil];
     
 }
