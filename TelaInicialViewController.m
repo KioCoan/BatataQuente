@@ -155,14 +155,6 @@
 }
 
 
-- (IBAction)teste:(id)sender {
-    FBProfilePictureView *foto = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
-    
-    [foto setProfileID:@"100002301463835.png"];
-    
-    
-    [[self view] addSubview:foto];
-}
 
 - (IBAction)actionProximaTela {
 
@@ -183,17 +175,5 @@
 }
 
 
-- (UIImage *)alterarTamanhoImagem{
-    //NSLog(@"Alterando tamanho da imagem");
-    UIImage *image = [self capturaImagem];
-    CGSize newSize = CGSizeMake(250, 259);
-    
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
 
 @end
