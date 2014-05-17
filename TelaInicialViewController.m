@@ -52,7 +52,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self verificaConexao];
+
     
 }
 
@@ -115,7 +115,7 @@
         
         
         
-        [[[UIAlertView alloc]initWithTitle:@"Sem conexão a internet" message:@"Conecte primeiro na internet" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
+        [[[UIAlertView alloc]initWithTitle:@"Sem conexão a internet" message:@"Certifique-se que você conectado ao bluetooth ou Wifi" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
         [FBSession.activeSession close];
         [FBSession.activeSession closeAndClearTokenInformation];
         self.lblNomeUsuario.text = @"Não Logado";

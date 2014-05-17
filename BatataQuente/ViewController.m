@@ -307,12 +307,13 @@ static NSString * XXServiceType = @"batata-quente";
             
             [self.btnIniciar setImage:[UIImage imageNamed:@"iniciarPartidaOn.png"] forState:UIControlStateNormal];
                 self.btnIniciar.userInteractionEnabled = YES;
-            
+            [[self txtNome]setEnabled:NO];
         }
         
         else if (state == MCSessionStateNotConnected){
             if ([self.arrConnectedDevices count] > 0) {
                 NSMutableArray *toDelete = [NSMutableArray array];
+                [[self txtNome]setEnabled:YES];
                 
                 for (NSString *user in self.arrConnectedDevices) {
                     
