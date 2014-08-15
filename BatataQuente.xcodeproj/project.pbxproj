@@ -354,7 +354,7 @@
 				ORGANIZATIONNAME = "Rafael Aparecido de Freitas";
 				TargetAttributes = {
 					A520E03118FFF74400E0292C = {
-						DevelopmentTeam = RB36YDUG62;
+						DevelopmentTeam = AAXRVGUSKH;
 					};
 					A520E05518FFF74400E0292C = {
 						TestTargetID = A520E03118FFF74400E0292C;
