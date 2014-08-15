@@ -146,6 +146,7 @@
     
     UIImage *imagemCapturada = [[UIImage alloc] init];
     
+    //AQUI RECUPERA A IMAGEM DO PERFIL
     UIImageView *imgView = [self.fotoPerfil.subviews objectAtIndex:0];
     
     imagemCapturada = imgView.image;
