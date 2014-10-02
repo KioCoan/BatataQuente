@@ -10,29 +10,29 @@
 	<string>BatataQuente</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EE3A3BE0-C2EE-4770-BF37-B45D3441782B</key>
+		<key>E202DA6E85865A87A0D357083437780395B59228</key>
 		<string>https://github.com/rafaellfreitas/BatataQuente.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BatataQuente.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EE3A3BE0-C2EE-4770-BF37-B45D3441782B</key>
+		<key>E202DA6E85865A87A0D357083437780395B59228</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/rafaellfreitas/BatataQuente.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EE3A3BE0-C2EE-4770-BF37-B45D3441782B</string>
+	<string>E202DA6E85865A87A0D357083437780395B59228</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EE3A3BE0-C2EE-4770-BF37-B45D3441782B</string>
+			<string>E202DA6E85865A87A0D357083437780395B59228</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BatataQuente</string>
 		</dict>
