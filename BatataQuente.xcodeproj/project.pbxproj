@@ -608,6 +608,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"NS_BLOCK_ASSERTIONS=1",
+				);
 				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
