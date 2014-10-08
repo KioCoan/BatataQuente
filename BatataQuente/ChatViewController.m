@@ -297,7 +297,7 @@
                 if ([self fimJogo]) {
                     [self enviaMensagemVencedor];
                     //self.btnRestart.enabled = YES;
-                    [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
+                    [self.btnRestart setTitle:NSLocalizedString(@"Restart", nil) forState:UIControlStateNormal];
                 }
             }
             
@@ -318,7 +318,7 @@
             
             
             self.btnRestart.enabled = YES;
-            [self.btnRestart setTitle:@"Restart" forState:UIControlStateNormal];
+            [self.btnRestart setTitle:NSLocalizedString(@"Restart", nil) forState:UIControlStateNormal];
             
             
             break;
@@ -356,7 +356,7 @@
     
         if(self.batata){
             
-            self.lblMensagens.text = @"Arraste sobre a batata para iniciar.";
+            self.lblMensagens.text = NSLocalizedString(@"Arraste sobre a batata para inicializar.", nil);
             
         }else{
             self.lblMensagens.text = @"";
@@ -388,7 +388,7 @@
             [self.imgBatata setHidden:!self.batata];
             [self ativarAnimacaoReceber];
             [[self audioPlayer]playQuente];
-            [[self lblMensagens] setText:@"Você está com a batata"];
+            [[self lblMensagens] setText:NSLocalizedString(@"Você está com a batata", nil)];
             
         }else{
             self.batata = NO;
@@ -406,7 +406,7 @@
     
     if (currentBatata <=0) {
         [self.imgBatata setUserInteractionEnabled:YES];
-        [self.lblStatus setText:@"OK"];
+        [self.lblStatus setText:NSLocalizedString(@"OK", nil)];
         [timerBatata invalidate];
         
     }else{
@@ -442,7 +442,7 @@
         
         if (self.batata ) {
             [self.meuIcone setImage:[UIImage imageNamed:@"imagemEliminado.png"]];
-            [[self lblMensagens] setText:@"Você foi eliminado"];
+            [[self lblMensagens] setText:NSLocalizedString(@"Você foi eliminado", nil)];
             [[self audioPlayer]playQueimou];
             
             [self.btnRestart setEnabled:NO];
@@ -556,8 +556,8 @@
 
 - (IBAction)actionRestart:(id)sender {
     
-    if ([self.btnRestart.titleLabel.text isEqual:@"Restart"]) {
-        [self.btnRestart setTitle:@"Continue" forState:UIControlStateNormal];
+    if ([self.btnRestart.titleLabel.text isEqual:NSLocalizedString(@"Restart", nil)]) {
+        [self.btnRestart setTitle:NSLocalizedString(@"Continue", nil) forState:UIControlStateNormal];
         [self restart];
         
     }else{

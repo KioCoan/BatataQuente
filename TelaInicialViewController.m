@@ -78,7 +78,7 @@
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
     self.fotoPerfil.profileID = nil;
-    self.lblNomeUsuario.text = @"Não Logado";
+    self.lblNomeUsuario.text = NSLocalizedString(@"Não Logado", nil);
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error{
@@ -99,7 +99,7 @@
     }
     
     if (alertMessage) {
-        [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
+        [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil]show];
     }
 }
 
@@ -115,10 +115,10 @@
         
         
         
-        [[[UIAlertView alloc]initWithTitle:@"Sem conexão a internet" message:@"Certifique-se que você conectado ao bluetooth ou Wifi" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
+        [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sem conexão com a internet", nil) message:NSLocalizedString(@"Certifique-se que você está conectado ao bluetooth ou Wifi", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil]show];
         [FBSession.activeSession close];
         [FBSession.activeSession closeAndClearTokenInformation];
-        self.lblNomeUsuario.text = @"Não Logado";
+        self.lblNomeUsuario.text = NSLocalizedString(@"Não Logado", nil);
         return NO;
     }
     return YES;

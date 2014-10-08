@@ -362,7 +362,7 @@ static NSString * XXServiceType = @"batata-quente";
     }
     
     if(indexPath.row == 0){
-        cell.textLabel.text = @"Eu";
+        cell.textLabel.text = NSLocalizedString(@"Eu", nil);
     }else{
         cell.textLabel.text = [self.arrConnectedDevices objectAtIndex:indexPath.row];
     }

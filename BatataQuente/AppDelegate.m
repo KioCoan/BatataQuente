@@ -29,7 +29,7 @@
     BOOL urlWasHandled = [FBAppCall handleOpenURL:url
                                 sourceApplication:sourceApplication
                                   fallbackHandler:^(FBAppCall *call) {
-                                      NSLog(@"Unhandled deep link: %@", url);
+                                      //NSLog(@"Unhandled deep link: %@", url);
                                       // Parse the incoming URL to look for a target_url parameter
                                       NSString *query = [url fragment];
                                       if (!query) {
@@ -41,10 +41,10 @@
                                       if (targetURLString) {
                                           // Show the incoming link in an alert
                                           // Your code to direct the user to the appropriate flow within your app goes here
-                                          [[[UIAlertView alloc] initWithTitle:@"Received link:"
+                                          [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Received link:", nil)
                                                                       message:targetURLString
                                                                      delegate:self
-                                                            cancelButtonTitle:@"OK"
+                                                            cancelButtonTitle:NSLocalizedString(@"Ok", nil)
                                                             otherButtonTitles:nil] show];
                                       }
                                   }];
