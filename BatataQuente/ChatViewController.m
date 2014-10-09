@@ -243,7 +243,7 @@
         self.batata = NO;
         
         if (error) {
-            NSLog(@"%@", [error localizedDescription]);
+            //NSLog(@"%@", [error localizedDescription]);
         }
         
     }
@@ -264,7 +264,7 @@
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
     
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
-    int tipo = [[[notification userInfo]objectForKey:@"tipo"]integerValue];
+    int tipo = (int)[[notification userInfo]objectForKey:@"tipo"];
     
     
     switch (tipo) {

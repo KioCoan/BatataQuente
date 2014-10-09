@@ -17,7 +17,6 @@
 		A520E04218FFF74400E0292C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E04118FFF74400E0292C /* main.m */; };
 		A520E04618FFF74400E0292C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E04518FFF74400E0292C /* AppDelegate.m */; };
 		A520E04918FFF74400E0292C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A520E04718FFF74400E0292C /* Main_iPhone.storyboard */; };
-		A520E04C18FFF74400E0292C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A520E04A18FFF74400E0292C /* Main_iPad.storyboard */; };
 		A520E04F18FFF74400E0292C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A520E04E18FFF74400E0292C /* ViewController.m */; };
 		A520E05118FFF74400E0292C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A520E05018FFF74400E0292C /* Images.xcassets */; };
 		A520E05818FFF74400E0292C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E05718FFF74400E0292C /* XCTest.framework */; };
@@ -28,6 +27,7 @@
 		A520E076190072D100E0292C /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520E075190072D100E0292C /* MultipeerConnectivity.framework */; };
 		A5251F37190858FF00AA6BAD /* ControladorDePosicoes.m in Sources */ = {isa = PBXBuildFile; fileRef = A5251F36190858FF00AA6BAD /* ControladorDePosicoes.m */; };
 		A541DC6F1906E7050083AF06 /* Jogador.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC6E1906E7050083AF06 /* Jogador.m */; };
+		A565B5D919E5E36200C668A0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A520E04A18FFF74400E0292C /* Main_iPad.storyboard */; };
 		A58C6B4F19054E4F0080DB41 /* Batata.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58C6B4C19054E4F0080DB41 /* Batata.wav */; };
 		A58C6B5019054E4F0080DB41 /* Queimou.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58C6B4D19054E4F0080DB41 /* Queimou.wav */; };
 		A58C6B5419054ED90080DB41 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = A58C6B5319054ED90080DB41 /* Audio.m */; };
@@ -386,8 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD237C3A19048BAF005B4D2E /* imagemBatata.png in Resources */,
-				A520E04C18FFF74400E0292C /* Main_iPad.storyboard in Resources */,
 				BD573DCC190E0C2E00899EE6 /* imagemBtnVoltar.png in Resources */,
+				A565B5D919E5E36200C668A0 /* Main_iPad.storyboard in Resources */,
 				BD7DEEE41907049C0080D081 /* iPad-fundoTelaInicial.png in Resources */,
 				A520E05118FFF74400E0292C /* Images.xcassets in Resources */,
 				BD7B22BC190362B6008C637E /* fundoTelaInicial.png in Resources */,
@@ -518,7 +518,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -536,7 +537,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -557,7 +559,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -568,7 +571,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -579,8 +583,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/facebook",
@@ -588,9 +592,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
 				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -600,8 +605,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/facebook",
@@ -613,9 +618,10 @@
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -660,6 +666,85 @@
 			};
 			name = Release;
 		};
+		A565B5D619E5CD6100C668A0 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		A565B5D719E5CD6100C668A0 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Freitas (AAXRVGUSKH)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/facebook",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"NS_BLOCK_ASSERTIONS=1",
+				);
+				INFOPLIST_FILE = "BatataQuente/BatataQuente-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "67b7610b-35cd-422f-9ff4-9d8d87657c61";
+				SDKROOT = iphoneos8.0;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
+		A565B5D819E5CD6100C668A0 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BatataQuente.app/BatataQuente";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BatataQuente/BatataQuente-Prefix.pch";
+				INFOPLIST_FILE = "BatataQuenteTests/BatataQuenteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -668,6 +753,7 @@
 			buildConfigurations = (
 				A520E06518FFF74400E0292C /* Debug */,
 				A520E06618FFF74400E0292C /* Release */,
+				A565B5D619E5CD6100C668A0 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -677,6 +763,7 @@
 			buildConfigurations = (
 				A520E06818FFF74400E0292C /* Debug */,
 				A520E06918FFF74400E0292C /* Release */,
+				A565B5D719E5CD6100C668A0 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -686,6 +773,7 @@
 			buildConfigurations = (
 				A520E06B18FFF74400E0292C /* Debug */,
 				A520E06C18FFF74400E0292C /* Release */,
+				A565B5D819E5CD6100C668A0 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -55,7 +55,7 @@
 
 
 -(int)countVetorPosicoes{
-    return posicoesIpadFoto.count;
+    return (int)posicoesIpadFoto.count;
 }
 
 //POSIÇÕES DO ICONE E FOTO NO iPod ------------------------------------------

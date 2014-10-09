@@ -42,7 +42,7 @@
     self.fotoPerfil.layer.borderWidth = 1.0f;
     self.fotoPerfil.layer.cornerRadius = CGRectGetWidth(self.fotoPerfil.bounds) / 2.0f;
     
-    NSLog(@"Bundle ID: %@", [[NSBundle mainBundle] bundleIdentifier]);
+    //NSLog(@"Bundle ID: %@", [[NSBundle mainBundle] bundleIdentifier]);
     
 }
 
@@ -91,11 +91,11 @@
         alertTitle = @"Erro na sessão";
         alertMessage = @"A sessão atual não é mais válida. Por favor faça login novamente";
     }else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled){
-        NSLog(@"usuario cancelou o login");
+        //NSLog(@"usuario cancelou o login");
     }else{
         alertTitle = @"Ocorreu um erro";
         alertMessage = @"tente de novo mais tarde";
-        NSLog(@"Unexpected error: %@",error);
+        //NSLog(@"Unexpected error: %@",error);
     }
     
     if (alertMessage) {

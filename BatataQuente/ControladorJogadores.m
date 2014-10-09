@@ -63,7 +63,7 @@
 }
 
 -(int)retornaNumeroDeJogadores{
-    return [jogadores count];
+    return (int)[jogadores count];
 }
 
 -(NSString*)retornaNomeDeJogaddor:(int)indice{

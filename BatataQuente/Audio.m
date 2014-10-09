@@ -41,7 +41,7 @@
             [playerQueimou play];
             
         }else{
-            NSLog(@"Erro: %@",[error localizedDescription]);
+            //NSLog(@"Erro: %@",[error localizedDescription]);
         }
     }else{
         [playerQueimou play];
@@ -99,7 +99,7 @@
             [playerBatata play];
             
         }else{
-            NSLog(@"Erro: %@",[error localizedDescription]);
+            //NSLog(@"Erro: %@",[error localizedDescription]);
         }
     }else{
         [playerBatata play];
@@ -157,7 +157,7 @@
             [playerQuente play];
             
         }else{
-            NSLog(@"Erro: %@",[error localizedDescription]);
+            //NSLog(@"Erro: %@",[error localizedDescription]);
         }
     }else{
         [playerQuente play];
