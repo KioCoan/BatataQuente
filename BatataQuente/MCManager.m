@@ -86,8 +86,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
+        NSLog(@"Enviado %@",[arrayData objectAtIndex:0]);
         
     });
+    
 }
 
 

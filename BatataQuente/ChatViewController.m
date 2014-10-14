@@ -265,9 +265,9 @@
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
     
   NSString *jogador = [[[notification userInfo]objectForKey:@"peerID"]displayName];
-    int tipo = (int)[[notification userInfo]objectForKey:@"tipo"];
+    int tipo = [[[notification userInfo]objectForKey:@"tipo"]intValue];
     
-    
+    NSLog(@"Recebido %d",tipo);
     switch (tipo) {
         case 0: // Mensagem Normal
             [self passaBatata:notification];
