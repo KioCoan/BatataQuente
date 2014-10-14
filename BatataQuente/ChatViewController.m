@@ -204,6 +204,7 @@
     } while ([playerRandom isEqualToString:myName] || saiuDoJogo);
     
     
+    
     return playerRandom;
     
 }
@@ -215,7 +216,7 @@
                 
         self.lblMensagens.text = @"";
         proximoEmbatatado = YES;
-        //NSLog(@"Proximo embatatado %hhd",proximoEmbatatado);
+        
         NSString *playerRandom  = [self retornaPlayerRandom];
         
         
@@ -227,8 +228,8 @@
         
         [[self audioPlayer]stopSounds];
         
-        
-        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:5],[NSNumber numberWithDouble:self.current],@"imagem",playerRandom, nil];
+        //AQUI
+        NSArray *meuArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithDouble:self.current],@"imagem",playerRandom, nil];
         
         
         
@@ -268,6 +269,9 @@
     
     
     switch (tipo) {
+        case 0: // Mensagem Normal
+            [self passaBatata:notification];
+            break;
         case 1: //Méodo que gerencia as chamadas de pronto
             
             
@@ -323,9 +327,9 @@
             
             break;
             
-        default: //Mensagem normal de passagem de batatas
+        default: //Outra mensagem qualquer
             
-            [self passaBatata:notification];
+            
             break;
     }
    
