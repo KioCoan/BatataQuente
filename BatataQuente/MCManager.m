@@ -71,6 +71,7 @@
 
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
+    
     dispatch_async(dispatch_get_main_queue(), ^{
     
     NSArray *arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -86,7 +87,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
-        NSLog(@"Enviado %@",[arrayData objectAtIndex:0]);
+        
         
     });
     
